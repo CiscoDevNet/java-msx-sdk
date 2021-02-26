@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.cisco.msx.platform.client.SecurityApiTest" time="0" tests="1" errors="0" skipped="1" failures="0">
+  <properties>
+    <property name="gopherProxySet" value="false"/>
+    <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit"/>
+    <property name="java.specification.version" value="11"/>
+    <property name="sun.cpu.isalist" value=""/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/Users/hagraham/Projects/msx-platform-specs/java/java-msx-sdk/target/test-classes:/Users/hagraham/Projects/msx-platform-specs/java/java-msx-sdk/target/classes:/Users/hagraham/.m2/repository/io/swagger/swagger-annotations/1.5.24/swagger-annotations-1.5.24.jar:/Users/hagraham/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/Users/hagraham/.m2/repository/com/squareup/okhttp3/okhttp/3.14.7/okhttp-3.14.7.jar:/Users/hagraham/.m2/repository/com/squareup/okio/okio/1.17.2/okio-1.17.2.jar:/Users/hagraham/.m2/repository/com/squareup/okhttp3/logging-interceptor/3.14.7/logging-interceptor-3.14.7.jar:/Users/hagraham/.m2/repository/com/google/code/gson/gson/2.8.6/gson-2.8.6.jar:/Users/hagraham/.m2/repository/io/gsonfire/gson-fire/1.8.4/gson-fire-1.8.4.jar:/Users/hagraham/.m2/repository/org/apache/commons/commons-lang3/3.10/commons-lang3-3.10.jar:/Users/hagraham/.m2/repository/javax/annotation/javax.annotation-api/1.3.2/javax.annotation-api-1.3.2.jar:/Users/hagraham/.m2/repository/junit/junit/4.13.1/junit-4.13.1.jar:/Users/hagraham/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="user.timezone" value=""/>
+    <property name="java.vm.specification.version" value="11"/>
+    <property name="os.name" value="Mac OS X"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk-11.0.3.jdk/Contents/Home/lib"/>
+    <property name="sun.java.command" value="/Users/hagraham/Projects/msx-platform-specs/java/java-msx-sdk/target/surefire/surefirebooter3001400761666178774.jar /Users/hagraham/Projects/msx-platform-specs/java/java-msx-sdk/target/surefire 2021-02-01T21-36-31_597-jvmRun1 surefire249498222056139480tmp surefire_06537069421672299516tmp"/>
+    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="/Users/hagraham/Projects/msx-platform-specs/java/java-msx-sdk/target/test-classes:/Users/hagraham/Projects/msx-platform-specs/java/java-msx-sdk/target/classes:/Users/hagraham/.m2/repository/io/swagger/swagger-annotations/1.5.24/swagger-annotations-1.5.24.jar:/Users/hagraham/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/Users/hagraham/.m2/repository/com/squareup/okhttp3/okhttp/3.14.7/okhttp-3.14.7.jar:/Users/hagraham/.m2/repository/com/squareup/okio/okio/1.17.2/okio-1.17.2.jar:/Users/hagraham/.m2/repository/com/squareup/okhttp3/logging-interceptor/3.14.7/logging-interceptor-3.14.7.jar:/Users/hagraham/.m2/repository/com/google/code/gson/gson/2.8.6/gson-2.8.6.jar:/Users/hagraham/.m2/repository/io/gsonfire/gson-fire/1.8.4/gson-fire-1.8.4.jar:/Users/hagraham/.m2/repository/org/apache/commons/commons-lang3/3.10/commons-lang3-3.10.jar:/Users/hagraham/.m2/repository/javax/annotation/javax.annotation-api/1.3.2/javax.annotation-api-1.3.2.jar:/Users/hagraham/.m2/repository/junit/junit/4.13.1/junit-4.13.1.jar:/Users/hagraham/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/Users/hagraham"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2019-04-16"/>
+    <property name="java.home" value="/Library/Java/JavaVirtualMachines/jdk-11.0.3.jdk/Contents/Home"/>
+    <property name="file.separator" value="/"/>
+    <property name="basedir" value="/Users/hagraham/Projects/msx-platform-specs/java/java-msx-sdk"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment"/>
+    <property name="surefire.real.class.path" value="/Users/hagraham/Projects/msx-platform-specs/java/java-msx-sdk/target/surefire/surefirebooter3001400761666178774.jar"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="java.runtime.version" value="11.0.3+12-LTS"/>
+    <property name="user.name" value="hagraham"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="10.15.7"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="18.9"/>
+    <property name="localRepository" value="/Users/hagraham/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="/var/folders/r0/24tvs4ld0_323y09nv7bznqc0000gn/T/"/>
+    <property name="java.version" value="11.0.3"/>
+    <property name="user.dir" value="/Users/hagraham/Projects/msx-platform-specs/java/java-msx-sdk"/>
+    <property name="os.arch" value="x86_64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="java.awt.printerjob" value="sun.lwawt.macosx.CPrinterJob"/>
+    <property name="sun.os.patch.level" value="unknown"/>
+    <property name="java.library.path" value="/Users/hagraham/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.vm.version" value="11.0.3+12-LTS"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
+    <property name="java.class.version" value="55.0"/>
+    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="loggerPath" value="conf/log4j.properties"/>
+  </properties>
+  <testcase name="" classname="com.cisco.msx.platform.client.SecurityApiTest" time="0">
+    <skipped/>
+  </testcase>
+</testsuite>

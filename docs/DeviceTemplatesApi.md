@@ -1,0 +1,404 @@
+# DeviceTemplatesApi
+
+All URIs are relative to *http://localhost:8765*
+
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**createDeviceTemplate**](DeviceTemplatesApi.md#createDeviceTemplate) | **POST** /manage/api/v8/devicetemplates | Creates a device template.
+[**deleteDeviceTemplate**](DeviceTemplatesApi.md#deleteDeviceTemplate) | **DELETE** /manage/api/v8/devicetemplates/{id} | Deletes a device template.
+[**getDeviceTemplate**](DeviceTemplatesApi.md#getDeviceTemplate) | **GET** /manage/api/v8/devicetemplates/{id} | Returns a device template.
+[**getDeviceTemplatesList**](DeviceTemplatesApi.md#getDeviceTemplatesList) | **GET** /manage/api/v8/devicetemplates/list | Returns a list of device templates.
+[**scanDeviceTemplateParameters**](DeviceTemplatesApi.md#scanDeviceTemplateParameters) | **POST** /manage/api/v8/devicetemplates/parameters/scan | API to scan parameters from the device template XML.
+[**updateDeviceTemplateAccess**](DeviceTemplatesApi.md#updateDeviceTemplateAccess) | **PUT** /manage/api/v8/devicetemplates/{id}/access | Updates device template access.
+
+
+<a name="createDeviceTemplate"></a>
+# **createDeviceTemplate**
+> DeviceTemplate createDeviceTemplate(deviceTemplateCreate)
+
+Creates a device template.
+
+### Example
+```java
+// Import classes:
+import com.cisco.msx.platform.ApiClient;
+import com.cisco.msx.platform.ApiException;
+import com.cisco.msx.platform.Configuration;
+import com.cisco.msx.platform.models.*;
+import com.cisco.msx.platform.client.DeviceTemplatesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8765");
+
+    DeviceTemplatesApi apiInstance = new DeviceTemplatesApi(defaultClient);
+    DeviceTemplateCreate deviceTemplateCreate = {"name":"name-8d4a2628-06c0-436b-8a90-d90027917405","version":"v1","serviceType":"manageddevice","configContent":"string","templateStandard":"nso","tenantAccess":{"global":true}}; // DeviceTemplateCreate | 
+    try {
+      DeviceTemplate result = apiInstance.createDeviceTemplate(deviceTemplateCreate);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DeviceTemplatesApi#createDeviceTemplate");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **deviceTemplateCreate** | [**DeviceTemplateCreate**](DeviceTemplateCreate.md)|  |
+
+### Return type
+
+[**DeviceTemplate**](DeviceTemplate.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Created |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthenticated |  -  |
+**403** | Unauthorized |  -  |
+**500** | Internal Server Error |  -  |
+
+<a name="deleteDeviceTemplate"></a>
+# **deleteDeviceTemplate**
+> deleteDeviceTemplate(id)
+
+Deletes a device template.
+
+### Example
+```java
+// Import classes:
+import com.cisco.msx.platform.ApiClient;
+import com.cisco.msx.platform.ApiException;
+import com.cisco.msx.platform.Configuration;
+import com.cisco.msx.platform.models.*;
+import com.cisco.msx.platform.client.DeviceTemplatesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8765");
+
+    DeviceTemplatesApi apiInstance = new DeviceTemplatesApi(defaultClient);
+    UUID id = new UUID(); // UUID | 
+    try {
+      apiInstance.deleteDeviceTemplate(id);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DeviceTemplatesApi#deleteDeviceTemplate");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | [**UUID**](.md)|  |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | No Content |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthenticated |  -  |
+**403** | Unauthorized |  -  |
+**404** | Not Found |  -  |
+**500** | Internal Server Error |  -  |
+
+<a name="getDeviceTemplate"></a>
+# **getDeviceTemplate**
+> DeviceTemplate getDeviceTemplate(id)
+
+Returns a device template.
+
+### Example
+```java
+// Import classes:
+import com.cisco.msx.platform.ApiClient;
+import com.cisco.msx.platform.ApiException;
+import com.cisco.msx.platform.Configuration;
+import com.cisco.msx.platform.models.*;
+import com.cisco.msx.platform.client.DeviceTemplatesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8765");
+
+    DeviceTemplatesApi apiInstance = new DeviceTemplatesApi(defaultClient);
+    UUID id = new UUID(); // UUID | 
+    try {
+      DeviceTemplate result = apiInstance.getDeviceTemplate(id);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DeviceTemplatesApi#getDeviceTemplate");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | [**UUID**](.md)|  |
+
+### Return type
+
+[**DeviceTemplate**](DeviceTemplate.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthenticated |  -  |
+**403** | Unauthorized |  -  |
+**404** | Not Found |  -  |
+**500** | Internal Server Error |  -  |
+
+<a name="getDeviceTemplatesList"></a>
+# **getDeviceTemplatesList**
+> List&lt;DeviceTemplate&gt; getDeviceTemplatesList(serviceType, tenantId)
+
+Returns a list of device templates.
+
+### Example
+```java
+// Import classes:
+import com.cisco.msx.platform.ApiClient;
+import com.cisco.msx.platform.ApiException;
+import com.cisco.msx.platform.Configuration;
+import com.cisco.msx.platform.models.*;
+import com.cisco.msx.platform.client.DeviceTemplatesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8765");
+
+    DeviceTemplatesApi apiInstance = new DeviceTemplatesApi(defaultClient);
+    String serviceType = "manageddevice"; // String | 
+    UUID tenantId = new UUID(); // UUID | 
+    try {
+      List<DeviceTemplate> result = apiInstance.getDeviceTemplatesList(serviceType, tenantId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DeviceTemplatesApi#getDeviceTemplatesList");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **serviceType** | **String**|  | [optional]
+ **tenantId** | [**UUID**](.md)|  | [optional]
+
+### Return type
+
+[**List&lt;DeviceTemplate&gt;**](DeviceTemplate.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthenticated |  -  |
+**403** | Unauthorized |  -  |
+**500** | Internal Server Error |  -  |
+
+<a name="scanDeviceTemplateParameters"></a>
+# **scanDeviceTemplateParameters**
+> List&lt;String&gt; scanDeviceTemplateParameters(file)
+
+API to scan parameters from the device template XML.
+
+### Example
+```java
+// Import classes:
+import com.cisco.msx.platform.ApiClient;
+import com.cisco.msx.platform.ApiException;
+import com.cisco.msx.platform.Configuration;
+import com.cisco.msx.platform.models.*;
+import com.cisco.msx.platform.client.DeviceTemplatesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8765");
+
+    DeviceTemplatesApi apiInstance = new DeviceTemplatesApi(defaultClient);
+    File file = new File("/path/to/file"); // File | The XML template file of a device template
+    try {
+      List<String> result = apiInstance.scanDeviceTemplateParameters(file);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DeviceTemplatesApi#scanDeviceTemplateParameters");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **file** | **File**| The XML template file of a device template | [optional]
+
+### Return type
+
+**List&lt;String&gt;**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Ok |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthenticated |  -  |
+**403** | Unauthorized |  -  |
+**500** | Internal Server Error |  -  |
+
+<a name="updateDeviceTemplateAccess"></a>
+# **updateDeviceTemplateAccess**
+> DeviceTemplateAccessResponse updateDeviceTemplateAccess(id, deviceTemplateAccess)
+
+Updates device template access.
+
+### Example
+```java
+// Import classes:
+import com.cisco.msx.platform.ApiClient;
+import com.cisco.msx.platform.ApiException;
+import com.cisco.msx.platform.Configuration;
+import com.cisco.msx.platform.models.*;
+import com.cisco.msx.platform.client.DeviceTemplatesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8765");
+
+    DeviceTemplatesApi apiInstance = new DeviceTemplatesApi(defaultClient);
+    UUID id = new UUID(); // UUID | 
+    DeviceTemplateAccess deviceTemplateAccess = {"templateId":"49baa22e-9c25-4adc-ae30-21153965ea66","tenantIds":["e6d0e662-ed66-43ab-977a-35efc6cafe10"]}; // DeviceTemplateAccess | 
+    try {
+      DeviceTemplateAccessResponse result = apiInstance.updateDeviceTemplateAccess(id, deviceTemplateAccess);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DeviceTemplatesApi#updateDeviceTemplateAccess");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | [**UUID**](.md)|  |
+ **deviceTemplateAccess** | [**DeviceTemplateAccess**](DeviceTemplateAccess.md)|  |
+
+### Return type
+
+[**DeviceTemplateAccessResponse**](DeviceTemplateAccessResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthenticated |  -  |
+**403** | Unauthorized |  -  |
+**404** | Not Found |  -  |
+**500** | Internal Server Error |  -  |
+
