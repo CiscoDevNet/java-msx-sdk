@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * WorkflowInstanceDeleteResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-03-26T14:27:03.027365-04:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-03-26T16:01:54.199340-04:00[America/New_York]")
 public class WorkflowInstanceDeleteResponse {
   public static final String SERIALIZED_NAME_DELETED_CHILD_WORKFLOW_INSTANCE_IDS = "deleted_child_workflow_instance_ids";
   @SerializedName(SERIALIZED_NAME_DELETED_CHILD_WORKFLOW_INSTANCE_IDS)

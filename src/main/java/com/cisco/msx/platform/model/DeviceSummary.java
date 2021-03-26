@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * DeviceSummary
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-03-26T14:27:03.027365-04:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-03-26T16:01:54.199340-04:00[America/New_York]")
 public class DeviceSummary {
   public static final String SERIALIZED_NAME_DEVICE_ID = "deviceId";
   @SerializedName(SERIALIZED_NAME_DEVICE_ID)

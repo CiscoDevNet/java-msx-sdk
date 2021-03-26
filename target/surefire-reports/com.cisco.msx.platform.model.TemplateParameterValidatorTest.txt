@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.cisco.msx.platform.model.TemplateParameterValidatorTest
--------------------------------------------------------------------------------
-Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in com.cisco.msx.platform.model.TemplateParameterValidatorTest
