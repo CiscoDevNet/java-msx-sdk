@@ -2,6 +2,7 @@
 
 # TenantUpdate
 
+
 ## Properties
 
 Name | Type | Description | Notes

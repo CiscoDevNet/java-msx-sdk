@@ -2,6 +2,7 @@
 
 # DeviceTemplateHistory
 
+
 ## Properties
 
 Name | Type | Description | Notes

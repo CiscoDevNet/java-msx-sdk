@@ -33,7 +33,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost:8765");
 
     TenantsApi apiInstance = new TenantsApi(defaultClient);
-    TenantCreate tenantCreate = {"name":"Acme Company","description":"An anvil for every roadrunner.","url":"https://cisco.com"}; // TenantCreate | 
+    TenantCreate tenantCreate = new TenantCreate(); // TenantCreate | 
     try {
       Tenant result = apiInstance.createTenant(tenantCreate);
       System.out.println(result);
@@ -368,7 +368,7 @@ public class Example {
 
     TenantsApi apiInstance = new TenantsApi(defaultClient);
     UUID id = new UUID(); // UUID | 
-    TenantUpdate tenantUpdate = {"name":"Acme Company","description":"We sell rocket powered rollerskates.","url":"https://cisco.com"}; // TenantUpdate | 
+    TenantUpdate tenantUpdate = new TenantUpdate(); // TenantUpdate | 
     try {
       Tenant result = apiInstance.updateTenant(id, tenantUpdate);
       System.out.println(result);

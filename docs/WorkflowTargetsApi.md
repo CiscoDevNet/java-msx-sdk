@@ -32,7 +32,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost:8765");
 
     WorkflowTargetsApi apiInstance = new WorkflowTargetsApi(defaultClient);
-    WorkflowTargetCreate workflowTargetCreate = {"name":"MSX Kafka","description":"A most excellent description.","title":"Target One","type":"kafka.endpoint","properties":{"disable_certificate_validation":false,"display_name":"MSX Kafka","host":"kafka.vms.svc.cluster.local","no_runtime_user":true,"port":9092,"ssl_enable":false}}; // WorkflowTargetCreate | 
+    WorkflowTargetCreate workflowTargetCreate = new WorkflowTargetCreate(); // WorkflowTargetCreate | 
     try {
       WorkflowTarget result = apiInstance.createWorkflowTarget(workflowTargetCreate);
       System.out.println(result);
@@ -292,7 +292,7 @@ public class Example {
 
     WorkflowTargetsApi apiInstance = new WorkflowTargetsApi(defaultClient);
     String id = "id_example"; // String | 
-    WorkflowTargetUpdate workflowTargetUpdate = {"name":"MSX Kafka","description":"A most excellent description.","type":"kafka.endpoint","properties":{"disable_certificate_validation":false,"display_name":"MSX Kafka","host":"kafka.vms.svc.cluster.local","no_runtime_user":true,"port":9092,"ssl_enable":false}}; // WorkflowTargetUpdate | 
+    WorkflowTargetUpdate workflowTargetUpdate = new WorkflowTargetUpdate(); // WorkflowTargetUpdate | 
     try {
       WorkflowTarget result = apiInstance.updateWorkflowTarget(id, workflowTargetUpdate);
       System.out.println(result);

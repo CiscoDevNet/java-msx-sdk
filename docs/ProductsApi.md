@@ -104,7 +104,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost:8765");
 
     ProductsApi apiInstance = new ProductsApi(defaultClient);
-    ProductCreate productCreate = {"name":"vbranch","label":"cisco.catalog.service.vbranch.name","version":"1","description":"cisco.catalog.service.vbranch.description","image":"/services/vbranch/images/icons/image_vbranch_service.svg","orderLimit":1,"multipleInstanceAllowed":false,"price":500,"unitOfMeasure":null,"options":[],"properties":[],"bandwidthPrioritization":null,"configuration":{"device":"false","parts":"2","showOffers":"true","validation":"none"},"isResource":false,"hasChildren":false,"parentId":null,"serviceExtensions":[],"serviceConfigQueryRootXPaths":[],"uiConfig":null}; // ProductCreate | 
+    ProductCreate productCreate = new ProductCreate(); // ProductCreate | 
     try {
       Product result = apiInstance.createProduct(productCreate);
       System.out.println(result);
@@ -562,7 +562,7 @@ public class Example {
 
     ProductsApi apiInstance = new ProductsApi(defaultClient);
     UUID id = new UUID(); // UUID | 
-    ProductUpdate productUpdate = {"name":"vbranch","label":"cisco.catalog.service.vbranch.name","version":"1","description":"cisco.catalog.service.vbranch.description","image":"/services/vbranch/images/icons/image_vbranch_service.svg","orderLimit":1,"multipleInstanceAllowed":false,"price":500,"unitOfMeasure":null,"options":[],"properties":[],"bandwidthPrioritization":null,"configuration":{"device":"false","parts":"2","showOffers":"true","validation":"none"},"isResource":false,"hasChildren":false,"parentId":null,"serviceExtensions":[],"serviceConfigQueryRootXPaths":[],"uiConfig":null}; // ProductUpdate | 
+    ProductUpdate productUpdate = new ProductUpdate(); // ProductUpdate | 
     try {
       Product result = apiInstance.updateProduct(id, productUpdate);
       System.out.println(result);

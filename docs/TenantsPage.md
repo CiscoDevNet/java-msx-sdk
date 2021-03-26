@@ -2,6 +2,7 @@
 
 # TenantsPage
 
+
 ## Properties
 
 Name | Type | Description | Notes

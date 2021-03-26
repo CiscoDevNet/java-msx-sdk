@@ -2,6 +2,7 @@
 
 # LegacyServiceOrderResponse
 
+
 ## Properties
 
 Name | Type | Description | Notes

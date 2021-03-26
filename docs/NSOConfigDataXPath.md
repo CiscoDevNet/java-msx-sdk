@@ -2,6 +2,7 @@
 
 # NSOConfigDataXPath
 
+
 ## Properties
 
 Name | Type | Description | Notes

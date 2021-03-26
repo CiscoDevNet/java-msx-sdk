@@ -2,6 +2,7 @@
 
 # ResourceHealth
 
+
 ## Properties
 
 Name | Type | Description | Notes

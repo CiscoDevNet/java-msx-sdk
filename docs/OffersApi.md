@@ -104,7 +104,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost:8765");
 
     OffersApi apiInstance = new OffersApi(defaultClient);
-    OfferCreate offerCreate = {"name":"cisco.consume.service.manageddevice.label","label":"cisco.consume.manageddevice.offer.manageddevice.full","description":"cisco.consume.service.manageddevice.description.label","productId":"83432bdd-1293-4bf3-ab53-77a199e2beff","version":1,"displayOrder":1,"image":"services/manageddevice/images/managed-cpe.svg","price":"test","type":"test","supportedProperties":["Basic-small"],"supportedOptions":[{"name":"Centralized_device_management","value":"Yes"},{"name":"Zero_Touch_Deployment","value":"Yes"},{"name":"Configuration_templates","value":"Yes"},{"name":"Monitoring_and_metrics","value":"Yes"}]}; // OfferCreate | 
+    OfferCreate offerCreate = new OfferCreate(); // OfferCreate | 
     try {
       Offer result = apiInstance.createOffer(offerCreate);
       System.out.println(result);
@@ -566,7 +566,7 @@ public class Example {
 
     OffersApi apiInstance = new OffersApi(defaultClient);
     UUID id = new UUID(); // UUID | 
-    OfferUpdate offerUpdate = {"name":"branches","label":"cisco.consume.service.vbranch.offer.name","description":"cisco.consume.service.vbranch.offer.description","productId":"46bad1ba-2704-419d-b9b4-f1cdff79da4f","version":1,"displayOrder":1,"image":"/services/vbranch/images/icons/image_vbranch_service.svg","price":null,"type":null,"supportedProperties":["Basic-small"],"supportedOptions":[{"name":"Template_Development_Environment","value":"Yes"},{"name":"Zero_Touch_Deployment","value":"Yes"},{"name":"Custom_Service_Chaining","value":"Yes"},{"name":"Third_Party","value":"Yes"}],"approvals":null}; // OfferUpdate | 
+    OfferUpdate offerUpdate = new OfferUpdate(); // OfferUpdate | 
     try {
       Offer result = apiInstance.updateOffer(id, offerUpdate);
       System.out.println(result);

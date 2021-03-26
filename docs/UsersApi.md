@@ -34,7 +34,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost:8765");
 
     UsersApi apiInstance = new UsersApi(defaultClient);
-    UserCreate userCreate = {"firstName":"Tom","lastName":"Baker","email":"noreply@cisco.com","roleIds":["c0895f00-d5d5-11ea-b88a-a7053c652ef4"],"tenantIds":["18992931-6ced-4133-9101-da6e4b83a5df"],"passwordPolicyName":"ppolicy_default","username":"TBaker","password":"Password@1"}; // UserCreate | 
+    UserCreate userCreate = new UserCreate(); // UserCreate | 
     try {
       User result = apiInstance.createUser(userCreate);
       System.out.println(result);
@@ -357,7 +357,7 @@ public class Example {
 
     UsersApi apiInstance = new UsersApi(defaultClient);
     UUID id = new UUID(); // UUID | 
-    UserUpdate userUpdate = {"firstName":"Christopher","lastName":"Eccleston","email":"noreply@cisco.com","roleIds":["c0895f00-d5d5-11ea-b88a-a7053c652ef4"],"tenantIds":["39ed2f7a-baf9-48b0-ad96-7f7828dc8b38"],"passwordPolicyName":"ppolicy_default"}; // UserUpdate | 
+    UserUpdate userUpdate = new UserUpdate(); // UserUpdate | 
     try {
       User result = apiInstance.updateUser(id, userUpdate);
       System.out.println(result);
@@ -423,7 +423,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost:8765");
 
     UsersApi apiInstance = new UsersApi(defaultClient);
-    UpdatePassword updatePassword = {"username":"JWhittaker","oldPassword":"Password@1","newPassword":"Password@2"}; // UpdatePassword | 
+    UpdatePassword updatePassword = new UpdatePassword(); // UpdatePassword | 
     try {
       apiInstance.updateUserPassword(updatePassword);
     } catch (ApiException e) {

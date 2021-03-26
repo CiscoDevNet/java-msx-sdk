@@ -2,6 +2,7 @@
 
 # OffersPage
 
+
 ## Properties
 
 Name | Type | Description | Notes

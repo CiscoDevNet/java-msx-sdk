@@ -2,6 +2,7 @@
 
 # LegacySiteDeviceOnboard
 
+
 ## Properties
 
 Name | Type | Description | Notes

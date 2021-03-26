@@ -2,6 +2,7 @@
 
 # LegacyNsoResponseTypes
 
+
 ## Properties
 
 Name | Type | Description | Notes

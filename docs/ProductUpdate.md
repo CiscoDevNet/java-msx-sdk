@@ -2,6 +2,7 @@
 
 # ProductUpdate
 
+
 ## Properties
 
 Name | Type | Description | Notes

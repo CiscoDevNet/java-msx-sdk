@@ -2,6 +2,7 @@
 
 # WorkflowSchemaByTypeResponse
 
+
 ## Properties
 
 Name | Type | Description | Notes

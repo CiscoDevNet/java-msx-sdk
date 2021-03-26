@@ -39,7 +39,7 @@ public class Example {
 
     DevicesApi apiInstance = new DevicesApi(defaultClient);
     String id = "id_example"; // String | 
-    DeviceTemplateAttachRequest deviceTemplateAttachRequest = {"templateDetails":[{"templateId":"e7e20070-9d67-40a8-a21d-f655606b7421","templateParams":[{"name":"name1","value":"value10461b304-da18-42bd-a48b-502d8e5166a4"},{"name":"name2","value":"value217c83dd3-f732-4a36-ae27-d86599c7f513"}]},{"templateId":"87710499-3431-4c53-8ce2-c28170c261e7","templateParams":[{"name":"name1","value":"value1fc9ca565-8a74-401a-9dce-5fe35d203150"},{"name":"name2","value":"value2bfde5275-8d32-4e2c-b023-7b987cb9a1ff"}]}]}; // DeviceTemplateAttachRequest | 
+    DeviceTemplateAttachRequest deviceTemplateAttachRequest = new DeviceTemplateAttachRequest(); // DeviceTemplateAttachRequest | 
     try {
       List<DeviceTemplateHistory> result = apiInstance.attachDeviceTemplates(id, deviceTemplateAttachRequest);
       System.out.println(result);
@@ -105,7 +105,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost:8765");
 
     DevicesApi apiInstance = new DevicesApi(defaultClient);
-    DeviceCreate deviceCreate = {"tenantId":"4ea8924b-fb40-43ae-ad10-de99139e7357","name":"device-name-5fb3c0fb-0bdf-485a-ad63-15106c6e3bed","model":"CISCO CSR 1000v","type":"CISCO CSR 1000v","serviceType":"manageddevice","serialKey":"CLctKw8azMR","version":"123","managed":true,"onboardType":"direct","onboardInformation":{"serviceType":"manageddevice","variables":"{\"ONBOARDING_INTERFACE\":\"GigabitEthernet1\",\"CUSTOMER_PASSWORD_MD5\":\"$8$/lH9SrDINF1YkYD7/x9FSYHnoxeAY4AEcncCGbe1ZWGOGx1nkn6+EdsPYacwXUdh\",\"CPE_SNMP_V3_AUTH_PASS\":\"$8$BnSiQUd4kW5VqGe/6jLziV59kU3n4DKKumlBgVGMCRIV6dcRzybuNJ16cGZE+G+A\",\"onboarding-template-id\":\"cisco-ios-secure-onboarding\",\"CPE_SNMP_V3_PRIV_PASS\":\"$8$Tx9ngrtcjB+l9ihlUJTAYFE10GhI+8IB43he/+SGbnr45Bi0ETyP9Wq90km3gbeh\",\"ENABLE_SECRET\":\"$8$maC3mSZ0hY4c25G7M6bWBsx9+b5ys1Ehin/SJFIuwNjh50BQpR0sSpGOXo0BvG0d\",\"CUSTOMER_USERNAME\":\"vmsmd33\"}","address":"10.254.0.3","always-allocate-ip":"true","ned-id":"cisco-ios","onboarding-template-done":"true","password":"$8$/lH9SrDINF1YkYD7/x9FSYHnoxeAY4AEcncCGbe1ZWGOGx1nkn6+EdsPYacwXUdh","port":"22","secondary-password":"$8$maC3mSZ0hY4c25G7M6bWBsx9+b5ys1Ehin/SJFIuwNjh50BQpR0sSpGOXo0BvG0d","device-type":"cli","original-address":"3.134.83.79","username":"vmsmd33"}}; // DeviceCreate | 
+    DeviceCreate deviceCreate = new DeviceCreate(); // DeviceCreate | 
     try {
       Device result = apiInstance.createDevice(deviceCreate);
       System.out.println(result);

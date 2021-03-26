@@ -2,6 +2,7 @@
 
 # DeviceAllOf
 
+
 ## Properties
 
 Name | Type | Description | Notes

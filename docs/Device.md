@@ -2,6 +2,7 @@
 
 # Device
 
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -11,7 +12,7 @@ Name | Type | Description | Notes
 **providerId** | **UUID** |  |  [optional]
 **createdOn** | **OffsetDateTime** |  |  [optional]
 **modifiedOn** | **OffsetDateTime** |  |  [optional]
-**serviceId** | **String** |  |  [optional]
+**serviceInstanceId** | **String** |  |  [optional]
 **subscriptionId** | **String** |  |  [optional]
 **tenantId** | **UUID** |  | 
 **name** | **String** |  | 

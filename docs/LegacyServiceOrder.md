@@ -2,6 +2,7 @@
 
 # LegacyServiceOrder
 
+
 ## Properties
 
 Name | Type | Description | Notes

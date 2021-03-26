@@ -2,11 +2,12 @@
 
 # DeviceCreate
 
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**serviceId** | **String** |  |  [optional]
+**serviceInstanceId** | **String** |  |  [optional]
 **subscriptionId** | **String** |  |  [optional]
 **tenantId** | **UUID** |  | 
 **name** | **String** |  | 

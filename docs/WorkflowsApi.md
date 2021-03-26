@@ -430,7 +430,7 @@ public class Example {
 
     WorkflowsApi apiInstance = new WorkflowsApi(defaultClient);
     String id = "id_example"; // String | 
-    WorkflowStartConfig workflowStartConfig = {"input_variables":[{"id":"01HTU6QBKWSWC7cJcKEAKXek3cjLJoZGYLK","schema_id":"01HQR50TZJK3M3d09kDOqLnYSywRwovUhAW","properties":{"value":"","scope":"input","name":"service_name","type":"datatype.string","is_required":false},"created_on":"2020-08-07T13:26:36Z","created_by":"aoadmin","updated_on":"2020-08-07T13:26:38Z","updated_by":"aoadmin","unique_name":"variable_workflow_1fly6IL9DWN9dCwPA6W713ef62M"}]}; // WorkflowStartConfig | 
+    WorkflowStartConfig workflowStartConfig = new WorkflowStartConfig(); // WorkflowStartConfig | 
     Boolean sync = true; // Boolean | 
     try {
       List<StartWorkflowResponse> result = apiInstance.startWorkflow(id, workflowStartConfig, sync);

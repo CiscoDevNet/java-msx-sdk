@@ -2,6 +2,7 @@
 
 # DeviceUpdate
 
+
 ## Properties
 
 Name | Type | Description | Notes

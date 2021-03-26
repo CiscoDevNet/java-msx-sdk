@@ -2,6 +2,7 @@
 
 # DeviceTemplate
 
+
 ## Properties
 
 Name | Type | Description | Notes

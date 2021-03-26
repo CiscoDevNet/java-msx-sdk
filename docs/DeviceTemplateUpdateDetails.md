@@ -2,6 +2,7 @@
 
 # DeviceTemplateUpdateDetails
 
+
 ## Properties
 
 Name | Type | Description | Notes

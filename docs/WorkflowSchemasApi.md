@@ -30,7 +30,7 @@ public class Example {
 
     WorkflowSchemasApi apiInstance = new WorkflowSchemasApi(defaultClient);
     String id = "id_example"; // String | 
-    String schemaType = "\"view\""; // String | 
+    String schemaType = "view"; // String | 
     try {
       WorkflowSchemaByTypeResponse result = apiInstance.getWorkflowSchema(id, schemaType);
       System.out.println(result);
@@ -50,7 +50,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**|  |
- **schemaType** | **String**|  | [optional] [default to &quot;view&quot;]
+ **schemaType** | **String**|  | [optional] [default to view]
 
 ### Return type
 
@@ -96,8 +96,8 @@ public class Example {
     defaultClient.setBasePath("http://localhost:8765");
 
     WorkflowSchemasApi apiInstance = new WorkflowSchemasApi(defaultClient);
-    String baseType = "\"category\""; // String | 
-    String schemaType = "\"view\""; // String | 
+    String baseType = "category"; // String | 
+    String schemaType = "view"; // String | 
     Boolean variableType = false; // Boolean | 
     try {
       List<WorkflowSchema> result = apiInstance.getWorkflowSchemasList(baseType, schemaType, variableType);
@@ -117,8 +117,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **baseType** | **String**|  | [default to &quot;category&quot;]
- **schemaType** | **String**|  | [optional] [default to &quot;view&quot;]
+ **baseType** | **String**|  | [default to category]
+ **schemaType** | **String**|  | [optional] [default to view]
  **variableType** | **Boolean**|  | [optional] [default to false]
 
 ### Return type

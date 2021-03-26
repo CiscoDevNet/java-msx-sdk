@@ -2,6 +2,7 @@
 
 # OfferUpdate
 
+
 ## Properties
 
 Name | Type | Description | Notes

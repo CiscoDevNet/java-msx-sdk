@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 <a name="addDevicesToSite"></a>
 # **addDevicesToSite**
-> Site addDevicesToSite(id, UUID)
+> Site addDevicesToSite(id, requestBody)
 
 Add devices to a site.
 
@@ -37,9 +37,9 @@ public class Example {
 
     SitesApi apiInstance = new SitesApi(defaultClient);
     UUID id = new UUID(); // UUID | 
-    List<UUID> UUID = Arrays.asList(); // List<UUID> | 
+    List<String> requestBody = Arrays.asList(); // List<String> | 
     try {
-      Site result = apiInstance.addDevicesToSite(id, UUID);
+      Site result = apiInstance.addDevicesToSite(id, requestBody);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SitesApi#addDevicesToSite");
@@ -57,7 +57,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**UUID**](.md)|  |
- **UUID** | [**List&lt;UUID&gt;**](UUID.md)|  |
+ **requestBody** | [**List&lt;String&gt;**](String.md)|  |
 
 ### Return type
 
@@ -84,7 +84,7 @@ No authorization required
 
 <a name="addServicesToSite"></a>
 # **addServicesToSite**
-> Site addServicesToSite(id, UUID)
+> Site addServicesToSite(id, requestBody)
 
 Add services to a site.
 
@@ -104,9 +104,9 @@ public class Example {
 
     SitesApi apiInstance = new SitesApi(defaultClient);
     UUID id = new UUID(); // UUID | 
-    List<UUID> UUID = Arrays.asList(); // List<UUID> | 
+    List<String> requestBody = Arrays.asList(); // List<String> | 
     try {
-      Site result = apiInstance.addServicesToSite(id, UUID);
+      Site result = apiInstance.addServicesToSite(id, requestBody);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SitesApi#addServicesToSite");
@@ -124,7 +124,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**UUID**](.md)|  |
- **UUID** | [**List&lt;UUID&gt;**](UUID.md)|  |
+ **requestBody** | [**List&lt;String&gt;**](String.md)|  |
 
 ### Return type
 
@@ -170,7 +170,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost:8765");
 
     SitesApi apiInstance = new SitesApi(defaultClient);
-    SiteCreate siteCreate = {"tenantId":"df50cb47-0348-4bbf-96e6-9d0904008c03","deviceIds":[],"name":"Your Site Name","description":"A description of the site."}; // SiteCreate | 
+    SiteCreate siteCreate = new SiteCreate(); // SiteCreate | 
     try {
       Site result = apiInstance.createSite(siteCreate);
       System.out.println(result);
@@ -428,7 +428,7 @@ No authorization required
 
 <a name="removeDevicesFromSite"></a>
 # **removeDevicesFromSite**
-> Site removeDevicesFromSite(id, UUID)
+> Site removeDevicesFromSite(id, requestBody)
 
 Removes devices from a site.
 
@@ -448,9 +448,9 @@ public class Example {
 
     SitesApi apiInstance = new SitesApi(defaultClient);
     UUID id = new UUID(); // UUID | 
-    List<UUID> UUID = Arrays.asList(); // List<UUID> | 
+    List<String> requestBody = Arrays.asList(); // List<String> | 
     try {
-      Site result = apiInstance.removeDevicesFromSite(id, UUID);
+      Site result = apiInstance.removeDevicesFromSite(id, requestBody);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SitesApi#removeDevicesFromSite");
@@ -468,7 +468,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**UUID**](.md)|  |
- **UUID** | [**List&lt;UUID&gt;**](UUID.md)|  |
+ **requestBody** | [**List&lt;String&gt;**](String.md)|  |
 
 ### Return type
 
@@ -495,7 +495,7 @@ No authorization required
 
 <a name="removeServicesFromSite"></a>
 # **removeServicesFromSite**
-> Site removeServicesFromSite(id, UUID)
+> Site removeServicesFromSite(id, requestBody)
 
 Remove services from a site.
 
@@ -514,10 +514,10 @@ public class Example {
     defaultClient.setBasePath("http://localhost:8765");
 
     SitesApi apiInstance = new SitesApi(defaultClient);
-    UUID id = new UUID(); // UUID | 
-    List<UUID> UUID = Arrays.asList(); // List<UUID> | 
+    String id = "id_example"; // String | 
+    List<String> requestBody = Arrays.asList(); // List<String> | 
     try {
-      Site result = apiInstance.removeServicesFromSite(id, UUID);
+      Site result = apiInstance.removeServicesFromSite(id, requestBody);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SitesApi#removeServicesFromSite");
@@ -534,8 +534,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**UUID**](.md)|  |
- **UUID** | [**List&lt;UUID&gt;**](UUID.md)|  |
+ **id** | **String**|  |
+ **requestBody** | [**List&lt;String&gt;**](String.md)|  |
 
 ### Return type
 
@@ -582,7 +582,7 @@ public class Example {
 
     SitesApi apiInstance = new SitesApi(defaultClient);
     UUID id = new UUID(); // UUID | 
-    SiteUpdate siteUpdate = {"name":"Site Three","description":"A new description with better words.","attributes":{}}; // SiteUpdate | 
+    SiteUpdate siteUpdate = new SiteUpdate(); // SiteUpdate | 
     Boolean sendNotification = false; // Boolean | 
     try {
       Site result = apiInstance.updateSite(id, siteUpdate, sendNotification);

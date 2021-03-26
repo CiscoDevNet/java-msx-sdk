@@ -2,6 +2,7 @@
 
 # Offer
 
+
 ## Properties
 
 Name | Type | Description | Notes

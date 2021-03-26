@@ -33,7 +33,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost:8765");
 
     DeviceTemplatesApi apiInstance = new DeviceTemplatesApi(defaultClient);
-    DeviceTemplateCreate deviceTemplateCreate = {"name":"name-8d4a2628-06c0-436b-8a90-d90027917405","version":"v1","serviceType":"manageddevice","configContent":"string","templateStandard":"nso","tenantAccess":{"global":true}}; // DeviceTemplateCreate | 
+    DeviceTemplateCreate deviceTemplateCreate = new DeviceTemplateCreate(); // DeviceTemplateCreate | 
     try {
       DeviceTemplate result = apiInstance.createDeviceTemplate(deviceTemplateCreate);
       System.out.println(result);
@@ -357,7 +357,7 @@ public class Example {
 
     DeviceTemplatesApi apiInstance = new DeviceTemplatesApi(defaultClient);
     UUID id = new UUID(); // UUID | 
-    DeviceTemplateAccess deviceTemplateAccess = {"templateId":"49baa22e-9c25-4adc-ae30-21153965ea66","tenantIds":["e6d0e662-ed66-43ab-977a-35efc6cafe10"]}; // DeviceTemplateAccess | 
+    DeviceTemplateAccess deviceTemplateAccess = new DeviceTemplateAccess(); // DeviceTemplateAccess | 
     try {
       DeviceTemplateAccessResponse result = apiInstance.updateDeviceTemplateAccess(id, deviceTemplateAccess);
       System.out.println(result);

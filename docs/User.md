@@ -2,6 +2,7 @@
 
 # User
 
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -16,7 +17,7 @@ Name | Type | Description | Notes
 **tenantIds** | **List&lt;UUID&gt;** |  |  [optional]
 **passwordPolicyName** | **String** |  | 
 **username** | **String** |  |  [optional]
-**password** | **String** |  | 
+**password** | **String** |  |  [optional]
 
 
 

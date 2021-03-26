@@ -2,6 +2,7 @@
 
 # LegacyAbsoluteConfig
 
+
 ## Properties
 
 Name | Type | Description | Notes

@@ -32,7 +32,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost:8765");
 
     WorkflowEventsApi apiInstance = new WorkflowEventsApi(defaultClient);
-    WorkflowEventCreate workflowEventCreate = {"title":"Event One","description":"This is not the description you are looking for.","target_id":"01HTUSVW1CT4X66ht5sueGVrOatrKeh8wkK","schema_id":"01HQR51UJFSML2CKLOFnnYq7YgGQIgzmvHx","properties":{"title":"Event One","target_id":"01HTUSVW1CT4X66ht5sueGVrOatrKeh8wkK","topic_name":"TEST_TOPIC"}}; // WorkflowEventCreate | 
+    WorkflowEventCreate workflowEventCreate = new WorkflowEventCreate(); // WorkflowEventCreate | 
     try {
       WorkflowEvent result = apiInstance.createWorkflowEvent(workflowEventCreate);
       System.out.println(result);
@@ -286,7 +286,7 @@ public class Example {
 
     WorkflowEventsApi apiInstance = new WorkflowEventsApi(defaultClient);
     String id = "id_example"; // String | 
-    WorkflowEventUpdate workflowEventUpdate = {"title":"New Title","description":"All singing, all dancing event description.","target_id":"01HTV56F9BGYF7TPAc3p1WaP5ASSxPjvWkO","schema_id":"01HQR51UJFSML2CKLOFnnYq7YgGQIgzmvHx","properties":{"title":"New Title","target_id":"01HTV56F9BGYF7TPAc3p1WaP5ASSxPjvWkO","topic_name":"TEST_TOPIC"}}; // WorkflowEventUpdate | 
+    WorkflowEventUpdate workflowEventUpdate = new WorkflowEventUpdate(); // WorkflowEventUpdate | 
     try {
       WorkflowEvent result = apiInstance.updateWorkflowEvent(id, workflowEventUpdate);
       System.out.println(result);

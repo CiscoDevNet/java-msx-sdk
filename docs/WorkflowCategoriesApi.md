@@ -33,7 +33,7 @@ public class Example {
 
     WorkflowCategoriesApi apiInstance = new WorkflowCategoriesApi(defaultClient);
     UUID tenantId = new UUID(); // UUID | 
-    WorkflowCategoryCreate workflowCategoryCreate = {"name":"Category One","title":"Category One","description":"A description of category one.","schema_id":"01HQR4T0U6YBE7USwHQiUhXogAACos2iac6"}; // WorkflowCategoryCreate | 
+    WorkflowCategoryCreate workflowCategoryCreate = new WorkflowCategoryCreate(); // WorkflowCategoryCreate | 
     try {
       WorkflowCategory result = apiInstance.createWorkflowCategory(tenantId, workflowCategoryCreate);
       System.out.println(result);
@@ -292,7 +292,7 @@ public class Example {
 
     WorkflowCategoriesApi apiInstance = new WorkflowCategoriesApi(defaultClient);
     String id = "id_example"; // String | 
-    WorkflowCategoryUpdate workflowCategoryUpdate = {"name":"New Category Name","title":"New Category Title","description":"A much better description than before.","schema_id":"01HQR4T0U6YBE7USwHQiUhXogAACos2iac6"}; // WorkflowCategoryUpdate | 
+    WorkflowCategoryUpdate workflowCategoryUpdate = new WorkflowCategoryUpdate(); // WorkflowCategoryUpdate | 
     try {
       WorkflowCategory result = apiInstance.updateWorkflowCategory(id, workflowCategoryUpdate);
       System.out.println(result);
