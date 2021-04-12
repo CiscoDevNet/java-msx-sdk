@@ -15,7 +15,6 @@ package com.cisco.msx.platform.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.cisco.msx.platform.model.Offer;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -24,47 +23,38 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.UUID;
 
 /**
- * OffersPageAllOf
+ * TenantCreateAllOf
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-04-12T15:11:34.208390-04:00[America/New_York]")
-public class OffersPageAllOf {
-  public static final String SERIALIZED_NAME_CONTENTS = "contents";
-  @SerializedName(SERIALIZED_NAME_CONTENTS)
-  private List<Offer> contents = null;
+public class TenantCreateAllOf {
+  public static final String SERIALIZED_NAME_PARENT_ID = "parentId";
+  @SerializedName(SERIALIZED_NAME_PARENT_ID)
+  private UUID parentId;
 
 
-  public OffersPageAllOf contents(List<Offer> contents) {
+  public TenantCreateAllOf parentId(UUID parentId) {
     
-    this.contents = contents;
-    return this;
-  }
-
-  public OffersPageAllOf addContentsItem(Offer contentsItem) {
-    if (this.contents == null) {
-      this.contents = new ArrayList<>();
-    }
-    this.contents.add(contentsItem);
+    this.parentId = parentId;
     return this;
   }
 
    /**
-   * Get contents
-   * @return contents
+   * Get parentId
+   * @return parentId
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public List<Offer> getContents() {
-    return contents;
+  public UUID getParentId() {
+    return parentId;
   }
 
 
-  public void setContents(List<Offer> contents) {
-    this.contents = contents;
+  public void setParentId(UUID parentId) {
+    this.parentId = parentId;
   }
 
 
@@ -76,20 +66,20 @@ public class OffersPageAllOf {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    OffersPageAllOf offersPageAllOf = (OffersPageAllOf) o;
-    return Objects.equals(this.contents, offersPageAllOf.contents);
+    TenantCreateAllOf tenantCreateAllOf = (TenantCreateAllOf) o;
+    return Objects.equals(this.parentId, tenantCreateAllOf.parentId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(contents);
+    return Objects.hash(parentId);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class OffersPageAllOf {\n");
-    sb.append("    contents: ").append(toIndentedString(contents)).append("\n");
+    sb.append("class TenantCreateAllOf {\n");
+    sb.append("    parentId: ").append(toIndentedString(parentId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

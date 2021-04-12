@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **type** | **String** |  |  [optional]
 **supportedProperties** | **List&lt;String&gt;** |  | 
 **supportedOptions** | [**List&lt;NameValue&gt;**](NameValue.md) |  | 
-**approvals** | **Map&lt;String, List&lt;String&gt;&gt;** |  |  [optional]
+**approvals** | **Map&lt;String, Object&gt;** |  |  [optional]
 
 
 

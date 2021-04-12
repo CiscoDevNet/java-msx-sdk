@@ -6,7 +6,7 @@ info:
     url: http://www.apache.org/licenses/LICENSE-2.0.html
   termsOfService: http://www.cisco.com
   title: KAKAPO - MSX SDK
-  version: 1.0.1
+  version: 1.0.2
 servers:
 - url: //localhost:8765
 paths:
@@ -548,7 +548,9 @@ paths:
               - tenantId: 48feaddb-45d0-4126-a216-3e450bfdbba4
                 createdOn: 2020-08-06T19:37:55.615Z
               schema:
-                $ref: '#/components/schemas/CatalogAssignmentsList'
+                items:
+                  $ref: '#/components/schemas/CatalogAssignment'
+                type: array
           description: OK
         "400":
           content:
@@ -585,154 +587,6 @@ paths:
       - Products
       x-contentType: application/json
       x-accepts: application/json
-  /consume/api/v8/products/{id}/assignments/add:
-    post:
-      operationId: addProductAssignments
-      parameters:
-      - explode: false
-        in: path
-        name: id
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            example:
-            - e8ff9360-c8f1-4f06-84d8-d8105bd29e1e
-            - 3c64b303-ec28-4fe2-99b5-13f521b92700
-            - 48feaddb-45d0-4126-a216-3e450bfdbba4
-            schema:
-              items:
-                format: uuid
-                type: string
-              type: array
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              example:
-              - tenantId: e8ff9360-c8f1-4f06-84d8-d8105bd29e1e
-                createdOn: 2020-08-06T19:37:55.615Z
-              - tenantId: 3c64b303-ec28-4fe2-99b5-13f521b92700
-                createdOn: 2020-08-06T19:37:55.615Z
-              - tenantId: 48feaddb-45d0-4126-a216-3e450bfdbba4
-                createdOn: 2020-08-06T19:37:55.615Z
-              schema:
-                $ref: '#/components/schemas/CatalogAssignmentsList'
-          description: OK
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: Bad Request
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: Unauthenticated
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: Unauthorized
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: Not Found
-        "500":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: Internal Server Error
-      summary: Assigns a product to one or more tenants.
-      tags:
-      - Products
-      x-contentType: application/json
-      x-accepts: application/json
-  /consume/api/v8/products/{id}/assignments/remove:
-    post:
-      operationId: removeProductAssignments
-      parameters:
-      - explode: false
-        in: path
-        name: id
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            example:
-            - e8ff9360-c8f1-4f06-84d8-d8105bd29e1e
-            - 3c64b303-ec28-4fe2-99b5-13f521b92700
-            - 48feaddb-45d0-4126-a216-3e450bfdbba4
-            schema:
-              items:
-                format: uuid
-                type: string
-              type: array
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              example:
-              - tenantId: e8ff9360-c8f1-4f06-84d8-d8105bd29e1e
-                createdOn: 2020-08-06T19:37:55.615Z
-              - tenantId: 3c64b303-ec28-4fe2-99b5-13f521b92700
-                createdOn: 2020-08-06T19:37:55.615Z
-              - tenantId: 48feaddb-45d0-4126-a216-3e450bfdbba4
-                createdOn: 2020-08-06T19:37:55.615Z
-              schema:
-                $ref: '#/components/schemas/CatalogAssignmentsList'
-          description: OK
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: Bad Request
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: Unauthenticated
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: Unauthorized
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: Not Found
-        "500":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: Internal Server Error
-      summary: Unassigns a product from one or more tenants
-      tags:
-      - Products
-      x-contentType: application/json
-      x-accepts: application/json
   /consume/api/v8/products/{id}/assignments/list:
     get:
       operationId: getProductAssignmentsList
@@ -757,7 +611,9 @@ paths:
               - tenantId: 48feaddb-45d0-4126-a216-3e450bfdbba4
                 createdOn: 2020-08-06T19:37:55.615Z
               schema:
-                $ref: '#/components/schemas/CatalogAssignmentsList'
+                items:
+                  $ref: '#/components/schemas/CatalogAssignment'
+                type: array
           description: OK
         "400":
           content:
@@ -807,11 +663,13 @@ paths:
         style: form
       - explode: true
         in: query
-        name: tenantId
+        name: tenantIds
         required: false
         schema:
-          format: uuid
-          type: string
+          items:
+            format: uuid
+            type: string
+          type: array
         style: form
       - explode: true
         in: query
@@ -1332,7 +1190,9 @@ paths:
               - tenantId: 48feaddb-45d0-4126-a216-3e450bfdbba4
                 createdOn: 2020-08-06T19:37:55.615Z
               schema:
-                $ref: '#/components/schemas/CatalogAssignmentsList'
+                items:
+                  $ref: '#/components/schemas/CatalogAssignment'
+                type: array
           description: OK
         "400":
           content:
@@ -1369,154 +1229,6 @@ paths:
       - Offers
       x-contentType: application/json
       x-accepts: application/json
-  /consume/api/v8/offers/{id}/assignments/add:
-    post:
-      operationId: addOfferAssignments
-      parameters:
-      - explode: false
-        in: path
-        name: id
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            example:
-            - e8ff9360-c8f1-4f06-84d8-d8105bd29e1e
-            - 3c64b303-ec28-4fe2-99b5-13f521b92700
-            - 48feaddb-45d0-4126-a216-3e450bfdbba4
-            schema:
-              items:
-                format: uuid
-                type: string
-              type: array
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              example:
-              - tenantId: e8ff9360-c8f1-4f06-84d8-d8105bd29e1e
-                createdOn: 2020-08-06T19:37:55.615Z
-              - tenantId: 3c64b303-ec28-4fe2-99b5-13f521b92700
-                createdOn: 2020-08-06T19:37:55.615Z
-              - tenantId: 48feaddb-45d0-4126-a216-3e450bfdbba4
-                createdOn: 2020-08-06T19:37:55.615Z
-              schema:
-                $ref: '#/components/schemas/CatalogAssignmentsList'
-          description: OK
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: Bad Request
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: Unauthenticated
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: Unauthorized
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: Not Found
-        "500":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: Internal Server Error
-      summary: Assigns a product offer to one or more tenants.
-      tags:
-      - Offers
-      x-contentType: application/json
-      x-accepts: application/json
-  /consume/api/v8/offers/{id}/assignments/remove:
-    post:
-      operationId: removeOfferAssignments
-      parameters:
-      - explode: false
-        in: path
-        name: id
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            example:
-            - e8ff9360-c8f1-4f06-84d8-d8105bd29e1e
-            - 3c64b303-ec28-4fe2-99b5-13f521b92700
-            - 48feaddb-45d0-4126-a216-3e450bfdbba4
-            schema:
-              items:
-                format: uuid
-                type: string
-              type: array
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              example:
-              - tenantId: e8ff9360-c8f1-4f06-84d8-d8105bd29e1e
-                createdOn: 2020-08-06T19:37:55.615Z
-              - tenantId: 3c64b303-ec28-4fe2-99b5-13f521b92700
-                createdOn: 2020-08-06T19:37:55.615Z
-              - tenantId: 48feaddb-45d0-4126-a216-3e450bfdbba4
-                createdOn: 2020-08-06T19:37:55.615Z
-              schema:
-                $ref: '#/components/schemas/CatalogAssignmentsList'
-          description: OK
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: Bad Request
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: Unauthenticated
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: Unauthorized
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: Not Found
-        "500":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: Internal Server Error
-      summary: Unassigns a product offer from one or more tenants.
-      tags:
-      - Offers
-      x-contentType: application/json
-      x-accepts: application/json
   /consume/api/v8/offers/{id}/assignments/list:
     get:
       operationId: getOfferAssignmentsList
@@ -1541,7 +1253,9 @@ paths:
               - tenantId: 48feaddb-45d0-4126-a216-3e450bfdbba4
                 createdOn: 2020-08-06T19:37:55.615Z
               schema:
-                $ref: '#/components/schemas/CatalogAssignmentsList'
+                items:
+                  $ref: '#/components/schemas/CatalogAssignment'
+                type: array
           description: OK
         "400":
           content:
@@ -5857,6 +5571,7 @@ paths:
                   tenantIds:
                   - 11af2b16-90ec-4fef-b8a4-2e57945fe0a2
                   passwordPolicyName: ppolicy_default
+                  locale: en_US
                   password: null
                 - id: cff95696-1e3d-42f8-9a1d-9d219f08b944
                   status: "true"
@@ -5870,6 +5585,7 @@ paths:
                   tenantIds:
                   - ec56632e-92bc-4d30-b626-f9eee37ee3e0
                   passwordPolicyName: ppolicy_default
+                  locale: en_US
                   password: null
                 - id: 9349f90e-b5f8-4c1a-b302-3fda5182123e
                   status: "true"
@@ -5883,6 +5599,7 @@ paths:
                   tenantIds:
                   - 4cc13c9c-61be-4dd1-b50b-bbcd5f40a3c4
                   passwordPolicyName: ppolicy_default
+                  locale: en_US
                   password: null
               schema:
                 $ref: '#/components/schemas/UsersPage'
@@ -5929,6 +5646,7 @@ paths:
               tenantIds:
               - 18992931-6ced-4133-9101-da6e4b83a5df
               passwordPolicyName: ppolicy_default
+              locale: en_US
               username: TBaker
               password: Password@1
             schema:
@@ -5951,6 +5669,7 @@ paths:
                 tenantIds:
                 - 18992931-6ced-4133-9101-da6e4b83a5df
                 passwordPolicyName: ppolicy_default
+                locale: en_US
                 password: null
               schema:
                 $ref: '#/components/schemas/User'
@@ -6061,6 +5780,7 @@ paths:
                 tenantIds:
                 - 4cc13c9c-61be-4dd1-b50b-bbcd5f40a3c4
                 passwordPolicyName: ppolicy_default
+                locale: en_US
                 password: null
               schema:
                 $ref: '#/components/schemas/User'
@@ -6122,6 +5842,7 @@ paths:
               tenantIds:
               - 39ed2f7a-baf9-48b0-ad96-7f7828dc8b38
               passwordPolicyName: ppolicy_default
+              locale: en_US
             schema:
               $ref: '#/components/schemas/UserUpdate'
         required: true
@@ -6142,6 +5863,7 @@ paths:
                 tenantIds:
                 - 39ed2f7a-baf9-48b0-ad96-7f7828dc8b38
                 passwordPolicyName: ppolicy_default
+                locale: en_US
                 password: null
               schema:
                 $ref: '#/components/schemas/User'
@@ -6201,6 +5923,7 @@ paths:
                 tenantIds:
                 - 39ed2f7a-baf9-48b0-ad96-7f7828dc8b38
                 passwordPolicyName: ppolicy_default
+                locale: en_US
                 password: null
               schema:
                 $ref: '#/components/schemas/User'
@@ -6279,7 +6002,7 @@ paths:
       - explode: true
         in: query
         name: tenantIds
-        required: true
+        required: false
         schema:
           items:
             format: uuid
@@ -6366,8 +6089,7 @@ paths:
                     port: -1
                     protocol: https
             schema:
-              additionalProperties:
-                type: object
+              additionalProperties: true
               type: object
         required: true
       responses:
@@ -6736,8 +6458,7 @@ paths:
         content:
           application/json:
             schema:
-              additionalProperties:
-                type: object
+              additionalProperties: true
               type: object
         required: true
       responses:
@@ -6866,7 +6587,8 @@ paths:
                       port: -1
                       protocol: https
               schema:
-                type: string
+                additionalProperties: true
+                type: object
           description: OK
         "400":
           content:
@@ -9289,6 +9011,7 @@ components:
         properties:
           items:
             $ref: '#/components/schemas/ServiceElement'
+          nullable: true
           type: array
         configuration:
           additionalProperties:
@@ -9395,6 +9118,7 @@ components:
         valueList:
           items:
             type: object
+          nullable: true
           type: array
         allowedOptionValues:
           items:
@@ -9402,9 +9126,9 @@ components:
           type: array
         allowedValues:
           items:
-            additionalProperties:
-              type: object
+            additionalProperties: true
             type: object
+          nullable: true
           type: array
         mandatory:
           type: boolean
@@ -9431,6 +9155,7 @@ components:
         childElements:
           items:
             $ref: '#/components/schemas/ServiceElement'
+          nullable: true
           type: array
       type: object
     ServiceElementPrice:
@@ -9443,6 +9168,7 @@ components:
         timePeriod: timePeriod
         additionalQuantity: 9
         additionalOneTimePrice: additionalOneTimePrice
+      nullable: true
       properties:
         oneTimePrice:
           type: string
@@ -9539,9 +9265,7 @@ components:
         productId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         price: price
         approvals:
-          key:
-          - approvals
-          - approvals
+          key: '{}'
         name: name
         displayOrder: 6
         supportedProperties:
@@ -9586,10 +9310,8 @@ components:
             $ref: '#/components/schemas/NameValue'
           type: array
         approvals:
-          additionalProperties:
-            items:
-              type: string
-            type: array
+          additionalProperties: true
+          nullable: true
           type: object
       required:
       - description
@@ -9619,10 +9341,6 @@ components:
           readOnly: true
           type: string
       type: object
-    CatalogAssignmentsList:
-      items:
-        $ref: '#/components/schemas/CatalogAssignment'
-      type: array
     Device:
       allOf:
       - $ref: '#/components/schemas/Device_allOf'
@@ -9647,6 +9365,7 @@ components:
           type: string
         subType:
           maxLength: 128
+          nullable: true
           type: string
         serviceType:
           maxLength: 128
@@ -9654,6 +9373,7 @@ components:
         tags:
           additionalProperties:
             type: string
+          nullable: true
           type: object
         serialKey:
           maxLength: 128
@@ -9721,7 +9441,8 @@ components:
       - $ref: '#/components/schemas/DevicesPage_allOf'
     DeviceTemplateHistory:
       example:
-        modifiedOn: 2000-01-23T04:56:07.000+00:00
+        lastUpdated: 2000-01-23T04:56:07.000+00:00
+        instanceId: instanceId
         statusError: statusError
         templateParams:
         - name: name
@@ -9738,6 +9459,8 @@ components:
           format: uuid
           type: string
         deviceId:
+          type: string
+        instanceId:
           type: string
         templateId:
           format: uuid
@@ -9760,7 +9483,7 @@ components:
           items:
             $ref: '#/components/schemas/NameValue'
           type: array
-        modifiedOn:
+        lastUpdated:
           format: date-time
           type: string
       type: object
@@ -9841,9 +9564,86 @@ components:
           type: array
       type: object
     DeviceTemplate:
-      allOf:
-      - $ref: '#/components/schemas/DeviceTemplateCreate'
-      - $ref: '#/components/schemas/DeviceTemplate_allOf'
+      example:
+        serviceType: serviceType
+        configContent: configContent
+        deviceModels:
+        - deviceModels
+        - deviceModels
+        description: description
+        templateParameterValidators:
+        - allowedValues:
+          - allowedValues
+          - allowedValues
+          displayType: displayType
+          hintText: hintText
+          name: name
+          label: label
+          type: type
+          toolTipText: toolTipText
+        - allowedValues:
+          - allowedValues
+          - allowedValues
+          displayType: displayType
+          hintText: hintText
+          name: name
+          label: label
+          type: type
+          toolTipText: toolTipText
+        userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        createdOn: 2000-01-23T04:56:07.000+00:00
+        version: version
+        templateStandard: templateStandard
+        name: name
+        tenantAccess:
+          global: true
+          tenantIds:
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        resourceProvider: resourceProvider
+      properties:
+        id:
+          format: uuid
+          readOnly: true
+          type: string
+        userId:
+          format: uuid
+          readOnly: true
+          type: string
+        createdOn:
+          format: date-time
+          readOnly: true
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        version:
+          type: string
+        serviceType:
+          type: string
+        deviceModels:
+          items:
+            type: string
+          nullable: true
+          type: array
+        configContent:
+          nullable: true
+          type: string
+        resourceProvider:
+          nullable: true
+          type: string
+        templateStandard:
+          type: string
+        tenantAccess:
+          $ref: '#/components/schemas/DeviceTemplateAccess'
+        templateParameterValidators:
+          items:
+            $ref: '#/components/schemas/TemplateParameterValidator'
+          nullable: true
+          type: array
+      type: object
     DeviceTemplateCreate:
       example:
         serviceType: serviceType
@@ -9853,7 +9653,11 @@ components:
         - deviceModels
         templateStandard: templateStandard
         name: name
-        tenantAccess: ""
+        tenantAccess:
+          global: true
+          tenantIds:
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         description: description
         resourceProvider: resourceProvider
         templateParameterValidators:
@@ -9888,6 +9692,7 @@ components:
         deviceModels:
           items:
             type: string
+          nullable: true
           type: array
         configContent:
           minLength: 1
@@ -9897,9 +9702,7 @@ components:
         templateStandard:
           type: string
         tenantAccess:
-          allOf:
-          - $ref: '#/components/schemas/DeviceTemplateAccess'
-          nullable: true
+          $ref: '#/components/schemas/DeviceTemplateAccess'
         templateParameterValidators:
           items:
             $ref: '#/components/schemas/TemplateParameterValidator'
@@ -9916,6 +9719,7 @@ components:
         tenantIds:
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      nullable: true
       properties:
         tenantIds:
           description: List of tenants to grant access. Mutually exclusive from global
@@ -9923,10 +9727,12 @@ components:
           items:
             format: uuid
             type: string
+          nullable: true
           type: array
         global:
           description: Determines if the template is globally accessible. Mutually
             exclusive from tenant list field.
+          nullable: true
           type: boolean
       type: object
     TemplateParameterValidator:
@@ -9946,15 +9752,15 @@ components:
       properties:
         name:
           nullable: false
-          pattern: ^([\w@#$%^*-=+\s'"\.]{1,255})$
+          pattern: ^([\w@#$%^*-=+\s'"\.]{0,255})$
           type: string
         hintText:
           nullable: false
-          pattern: ^([\w@#$%^*-=+\s'"\.]{1,255})$
+          pattern: ^([\w@#$%^*-=+\s'"\.]{0,255})$
           type: string
         label:
           nullable: false
-          pattern: ^([\w@#$%^*-=+\s'"\.]{1,255})$
+          pattern: ^([\w@#$%^*-=+\s'"\.]{0,255})$
           type: string
         type:
           nullable: false
@@ -9985,13 +9791,16 @@ components:
           items:
             format: uuid
             type: string
+          nullable: true
           type: array
         global:
+          nullable: true
           type: boolean
         successListOfTenants:
           items:
             format: uuid
             type: string
+          nullable: true
           type: array
       type: object
     Service:
@@ -10009,7 +9818,7 @@ components:
         userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         createdOn: 2000-01-23T04:56:07.000+00:00
         status:
-          key: status
+          key: '{}'
       properties:
         id:
           readOnly: true
@@ -10031,23 +9840,22 @@ components:
           type: string
         modifiedOn:
           format: date-time
+          nullable: true
           readOnly: true
           type: string
         provisionedOn:
           format: date-time
+          nullable: true
           readOnly: true
           type: string
         status:
-          additionalProperties:
-            type: string
+          additionalProperties: true
           type: object
         definitionAttributes:
-          additionalProperties:
-            type: object
+          additionalProperties: true
           type: object
         attributes:
-          additionalProperties:
-            type: object
+          additionalProperties: true
           type: object
       type: object
     ServicesPage:
@@ -10418,8 +10226,7 @@ components:
         subscriptionDetail:
           $ref: '#/components/schemas/LegacySubscriptionDetail'
         serviceDowngrade:
-          additionalProperties:
-            type: object
+          additionalProperties: true
           type: object
         nsoResponseTypes:
           $ref: '#/components/schemas/LegacyNsoResponseTypes'
@@ -10547,16 +10354,13 @@ components:
             $ref: '#/components/schemas/LegacySite'
           type: array
         offerSelection:
-          additionalProperties:
-            type: object
+          additionalProperties: true
           type: object
         serviceInstanceDetail:
-          additionalProperties:
-            type: object
+          additionalProperties: true
           type: object
         priceDetail:
-          additionalProperties:
-            type: object
+          additionalProperties: true
           type: object
         dealerCode:
           type: string
@@ -10649,8 +10453,7 @@ components:
             $ref: '#/components/schemas/LegacySiteDevice'
           type: array
         siteAttributes:
-          additionalProperties:
-            type: object
+          additionalProperties: true
           type: object
         delete:
           type: boolean
@@ -10720,8 +10523,7 @@ components:
         type:
           type: string
         deviceAttributes:
-          additionalProperties:
-            type: object
+          additionalProperties: true
           type: object
         deviceOnboarding:
           $ref: '#/components/schemas/LegacySiteDeviceOnboard'
@@ -10757,8 +10559,7 @@ components:
         deviceOnboardingType:
           type: string
         deviceOnboardInformation:
-          additionalProperties:
-            type: object
+          additionalProperties: true
           type: object
       type: object
     LegacyServiceOrderResponse:
@@ -10826,10 +10627,10 @@ components:
         type: type
         createdOn: 2000-01-23T04:56:07.000+00:00
         parentId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        serviceIds:
+        - serviceIds
+        - serviceIds
         modifiedOn: 2000-01-23T04:56:07.000+00:00
-        serviceInstanceIds:
-        - serviceInstanceIds
-        - serviceInstanceIds
         createdBy: createdBy
         contact:
           phone: phone
@@ -10861,6 +10662,7 @@ components:
           type: string
         parentId:
           format: uuid
+          nullable: true
           type: string
         name:
           maxLength: 128
@@ -10868,6 +10670,7 @@ components:
           type: string
         type:
           maxLength: 128
+          nullable: true
           pattern: ^[-_a-zA-Z0-9]*$
           type: string
         description:
@@ -10879,16 +10682,18 @@ components:
           $ref: '#/components/schemas/SiteContact'
         image:
           maxLength: 40000
+          nullable: true
           type: string
         attributes:
           additionalProperties:
             type: string
+          nullable: true
           type: object
         devices:
           items:
             $ref: '#/components/schemas/DeviceSummary'
           type: array
-        serviceInstanceIds:
+        serviceIds:
           items:
             type: string
           type: array
@@ -11088,6 +10893,7 @@ components:
       example:
         latitude: -75.5850925717018
         longitude: 36.988422590534526
+      nullable: true
       properties:
         latitude:
           format: double
@@ -11131,6 +10937,7 @@ components:
           $ref: '#/components/schemas/ResourceStatus'
         description:
           maxLength: 256
+          nullable: true
           type: string
       required:
       - id
@@ -11231,48 +11038,15 @@ components:
       - $ref: '#/components/schemas/Tenant_allOf'
       - $ref: '#/components/schemas/TenantCreate'
     TenantCreate:
-      example:
-        image: image
-        numberOfChildren: 0
-        name: name
-        description: description
-        url: url
-        parentId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-      properties:
-        name:
-          maxLength: 128
-          minLength: 1
-          type: string
-        description:
-          maxLength: 512
-          minLength: 1
-          type: string
-        url:
-          type: string
-        image:
-          maxLength: 40000
-          nullable: true
-          type: string
-        parentId:
-          format: uuid
-          nullable: true
-          type: string
-        numberOfChildren:
-          format: int64
-          nullable: true
-          readOnly: true
-          type: integer
-      required:
-      - name
-      type: object
+      allOf:
+      - $ref: '#/components/schemas/TenantCreate_allOf'
+      - $ref: '#/components/schemas/TenantUpdate'
     TenantUpdate:
       example:
         image: image
-        numberOfChildren: 0
         name: name
         description: description
         url: url
-        parentId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
         name:
           maxLength: 128
@@ -11286,14 +11060,8 @@ components:
           type: string
         image:
           maxLength: 40000
+          nullable: true
           type: string
-        parentId:
-          format: uuid
-          type: string
-        numberOfChildren:
-          format: int64
-          readOnly: true
-          type: integer
       required:
       - name
       type: object
@@ -11317,6 +11085,7 @@ components:
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         passwordPolicyName: passwordPolicyName
+        locale: locale
         email: email
         tenantIds:
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -11340,6 +11109,9 @@ components:
             type: string
           type: array
         passwordPolicyName:
+          type: string
+        locale:
+          nullable: true
           type: string
       required:
       - email
@@ -11409,8 +11181,7 @@ components:
         base_type:
           type: string
         status:
-          additionalProperties:
-            type: object
+          additionalProperties: true
           type: object
         version:
           type: string
@@ -11429,14 +11200,18 @@ components:
         - invalid_action_ids
       properties:
         total_actions:
+          nullable: true
           type: integer
         total_valid:
+          nullable: true
           type: integer
         workflow_valid:
+          nullable: true
           type: boolean
         invalid_action_ids:
           items:
             type: string
+          nullable: true
           type: array
       type: object
     Workflow:
@@ -11529,8 +11304,7 @@ components:
         base_type:
           type: string
         properties:
-          additionalProperties:
-            type: object
+          additionalProperties: true
           type: object
         object_type:
           type: string
@@ -11541,14 +11315,12 @@ components:
             $ref: '#/components/schemas/WorkflowActionBlock'
           type: array
         status:
-          additionalProperties:
-            type: object
+          additionalProperties: true
           type: object
         description:
           type: string
         output:
-          additionalProperties:
-            type: object
+          additionalProperties: true
           type: object
         started_on:
           type: string
@@ -11586,8 +11358,7 @@ components:
         base_type:
           type: string
         properties:
-          additionalProperties:
-            type: object
+          additionalProperties: true
           type: object
         object_type:
           type: string
@@ -11738,8 +11509,7 @@ components:
         schema_id:
           type: string
         properties:
-          additionalProperties:
-            type: object
+          additionalProperties: true
           type: object
       required:
       - properties
@@ -11756,10 +11526,12 @@ components:
         deleted_child_workflow_instance_ids:
         - deleted_child_workflow_instance_ids
         - deleted_child_workflow_instance_ids
+      nullable: true
       properties:
         deleted_child_workflow_instance_ids:
           items:
             type: string
+          nullable: true
           type: array
       type: object
     WorkflowSchema:
@@ -11838,8 +11610,7 @@ components:
         type:
           type: string
         properties:
-          additionalProperties:
-            type: object
+          additionalProperties: true
           type: object
         unique_name:
           type: string
@@ -11878,6 +11649,7 @@ components:
           type: integer
         totalItems:
           format: int64
+          nullable: true
           readOnly: true
           type: integer
         hasNext:
@@ -11889,12 +11661,15 @@ components:
           readOnly: true
           type: boolean
         sortBy:
+          nullable: true
           readOnly: true
           type: string
         sortOrder:
           enum:
           - asc
           - desc
+          - null
+          nullable: true
           readOnly: true
           type: string
       type: object
@@ -11968,21 +11743,6 @@ components:
             $ref: '#/components/schemas/Device'
           type: array
       type: object
-    DeviceTemplate_allOf:
-      properties:
-        id:
-          format: uuid
-          readOnly: true
-          type: string
-        userId:
-          format: uuid
-          readOnly: true
-          type: string
-        createdOn:
-          format: date-time
-          readOnly: true
-          type: string
-      type: object
     ServicesPage_allOf:
       properties:
         contents:
@@ -12031,6 +11791,18 @@ components:
           nullable: true
           readOnly: true
           type: boolean
+        numberOfChildren:
+          format: int64
+          nullable: true
+          readOnly: true
+          type: integer
+      type: object
+    TenantCreate_allOf:
+      properties:
+        parentId:
+          format: uuid
+          nullable: true
+          type: string
       type: object
     TenantsPage_allOf:
       properties:
@@ -12084,8 +11856,7 @@ components:
         object_type:
           type: string
         properties:
-          additionalProperties:
-            type: object
+          additionalProperties: true
           type: object
         valid:
           type: boolean
@@ -12098,8 +11869,7 @@ components:
         metadata:
           $ref: '#/components/schemas/WorkflowMetadata'
         status:
-          additionalProperties:
-            type: object
+          additionalProperties: true
           type: object
         permissions:
           items:
@@ -12117,14 +11887,19 @@ components:
     WorkflowMetadata_git_info:
       properties:
         target_id:
+          nullable: true
           type: string
         commit_hash:
+          nullable: true
           type: string
-        comitted_by:
+        committed_by:
+          nullable: true
           type: string
-        comitted_on:
+        committed_on:
+          nullable: true
           type: string
         commit_message:
+          nullable: true
           type: string
       type: object
     WorkflowVariable_allOf:
@@ -12140,8 +11915,7 @@ components:
         object_type:
           type: string
         properties:
-          additionalProperties:
-            type: object
+          additionalProperties: true
           type: object
         data_type:
           type: string
@@ -12185,8 +11959,7 @@ components:
         schema_id:
           type: string
         properties:
-          additionalProperties:
-            type: object
+          additionalProperties: true
           type: object
       type: object
     WorkflowInstance_allOf:
@@ -12207,8 +11980,7 @@ components:
         base_type:
           type: string
         properties:
-          additionalProperties:
-            type: object
+          additionalProperties: true
           type: object
         actions:
           items:
@@ -12219,8 +11991,7 @@ components:
             $ref: '#/components/schemas/WorkflowVariable'
           type: array
         status:
-          additionalProperties:
-            type: object
+          additionalProperties: true
           type: object
         started_on:
           type: string
@@ -12253,24 +12024,19 @@ components:
         access_meta:
           $ref: '#/components/schemas/WorkflowAccessMeta'
         variable_schema:
-          additionalProperties:
-            type: object
+          additionalProperties: true
           type: object
         property_schema:
-          additionalProperties:
-            type: object
+          additionalProperties: true
           type: object
         output_schema:
-          additionalProperties:
-            type: object
+          additionalProperties: true
           type: object
         view_config:
-          additionalProperties:
-            type: object
+          additionalProperties: true
           type: object
         attributes:
-          additionalProperties:
-            type: object
+          additionalProperties: true
           type: object
       type: object
     WorkflowTarget_allOf:
@@ -12291,8 +12057,7 @@ components:
         base_type:
           type: string
         properties:
-          additionalProperties:
-            type: object
+          additionalProperties: true
           type: object
         valid:
           type: boolean

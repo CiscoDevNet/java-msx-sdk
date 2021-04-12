@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **roleIds** | **List&lt;UUID&gt;** |  |  [optional]
 **tenantIds** | **List&lt;UUID&gt;** |  |  [optional]
 **passwordPolicyName** | **String** |  | 
+**locale** | **String** |  |  [optional]
 
 
 

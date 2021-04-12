@@ -4,84 +4,15 @@ All URIs are relative to *http://localhost:8765*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addOfferAssignments**](OffersApi.md#addOfferAssignments) | **POST** /consume/api/v8/offers/{id}/assignments/add | Assigns a product offer to one or more tenants.
 [**createOffer**](OffersApi.md#createOffer) | **POST** /consume/api/v8/offers | Creates a product offer.
 [**deleteOffer**](OffersApi.md#deleteOffer) | **DELETE** /consume/api/v8/offers/{id} | Deletes a product offer
 [**getOffer**](OffersApi.md#getOffer) | **GET** /consume/api/v8/offers/{id} | Returns a product offer.
 [**getOfferAssignmentsList**](OffersApi.md#getOfferAssignmentsList) | **GET** /consume/api/v8/offers/{id}/assignments/list | Returns a list of tenant assignments for a product offer.
 [**getOffersCount**](OffersApi.md#getOffersCount) | **GET** /consume/api/v8/offers/count | Returns the number of product offers.
 [**getOffersPage**](OffersApi.md#getOffersPage) | **GET** /consume/api/v8/offers | Returns a page of product offers.
-[**removeOfferAssignments**](OffersApi.md#removeOfferAssignments) | **POST** /consume/api/v8/offers/{id}/assignments/remove | Unassigns a product offer from one or more tenants.
 [**updateOffer**](OffersApi.md#updateOffer) | **PUT** /consume/api/v8/offers/{id} | Updates a product offer.
 [**updateOfferAssignments**](OffersApi.md#updateOfferAssignments) | **PUT** /consume/api/v8/offers/{id}/assignments | Updates the tenant assignemnts for a product offer.
 
-
-<a name="addOfferAssignments"></a>
-# **addOfferAssignments**
-> List&lt;CatalogAssignment&gt; addOfferAssignments(id, UUID)
-
-Assigns a product offer to one or more tenants.
-
-### Example
-```java
-// Import classes:
-import com.cisco.msx.platform.ApiClient;
-import com.cisco.msx.platform.ApiException;
-import com.cisco.msx.platform.Configuration;
-import com.cisco.msx.platform.models.*;
-import com.cisco.msx.platform.client.OffersApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
-
-    OffersApi apiInstance = new OffersApi(defaultClient);
-    UUID id = new UUID(); // UUID | 
-    List<UUID> UUID = ["e8ff9360-c8f1-4f06-84d8-d8105bd29e1e","3c64b303-ec28-4fe2-99b5-13f521b92700","48feaddb-45d0-4126-a216-3e450bfdbba4"]; // List<UUID> | 
-    try {
-      List<CatalogAssignment> result = apiInstance.addOfferAssignments(id, UUID);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling OffersApi#addOfferAssignments");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | [**UUID**](.md)|  |
- **UUID** | [**List&lt;UUID&gt;**](UUID.md)|  |
-
-### Return type
-
-[**List&lt;CatalogAssignment&gt;**](CatalogAssignment.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | OK |  -  |
-**400** | Bad Request |  -  |
-**401** | Unauthenticated |  -  |
-**403** | Unauthorized |  -  |
-**404** | Not Found |  -  |
-**500** | Internal Server Error |  -  |
 
 <a name="createOffer"></a>
 # **createOffer**
@@ -409,7 +340,7 @@ No authorization required
 
 <a name="getOffersPage"></a>
 # **getOffersPage**
-> OffersPage getOffersPage(page, pageSize, productId, tenantId)
+> OffersPage getOffersPage(page, pageSize, productId, tenantIds)
 
 Returns a page of product offers.
 
@@ -431,9 +362,9 @@ public class Example {
     Integer page = 0; // Integer | 
     Integer pageSize = 10; // Integer | 
     UUID productId = new UUID(); // UUID | 
-    UUID tenantId = new UUID(); // UUID | 
+    List<UUID> tenantIds = Arrays.asList(); // List<UUID> | 
     try {
-      OffersPage result = apiInstance.getOffersPage(page, pageSize, productId, tenantId);
+      OffersPage result = apiInstance.getOffersPage(page, pageSize, productId, tenantIds);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling OffersApi#getOffersPage");
@@ -453,7 +384,7 @@ Name | Type | Description  | Notes
  **page** | **Integer**|  |
  **pageSize** | **Integer**|  |
  **productId** | [**UUID**](.md)|  | [optional]
- **tenantId** | [**UUID**](.md)|  | [optional]
+ **tenantIds** | [**List&lt;UUID&gt;**](UUID.md)|  | [optional]
 
 ### Return type
 
@@ -475,73 +406,6 @@ No authorization required
 **400** | Bad Request |  -  |
 **401** | Unauthenticated |  -  |
 **403** | Unauthorized |  -  |
-**500** | Internal Server Error |  -  |
-
-<a name="removeOfferAssignments"></a>
-# **removeOfferAssignments**
-> List&lt;CatalogAssignment&gt; removeOfferAssignments(id, UUID)
-
-Unassigns a product offer from one or more tenants.
-
-### Example
-```java
-// Import classes:
-import com.cisco.msx.platform.ApiClient;
-import com.cisco.msx.platform.ApiException;
-import com.cisco.msx.platform.Configuration;
-import com.cisco.msx.platform.models.*;
-import com.cisco.msx.platform.client.OffersApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
-
-    OffersApi apiInstance = new OffersApi(defaultClient);
-    UUID id = new UUID(); // UUID | 
-    List<UUID> UUID = ["e8ff9360-c8f1-4f06-84d8-d8105bd29e1e","3c64b303-ec28-4fe2-99b5-13f521b92700","48feaddb-45d0-4126-a216-3e450bfdbba4"]; // List<UUID> | 
-    try {
-      List<CatalogAssignment> result = apiInstance.removeOfferAssignments(id, UUID);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling OffersApi#removeOfferAssignments");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | [**UUID**](.md)|  |
- **UUID** | [**List&lt;UUID&gt;**](UUID.md)|  |
-
-### Return type
-
-[**List&lt;CatalogAssignment&gt;**](CatalogAssignment.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | OK |  -  |
-**400** | Bad Request |  -  |
-**401** | Unauthenticated |  -  |
-**403** | Unauthorized |  -  |
-**404** | Not Found |  -  |
 **500** | Internal Server Error |  -  |
 
 <a name="updateOffer"></a>

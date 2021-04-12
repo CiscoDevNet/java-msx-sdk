@@ -9,12 +9,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **UUID** |  |  [optional]
 **deviceId** | **String** |  |  [optional]
+**instanceId** | **String** |  |  [optional]
 **templateId** | **UUID** |  |  [optional]
 **userId** | **UUID** |  |  [optional]
 **status** | [**StatusEnum**](#StatusEnum) |  |  [optional]
 **statusError** | **String** |  |  [optional]
 **templateParams** | [**List&lt;NameValue&gt;**](NameValue.md) |  |  [optional]
-**modifiedOn** | **OffsetDateTime** |  |  [optional]
+**lastUpdated** | **OffsetDateTime** |  |  [optional]
 
 
 

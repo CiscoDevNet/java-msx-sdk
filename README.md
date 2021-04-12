@@ -1,8 +1,8 @@
 # java-msx-sdk
 
 KAKAPO - MSX SDK
-- API version: 1.0.1
-  - Build date: 2021-03-26T16:01:54.199340-04:00[America/New_York]
+- API version: 1.0.2
+  - Build date: 2021-04-12T15:11:34.208390-04:00[America/New_York]
 
 MSX Platform SDK
 
@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.cisco.msx.platform</groupId>
   <artifactId>java-msx-sdk</artifactId>
-  <version>1.0.1</version>
+  <version>1.0.2</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -50,7 +50,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.cisco.msx.platform:java-msx-sdk:1.0.1"
+compile "com.cisco.msx.platform:java-msx-sdk:1.0.2"
 ```
 
 ### Others
@@ -63,7 +63,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/java-msx-sdk-1.0.1.jar`
+* `target/java-msx-sdk-1.0.2.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -126,24 +126,20 @@ Class | Method | HTTP request | Description
 *DevicesApi* | [**updateDeviceTemplates**](docs/DevicesApi.md#updateDeviceTemplates) | **PUT** /manage/api/v8/devices/{id}/templates | Update device templates that are already attached to a device.
 *HealthApi* | [**getDevicesHealthList**](docs/HealthApi.md#getDevicesHealthList) | **GET** /monitor/api/v8/health/devices/list | 
 *HealthApi* | [**getServicesHealthList**](docs/HealthApi.md#getServicesHealthList) | **GET** /monitor/api/v8/health/services/list | 
-*OffersApi* | [**addOfferAssignments**](docs/OffersApi.md#addOfferAssignments) | **POST** /consume/api/v8/offers/{id}/assignments/add | Assigns a product offer to one or more tenants.
 *OffersApi* | [**createOffer**](docs/OffersApi.md#createOffer) | **POST** /consume/api/v8/offers | Creates a product offer.
 *OffersApi* | [**deleteOffer**](docs/OffersApi.md#deleteOffer) | **DELETE** /consume/api/v8/offers/{id} | Deletes a product offer
 *OffersApi* | [**getOffer**](docs/OffersApi.md#getOffer) | **GET** /consume/api/v8/offers/{id} | Returns a product offer.
 *OffersApi* | [**getOfferAssignmentsList**](docs/OffersApi.md#getOfferAssignmentsList) | **GET** /consume/api/v8/offers/{id}/assignments/list | Returns a list of tenant assignments for a product offer.
 *OffersApi* | [**getOffersCount**](docs/OffersApi.md#getOffersCount) | **GET** /consume/api/v8/offers/count | Returns the number of product offers.
 *OffersApi* | [**getOffersPage**](docs/OffersApi.md#getOffersPage) | **GET** /consume/api/v8/offers | Returns a page of product offers.
-*OffersApi* | [**removeOfferAssignments**](docs/OffersApi.md#removeOfferAssignments) | **POST** /consume/api/v8/offers/{id}/assignments/remove | Unassigns a product offer from one or more tenants.
 *OffersApi* | [**updateOffer**](docs/OffersApi.md#updateOffer) | **PUT** /consume/api/v8/offers/{id} | Updates a product offer.
 *OffersApi* | [**updateOfferAssignments**](docs/OffersApi.md#updateOfferAssignments) | **PUT** /consume/api/v8/offers/{id}/assignments | Updates the tenant assignemnts for a product offer.
-*ProductsApi* | [**addProductAssignments**](docs/ProductsApi.md#addProductAssignments) | **POST** /consume/api/v8/products/{id}/assignments/add | Assigns a product to one or more tenants.
 *ProductsApi* | [**createProduct**](docs/ProductsApi.md#createProduct) | **POST** /consume/api/v8/products | Creates a product.
 *ProductsApi* | [**deleteProduct**](docs/ProductsApi.md#deleteProduct) | **DELETE** /consume/api/v8/products/{id} | Deletes a product.
 *ProductsApi* | [**getProduct**](docs/ProductsApi.md#getProduct) | **GET** /consume/api/v8/products/{id} | Returns a product.
 *ProductsApi* | [**getProductAssignmentsList**](docs/ProductsApi.md#getProductAssignmentsList) | **GET** /consume/api/v8/products/{id}/assignments/list | Returns a list of tenant assignments for a product .
 *ProductsApi* | [**getProductsCount**](docs/ProductsApi.md#getProductsCount) | **GET** /consume/api/v8/products/count | Returns the number of products.
 *ProductsApi* | [**getProductsPage**](docs/ProductsApi.md#getProductsPage) | **GET** /consume/api/v8/products | Returns a page of products.
-*ProductsApi* | [**removeProductAssignments**](docs/ProductsApi.md#removeProductAssignments) | **POST** /consume/api/v8/products/{id}/assignments/remove | Unassigns a product from one or more tenants
 *ProductsApi* | [**updateProduct**](docs/ProductsApi.md#updateProduct) | **PUT** /consume/api/v8/products/{id} | Updates a product.
 *ProductsApi* | [**updateProductAssignments**](docs/ProductsApi.md#updateProductAssignments) | **PUT** /consume/api/v8/products/{id}/assignments | Updates the tenant assignments for a product.
 *RolesApi* | [**getRoleByName**](docs/RolesApi.md#getRoleByName) | **GET** /idm/api/v8/roles/name/{name} | Returns a role by name.
@@ -222,7 +218,6 @@ Class | Method | HTTP request | Description
  - [DeviceTemplate](docs/DeviceTemplate.md)
  - [DeviceTemplateAccess](docs/DeviceTemplateAccess.md)
  - [DeviceTemplateAccessResponse](docs/DeviceTemplateAccessResponse.md)
- - [DeviceTemplateAllOf](docs/DeviceTemplateAllOf.md)
  - [DeviceTemplateAttachRequest](docs/DeviceTemplateAttachRequest.md)
  - [DeviceTemplateCreate](docs/DeviceTemplateCreate.md)
  - [DeviceTemplateDetails](docs/DeviceTemplateDetails.md)
@@ -286,6 +281,7 @@ Class | Method | HTTP request | Description
  - [Tenant](docs/Tenant.md)
  - [TenantAllOf](docs/TenantAllOf.md)
  - [TenantCreate](docs/TenantCreate.md)
+ - [TenantCreateAllOf](docs/TenantCreateAllOf.md)
  - [TenantUpdate](docs/TenantUpdate.md)
  - [TenantsPage](docs/TenantsPage.md)
  - [TenantsPageAllOf](docs/TenantsPageAllOf.md)

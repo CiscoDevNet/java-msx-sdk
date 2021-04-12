@@ -11,12 +11,12 @@ Name | Type | Description | Notes
 **createdOn** | **OffsetDateTime** |  |  [optional] [readonly]
 **modifiedOn** | **OffsetDateTime** |  |  [optional] [readonly]
 **suspended** | **Boolean** |  |  [optional] [readonly]
+**numberOfChildren** | **Long** |  |  [optional] [readonly]
+**parentId** | **UUID** |  |  [optional]
 **name** | **String** |  | 
 **description** | **String** |  |  [optional]
 **url** | **String** |  |  [optional]
 **image** | **String** |  |  [optional]
-**parentId** | **UUID** |  |  [optional]
-**numberOfChildren** | **Long** |  |  [optional] [readonly]
 
 
 
