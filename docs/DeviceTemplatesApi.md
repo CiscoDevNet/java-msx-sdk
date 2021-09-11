@@ -1,10 +1,11 @@
 # DeviceTemplatesApi
 
-All URIs are relative to *http://localhost:8765*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createDeviceTemplate**](DeviceTemplatesApi.md#createDeviceTemplate) | **POST** /manage/api/v8/devicetemplates | Creates a device template.
+[**createDeviceTemplateVersion**](DeviceTemplatesApi.md#createDeviceTemplateVersion) | **POST** /manage/api/v8/devicetemplates/versions | Creates a new version of an existing device template.
 [**deleteDeviceTemplate**](DeviceTemplatesApi.md#deleteDeviceTemplate) | **DELETE** /manage/api/v8/devicetemplates/{id} | Deletes a device template.
 [**getDeviceTemplate**](DeviceTemplatesApi.md#getDeviceTemplate) | **GET** /manage/api/v8/devicetemplates/{id} | Returns a device template.
 [**getDeviceTemplatesList**](DeviceTemplatesApi.md#getDeviceTemplatesList) | **GET** /manage/api/v8/devicetemplates/list | Returns a list of device templates.
@@ -30,7 +31,7 @@ import com.cisco.msx.platform.client.DeviceTemplatesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     DeviceTemplatesApi apiInstance = new DeviceTemplatesApi(defaultClient);
     DeviceTemplateCreate deviceTemplateCreate = new DeviceTemplateCreate(); // DeviceTemplateCreate | 
@@ -76,6 +77,70 @@ No authorization required
 **403** | Unauthorized |  -  |
 **500** | Internal Server Error |  -  |
 
+<a name="createDeviceTemplateVersion"></a>
+# **createDeviceTemplateVersion**
+> DeviceTemplate createDeviceTemplateVersion(deviceTemplateVersionCreate)
+
+Creates a new version of an existing device template.
+
+### Example
+```java
+// Import classes:
+import com.cisco.msx.platform.ApiClient;
+import com.cisco.msx.platform.ApiException;
+import com.cisco.msx.platform.Configuration;
+import com.cisco.msx.platform.models.*;
+import com.cisco.msx.platform.client.DeviceTemplatesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    DeviceTemplatesApi apiInstance = new DeviceTemplatesApi(defaultClient);
+    DeviceTemplateVersionCreate deviceTemplateVersionCreate = new DeviceTemplateVersionCreate(); // DeviceTemplateVersionCreate | 
+    try {
+      DeviceTemplate result = apiInstance.createDeviceTemplateVersion(deviceTemplateVersionCreate);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DeviceTemplatesApi#createDeviceTemplateVersion");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **deviceTemplateVersionCreate** | [**DeviceTemplateVersionCreate**](DeviceTemplateVersionCreate.md)|  |
+
+### Return type
+
+[**DeviceTemplate**](DeviceTemplate.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Created |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthenticated |  -  |
+**403** | Unauthorized |  -  |
+**500** | Internal Server Error |  -  |
+
 <a name="deleteDeviceTemplate"></a>
 # **deleteDeviceTemplate**
 > deleteDeviceTemplate(id)
@@ -94,7 +159,7 @@ import com.cisco.msx.platform.client.DeviceTemplatesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     DeviceTemplatesApi apiInstance = new DeviceTemplatesApi(defaultClient);
     UUID id = new UUID(); // UUID | 
@@ -158,7 +223,7 @@ import com.cisco.msx.platform.client.DeviceTemplatesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     DeviceTemplatesApi apiInstance = new DeviceTemplatesApi(defaultClient);
     UUID id = new UUID(); // UUID | 
@@ -207,7 +272,7 @@ No authorization required
 
 <a name="getDeviceTemplatesList"></a>
 # **getDeviceTemplatesList**
-> List&lt;DeviceTemplate&gt; getDeviceTemplatesList(serviceType, tenantId)
+> List&lt;DeviceTemplate&gt; getDeviceTemplatesList(allVersions, serviceType, tenantId)
 
 Returns a list of device templates.
 
@@ -223,13 +288,14 @@ import com.cisco.msx.platform.client.DeviceTemplatesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     DeviceTemplatesApi apiInstance = new DeviceTemplatesApi(defaultClient);
+    Boolean allVersions = false; // Boolean | 
     String serviceType = "manageddevice"; // String | 
     UUID tenantId = new UUID(); // UUID | 
     try {
-      List<DeviceTemplate> result = apiInstance.getDeviceTemplatesList(serviceType, tenantId);
+      List<DeviceTemplate> result = apiInstance.getDeviceTemplatesList(allVersions, serviceType, tenantId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DeviceTemplatesApi#getDeviceTemplatesList");
@@ -246,6 +312,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **allVersions** | **Boolean**|  | [optional] [default to false]
  **serviceType** | **String**|  | [optional]
  **tenantId** | [**UUID**](.md)|  | [optional]
 
@@ -289,7 +356,7 @@ import com.cisco.msx.platform.client.DeviceTemplatesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     DeviceTemplatesApi apiInstance = new DeviceTemplatesApi(defaultClient);
     File file = new File("/path/to/file"); // File | The XML template file of a device template
@@ -353,7 +420,7 @@ import com.cisco.msx.platform.client.DeviceTemplatesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     DeviceTemplatesApi apiInstance = new DeviceTemplatesApi(defaultClient);
     UUID id = new UUID(); // UUID | 

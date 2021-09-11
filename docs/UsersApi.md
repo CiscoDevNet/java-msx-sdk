@@ -1,6 +1,6 @@
 # UsersApi
 
-All URIs are relative to *http://localhost:8765*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -31,7 +31,7 @@ import com.cisco.msx.platform.client.UsersApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     UsersApi apiInstance = new UsersApi(defaultClient);
     UserCreate userCreate = new UserCreate(); // UserCreate | 
@@ -95,7 +95,7 @@ import com.cisco.msx.platform.client.UsersApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     UsersApi apiInstance = new UsersApi(defaultClient);
     UUID id = new UUID(); // UUID | 
@@ -159,7 +159,7 @@ import com.cisco.msx.platform.client.UsersApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     UsersApi apiInstance = new UsersApi(defaultClient);
     try {
@@ -218,7 +218,7 @@ import com.cisco.msx.platform.client.UsersApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     UsersApi apiInstance = new UsersApi(defaultClient);
     UUID id = new UUID(); // UUID | 
@@ -283,7 +283,7 @@ import com.cisco.msx.platform.client.UsersApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     UsersApi apiInstance = new UsersApi(defaultClient);
     Integer page = 0; // Integer | 
@@ -353,7 +353,7 @@ import com.cisco.msx.platform.client.UsersApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     UsersApi apiInstance = new UsersApi(defaultClient);
     UUID id = new UUID(); // UUID | 
@@ -420,7 +420,7 @@ import com.cisco.msx.platform.client.UsersApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     UsersApi apiInstance = new UsersApi(defaultClient);
     UpdatePassword updatePassword = new UpdatePassword(); // UpdatePassword | 

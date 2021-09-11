@@ -1,6 +1,6 @@
 # HealthApi
 
-All URIs are relative to *http://localhost:8765*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -26,7 +26,7 @@ import com.cisco.msx.platform.client.HealthApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     HealthApi apiInstance = new HealthApi(defaultClient);
     List<String> ids = Arrays.asList(); // List<String> | 
@@ -90,7 +90,7 @@ import com.cisco.msx.platform.client.HealthApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     HealthApi apiInstance = new HealthApi(defaultClient);
     List<String> ids = Arrays.asList(); // List<String> | 

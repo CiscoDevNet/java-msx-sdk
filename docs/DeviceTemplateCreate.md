@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **templateStandard** | **String** |  |  [optional]
 **tenantAccess** | [**DeviceTemplateAccess**](DeviceTemplateAccess.md) |  |  [optional]
 **templateParameterValidators** | [**List&lt;TemplateParameterValidator&gt;**](TemplateParameterValidator.md) |  |  [optional]
+**tags** | **List&lt;String&gt;** |  |  [optional]
 
 
 

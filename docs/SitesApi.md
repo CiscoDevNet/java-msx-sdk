@@ -1,6 +1,6 @@
 # SitesApi
 
-All URIs are relative to *http://localhost:8765*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -33,7 +33,7 @@ import com.cisco.msx.platform.client.SitesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     SitesApi apiInstance = new SitesApi(defaultClient);
     UUID id = new UUID(); // UUID | 
@@ -100,7 +100,7 @@ import com.cisco.msx.platform.client.SitesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     SitesApi apiInstance = new SitesApi(defaultClient);
     UUID id = new UUID(); // UUID | 
@@ -167,7 +167,7 @@ import com.cisco.msx.platform.client.SitesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     SitesApi apiInstance = new SitesApi(defaultClient);
     SiteCreate siteCreate = new SiteCreate(); // SiteCreate | 
@@ -231,7 +231,7 @@ import com.cisco.msx.platform.client.SitesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     SitesApi apiInstance = new SitesApi(defaultClient);
     UUID id = new UUID(); // UUID | 
@@ -295,7 +295,7 @@ import com.cisco.msx.platform.client.SitesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     SitesApi apiInstance = new SitesApi(defaultClient);
     UUID id = new UUID(); // UUID | 
@@ -346,7 +346,7 @@ No authorization required
 
 <a name="getSitesPage"></a>
 # **getSitesPage**
-> SitesPage getSitesPage(page, pageSize, tenantId, serviceId, serviceType, deviceId, parentId, type, managingControlPlaneId, showImage)
+> SitesPage getSitesPage(page, pageSize, tenantId, includeSubtenants, serviceId, serviceType, deviceId, parentId, type, managingControlPlaneId, showImage)
 
 Returns a page of Sites. Only one filter is supported at a time.
 
@@ -362,12 +362,13 @@ import com.cisco.msx.platform.client.SitesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     SitesApi apiInstance = new SitesApi(defaultClient);
     Integer page = 0; // Integer | 
     Integer pageSize = 10; // Integer | 
     UUID tenantId = new UUID(); // UUID | 
+    Boolean includeSubtenants = false; // Boolean | 
     String serviceId = "serviceId_example"; // String | 
     String serviceType = "serviceType_example"; // String | 
     String deviceId = "deviceId_example"; // String | 
@@ -376,7 +377,7 @@ public class Example {
     String managingControlPlaneId = "managingControlPlaneId_example"; // String | 
     Boolean showImage = false; // Boolean | 
     try {
-      SitesPage result = apiInstance.getSitesPage(page, pageSize, tenantId, serviceId, serviceType, deviceId, parentId, type, managingControlPlaneId, showImage);
+      SitesPage result = apiInstance.getSitesPage(page, pageSize, tenantId, includeSubtenants, serviceId, serviceType, deviceId, parentId, type, managingControlPlaneId, showImage);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SitesApi#getSitesPage");
@@ -396,6 +397,7 @@ Name | Type | Description  | Notes
  **page** | **Integer**|  |
  **pageSize** | **Integer**|  |
  **tenantId** | [**UUID**](.md)|  | [optional]
+ **includeSubtenants** | **Boolean**|  | [optional] [default to false]
  **serviceId** | **String**|  | [optional]
  **serviceType** | **String**|  | [optional]
  **deviceId** | **String**|  | [optional]
@@ -444,7 +446,7 @@ import com.cisco.msx.platform.client.SitesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     SitesApi apiInstance = new SitesApi(defaultClient);
     UUID id = new UUID(); // UUID | 
@@ -511,7 +513,7 @@ import com.cisco.msx.platform.client.SitesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     SitesApi apiInstance = new SitesApi(defaultClient);
     String id = "id_example"; // String | 
@@ -578,7 +580,7 @@ import com.cisco.msx.platform.client.SitesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     SitesApi apiInstance = new SitesApi(defaultClient);
     UUID id = new UUID(); // UUID | 

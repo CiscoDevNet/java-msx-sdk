@@ -1,6 +1,6 @@
 # OffersApi
 
-All URIs are relative to *http://localhost:8765*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -32,7 +32,7 @@ import com.cisco.msx.platform.client.OffersApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     OffersApi apiInstance = new OffersApi(defaultClient);
     OfferCreate offerCreate = new OfferCreate(); // OfferCreate | 
@@ -96,7 +96,7 @@ import com.cisco.msx.platform.client.OffersApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     OffersApi apiInstance = new OffersApi(defaultClient);
     UUID id = new UUID(); // UUID | 
@@ -160,7 +160,7 @@ import com.cisco.msx.platform.client.OffersApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     OffersApi apiInstance = new OffersApi(defaultClient);
     UUID id = new UUID(); // UUID | 
@@ -225,7 +225,7 @@ import com.cisco.msx.platform.client.OffersApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     OffersApi apiInstance = new OffersApi(defaultClient);
     UUID id = new UUID(); // UUID | 
@@ -290,7 +290,7 @@ import com.cisco.msx.platform.client.OffersApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     OffersApi apiInstance = new OffersApi(defaultClient);
     UUID productId = new UUID(); // UUID | 
@@ -356,7 +356,7 @@ import com.cisco.msx.platform.client.OffersApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     OffersApi apiInstance = new OffersApi(defaultClient);
     Integer page = 0; // Integer | 
@@ -426,7 +426,7 @@ import com.cisco.msx.platform.client.OffersApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     OffersApi apiInstance = new OffersApi(defaultClient);
     UUID id = new UUID(); // UUID | 
@@ -493,7 +493,7 @@ import com.cisco.msx.platform.client.OffersApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     OffersApi apiInstance = new OffersApi(defaultClient);
     UUID id = new UUID(); // UUID | 

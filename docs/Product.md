@@ -14,12 +14,12 @@ Name | Type | Description | Notes
 **description** | **String** |  | 
 **image** | **String** |  | 
 **multipleInstanceAllowed** | **Boolean** |  |  [optional]
-**price** | **String** |  | 
+**price** | **String** |  |  [optional]
 **displayOrder** | **Integer** |  |  [optional]
 **active** | **Boolean** |  |  [optional]
 **orderLimit** | **Integer** |  |  [optional]
 **options** | [**List&lt;ServiceElement&gt;**](ServiceElement.md) |  | 
-**properties** | [**List&lt;ServiceElement&gt;**](ServiceElement.md) |  | 
+**properties** | [**List&lt;ServiceElement&gt;**](ServiceElement.md) |  |  [optional]
 **_configuration** | **Map&lt;String, String&gt;** |  | 
 **isResource** | **Boolean** |  | 
 **hasChildren** | **Boolean** |  | 
@@ -27,6 +27,7 @@ Name | Type | Description | Notes
 **serviceExtensions** | [**List&lt;NSOConfigDataXPath&gt;**](NSOConfigDataXPath.md) |  |  [optional]
 **serviceConfigQueryRootXPaths** | **List&lt;String&gt;** |  |  [optional]
 **uiConfig** | [**ServiceUIConfig**](ServiceUIConfig.md) |  |  [optional]
+**tags** | **List&lt;String&gt;** |  |  [optional]
 
 
 

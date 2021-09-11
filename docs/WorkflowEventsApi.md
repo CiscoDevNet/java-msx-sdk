@@ -1,6 +1,6 @@
 # WorkflowEventsApi
 
-All URIs are relative to *http://localhost:8765*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -29,7 +29,7 @@ import com.cisco.msx.platform.client.WorkflowEventsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     WorkflowEventsApi apiInstance = new WorkflowEventsApi(defaultClient);
     WorkflowEventCreate workflowEventCreate = new WorkflowEventCreate(); // WorkflowEventCreate | 
@@ -93,7 +93,7 @@ import com.cisco.msx.platform.client.WorkflowEventsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     WorkflowEventsApi apiInstance = new WorkflowEventsApi(defaultClient);
     String id = "id_example"; // String | 
@@ -157,7 +157,7 @@ import com.cisco.msx.platform.client.WorkflowEventsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     WorkflowEventsApi apiInstance = new WorkflowEventsApi(defaultClient);
     String id = "id_example"; // String | 
@@ -222,7 +222,7 @@ import com.cisco.msx.platform.client.WorkflowEventsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     WorkflowEventsApi apiInstance = new WorkflowEventsApi(defaultClient);
     try {
@@ -282,7 +282,7 @@ import com.cisco.msx.platform.client.WorkflowEventsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     WorkflowEventsApi apiInstance = new WorkflowEventsApi(defaultClient);
     String id = "id_example"; // String | 

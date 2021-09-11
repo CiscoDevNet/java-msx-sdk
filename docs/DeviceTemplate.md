@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **name** | **String** |  |  [optional]
 **description** | **String** |  |  [optional]
 **version** | **String** |  |  [optional]
+**isLatestVersion** | **Boolean** |  |  [optional]
 **serviceType** | **String** |  |  [optional]
 **deviceModels** | **List&lt;String&gt;** |  |  [optional]
 **configContent** | **String** |  |  [optional]
@@ -20,6 +21,7 @@ Name | Type | Description | Notes
 **templateStandard** | **String** |  |  [optional]
 **tenantAccess** | [**DeviceTemplateAccess**](DeviceTemplateAccess.md) |  |  [optional]
 **templateParameterValidators** | [**List&lt;TemplateParameterValidator&gt;**](TemplateParameterValidator.md) |  |  [optional]
+**tags** | **List&lt;String&gt;** |  |  [optional]
 
 
 

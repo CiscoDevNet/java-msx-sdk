@@ -1,6 +1,6 @@
 # WorkflowSchemasApi
 
-All URIs are relative to *http://localhost:8765*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -26,7 +26,7 @@ import com.cisco.msx.platform.client.WorkflowSchemasApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     WorkflowSchemasApi apiInstance = new WorkflowSchemasApi(defaultClient);
     String id = "id_example"; // String | 
@@ -93,7 +93,7 @@ import com.cisco.msx.platform.client.WorkflowSchemasApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     WorkflowSchemasApi apiInstance = new WorkflowSchemasApi(defaultClient);
     String baseType = "category"; // String | 

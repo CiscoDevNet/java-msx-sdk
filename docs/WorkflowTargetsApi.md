@@ -1,6 +1,6 @@
 # WorkflowTargetsApi
 
-All URIs are relative to *http://localhost:8765*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -29,7 +29,7 @@ import com.cisco.msx.platform.client.WorkflowTargetsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     WorkflowTargetsApi apiInstance = new WorkflowTargetsApi(defaultClient);
     WorkflowTargetCreate workflowTargetCreate = new WorkflowTargetCreate(); // WorkflowTargetCreate | 
@@ -93,7 +93,7 @@ import com.cisco.msx.platform.client.WorkflowTargetsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     WorkflowTargetsApi apiInstance = new WorkflowTargetsApi(defaultClient);
     String id = "id_example"; // String | 
@@ -157,7 +157,7 @@ import com.cisco.msx.platform.client.WorkflowTargetsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     WorkflowTargetsApi apiInstance = new WorkflowTargetsApi(defaultClient);
     String id = "id_example"; // String | 
@@ -222,7 +222,7 @@ import com.cisco.msx.platform.client.WorkflowTargetsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     WorkflowTargetsApi apiInstance = new WorkflowTargetsApi(defaultClient);
     Boolean internal = true; // Boolean | 
@@ -288,7 +288,7 @@ import com.cisco.msx.platform.client.WorkflowTargetsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     WorkflowTargetsApi apiInstance = new WorkflowTargetsApi(defaultClient);
     String id = "id_example"; // String | 

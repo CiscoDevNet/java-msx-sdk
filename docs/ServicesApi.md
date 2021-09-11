@@ -1,6 +1,6 @@
 # ServicesApi
 
-All URIs are relative to *http://localhost:8765*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**getServicesPage**](ServicesApi.md#getServicesPage) | **GET** /manage/api/v8/services | Returns a page of services.
 [**submitOrder**](ServicesApi.md#submitOrder) | **POST** /manage/api/v8/services | Submits an order.
 [**updateOrder**](ServicesApi.md#updateOrder) | **PUT** /manage/api/v8/services | Updates an order.
+[**updateService**](ServicesApi.md#updateService) | **PUT** /manage/api/v8/services/{id} | Updates a service.
 
 
 <a name="deleteService"></a>
@@ -29,7 +30,7 @@ import com.cisco.msx.platform.client.ServicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     ServicesApi apiInstance = new ServicesApi(defaultClient);
     String id = "id_example"; // String | 
@@ -93,7 +94,7 @@ import com.cisco.msx.platform.client.ServicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     ServicesApi apiInstance = new ServicesApi(defaultClient);
     String id = "id_example"; // String | 
@@ -133,7 +134,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  -  |
+**200** | OK |  -  |
 **401** | Unauthenticated |  -  |
 **403** | Unauthorized |  -  |
 **404** | Not Found |  -  |
@@ -157,7 +158,7 @@ import com.cisco.msx.platform.client.ServicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     ServicesApi apiInstance = new ServicesApi(defaultClient);
     Integer page = 0; // Integer | 
@@ -225,7 +226,7 @@ import com.cisco.msx.platform.client.ServicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     ServicesApi apiInstance = new ServicesApi(defaultClient);
     UUID productId = new UUID(); // UUID | 
@@ -293,7 +294,7 @@ import com.cisco.msx.platform.client.ServicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     ServicesApi apiInstance = new ServicesApi(defaultClient);
     UUID productId = new UUID(); // UUID | 
@@ -324,6 +325,72 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**LegacyServiceOrderResponse**](LegacyServiceOrderResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthenticated |  -  |
+**403** | Unauthorized |  -  |
+**500** | Internal Server Error |  -  |
+
+<a name="updateService"></a>
+# **updateService**
+> Service updateService(id, serviceUpdate)
+
+Updates a service.
+
+### Example
+```java
+// Import classes:
+import com.cisco.msx.platform.ApiClient;
+import com.cisco.msx.platform.ApiException;
+import com.cisco.msx.platform.Configuration;
+import com.cisco.msx.platform.models.*;
+import com.cisco.msx.platform.client.ServicesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    ServicesApi apiInstance = new ServicesApi(defaultClient);
+    String id = "id_example"; // String | 
+    ServiceUpdate serviceUpdate = new ServiceUpdate(); // ServiceUpdate | 
+    try {
+      Service result = apiInstance.updateService(id, serviceUpdate);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ServicesApi#updateService");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**|  |
+ **serviceUpdate** | [**ServiceUpdate**](ServiceUpdate.md)|  |
+
+### Return type
+
+[**Service**](Service.md)
 
 ### Authorization
 
