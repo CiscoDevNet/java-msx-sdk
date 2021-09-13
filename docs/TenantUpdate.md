@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **description** | **String** |  |  [optional]
 **url** | **String** |  |  [optional]
 **image** | **String** |  |  [optional]
+**email** | **String** |  |  [optional]
 
 
 

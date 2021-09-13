@@ -1,6 +1,6 @@
 # SecurityApi
 
-All URIs are relative to *http://localhost:8765*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -25,7 +25,7 @@ import com.cisco.msx.platform.client.SecurityApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     SecurityApi apiInstance = new SecurityApi(defaultClient);
     String authorization = "authorization_example"; // String | 

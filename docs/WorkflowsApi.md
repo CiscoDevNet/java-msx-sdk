@@ -1,6 +1,6 @@
 # WorkflowsApi
 
-All URIs are relative to *http://localhost:8765*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -33,7 +33,7 @@ import com.cisco.msx.platform.client.WorkflowsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     WorkflowsApi apiInstance = new WorkflowsApi(defaultClient);
     String id = "id_example"; // String | 
@@ -97,7 +97,7 @@ import com.cisco.msx.platform.client.WorkflowsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     WorkflowsApi apiInstance = new WorkflowsApi(defaultClient);
     String id = "id_example"; // String | 
@@ -162,7 +162,7 @@ import com.cisco.msx.platform.client.WorkflowsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     WorkflowsApi apiInstance = new WorkflowsApi(defaultClient);
     String id = "id_example"; // String | 
@@ -227,7 +227,7 @@ import com.cisco.msx.platform.client.WorkflowsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     WorkflowsApi apiInstance = new WorkflowsApi(defaultClient);
     String id = "id_example"; // String | 
@@ -292,7 +292,7 @@ import com.cisco.msx.platform.client.WorkflowsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     WorkflowsApi apiInstance = new WorkflowsApi(defaultClient);
     UUID tenantId = new UUID(); // UUID | 
@@ -358,7 +358,7 @@ import com.cisco.msx.platform.client.WorkflowsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     WorkflowsApi apiInstance = new WorkflowsApi(defaultClient);
     Map<String, Object> requestBody = {"workflow":{"unique_name":"definition_workflow_1flwhkwsayquzQyyfgz6tdRoyK2","name":"Health Check Atomic","title":"Health Check Atomic","type":"generic.workflow","base_type":"workflow","variables":[{"schema_id":"1flwhm42MFVKT16QCVpnzTV3NDL","properties":{"value":"","scope":"input","name":"service_name","type":"datatype.string"},"unique_name":"variable_workflow_1flwhkauAJQe4uzBvUDvCBdY2HM","object_type":"variable_workflow"}],"properties":{"atomic":{"is_atomic":false},"delete_workflow_instance":false,"display_name":"Health Check Atomic","favorite":false,"target":{"target_type":"web-service.endpoint","target_id":"definition_target_1flwhpdkMV95YN7uSm2ygMYsVe2","execute_on_workflow_target":true}},"object_type":"definition_workflow","actions":[{"unique_name":"definition_activity_1flwhq819QYFkMjAfPWDcg4zliI","name":"HTTP Request","title":"HTTP Request","type":"web-service.http_request","base_type":"activity","properties":{"accept":"application/json","action_timeout":180,"allow_auto_redirect":true,"content_type":"application/json","continue_on_error_status_code":false,"continue_on_failure":false,"custom_headers":[{"name":"Content-type","value":"application/vnd.spring-boot.actuator.v1+json"}],"display_name":"HTTP Request","method":"GET","relative_url":"/$workflow.definition_workflow_1flwhkwsayquzQyyfgz6tdRoyK2.input.variable_workflow_1flwhkauAJQe4uzBvUDvCBdY2HM$/admin/health","runtime_user":{"override_target_runtime_user":false,"target_default":true},"target":{"override_workflow_target":false,"use_workflow_target":true}},"object_type":"definition_activity"}]},"targets":{"definition_target_1flwhpdkMV95YN7uSm2ygMYsVe2":{"unique_name":"definition_target_1flwhpdkMV95YN7uSm2ygMYsVe2","name":"Router Service","title":"Router Service","type":"web-service.endpoint","base_type":"target","object_type":"definition_target","properties":{"description":"Router Service","disable_certificate_validation":true,"display_name":"Router Service","host":"dev-plt-aio1.lab.ciscomsx.com","no_runtime_user":true,"port":-1,"protocol":"https"}}}}; // Map<String, Object> | 
@@ -426,7 +426,7 @@ import com.cisco.msx.platform.client.WorkflowsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     WorkflowsApi apiInstance = new WorkflowsApi(defaultClient);
     String id = "id_example"; // String | 
@@ -479,7 +479,7 @@ No authorization required
 
 <a name="updateWorkflow"></a>
 # **updateWorkflow**
-> WorkflowMapping updateWorkflow(id, requestBody, tenantId, global)
+> WorkflowMapping updateWorkflow(id, requestBody, tenantIds, global)
 
 Updates a workflow.
 
@@ -495,15 +495,15 @@ import com.cisco.msx.platform.client.WorkflowsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     WorkflowsApi apiInstance = new WorkflowsApi(defaultClient);
     String id = "id_example"; // String | 
     Map<String, Object> requestBody = null; // Map<String, Object> | 
-    List<UUID> tenantId = Arrays.asList(); // List<UUID> | 
+    List<UUID> tenantIds = Arrays.asList(); // List<UUID> | 
     Boolean global = true; // Boolean | 
     try {
-      WorkflowMapping result = apiInstance.updateWorkflow(id, requestBody, tenantId, global);
+      WorkflowMapping result = apiInstance.updateWorkflow(id, requestBody, tenantIds, global);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WorkflowsApi#updateWorkflow");
@@ -522,7 +522,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**|  |
  **requestBody** | [**Map&lt;String, Object&gt;**](Object.md)|  |
- **tenantId** | [**List&lt;UUID&gt;**](UUID.md)|  | [optional]
+ **tenantIds** | [**List&lt;UUID&gt;**](UUID.md)|  | [optional]
  **global** | **Boolean**|  | [optional]
 
 ### Return type
@@ -565,7 +565,7 @@ import com.cisco.msx.platform.client.WorkflowsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     WorkflowsApi apiInstance = new WorkflowsApi(defaultClient);
     String id = "id_example"; // String | 

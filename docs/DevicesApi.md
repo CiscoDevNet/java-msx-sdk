@@ -1,6 +1,6 @@
 # DevicesApi
 
-All URIs are relative to *http://localhost:8765*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -13,7 +13,9 @@ Method | HTTP request | Description
 [**getDeviceConfig**](DevicesApi.md#getDeviceConfig) | **GET** /manage/api/v8/devices/{id}/config | Returns the running configuration for a device.
 [**getDeviceTemplateHistory**](DevicesApi.md#getDeviceTemplateHistory) | **GET** /manage/api/v8/devices/{id}/templates | Returns device template history.
 [**getDevicesPage**](DevicesApi.md#getDevicesPage) | **GET** /manage/api/v8/devices | Returns a page of devices.
+[**patchDevice**](DevicesApi.md#patchDevice) | **PATCH** /manage/api/v8/devices/{id} | Update a device.
 [**redeployDevice**](DevicesApi.md#redeployDevice) | **POST** /manage/api/v8/devices/{id}/redeploy | Dedeploys a device.
+[**updateDevice**](DevicesApi.md#updateDevice) | **PUT** /manage/api/v8/devices/{id} | Update a device.
 [**updateDeviceTemplates**](DevicesApi.md#updateDeviceTemplates) | **PUT** /manage/api/v8/devices/{id}/templates | Update device templates that are already attached to a device.
 
 
@@ -35,7 +37,7 @@ import com.cisco.msx.platform.client.DevicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     DevicesApi apiInstance = new DevicesApi(defaultClient);
     String id = "id_example"; // String | 
@@ -102,7 +104,7 @@ import com.cisco.msx.platform.client.DevicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     DevicesApi apiInstance = new DevicesApi(defaultClient);
     DeviceCreate deviceCreate = new DeviceCreate(); // DeviceCreate | 
@@ -166,7 +168,7 @@ import com.cisco.msx.platform.client.DevicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     DevicesApi apiInstance = new DevicesApi(defaultClient);
     String id = "id_example"; // String | 
@@ -230,7 +232,7 @@ import com.cisco.msx.platform.client.DevicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     DevicesApi apiInstance = new DevicesApi(defaultClient);
     String id = "id_example"; // String | 
@@ -297,7 +299,7 @@ import com.cisco.msx.platform.client.DevicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     DevicesApi apiInstance = new DevicesApi(defaultClient);
     String id = "id_example"; // String | 
@@ -362,7 +364,7 @@ import com.cisco.msx.platform.client.DevicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     DevicesApi apiInstance = new DevicesApi(defaultClient);
     String id = "id_example"; // String | 
@@ -427,7 +429,7 @@ import com.cisco.msx.platform.client.DevicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     DevicesApi apiInstance = new DevicesApi(defaultClient);
     String id = "id_example"; // String | 
@@ -492,7 +494,7 @@ import com.cisco.msx.platform.client.DevicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     DevicesApi apiInstance = new DevicesApi(defaultClient);
     String id = "id_example"; // String | 
@@ -543,7 +545,7 @@ No authorization required
 
 <a name="getDevicesPage"></a>
 # **getDevicesPage**
-> DevicesPage getDevicesPage(page, pageSize, deviceIds, serviceIds, types, serialKeys, serviceTypes, models, subtypes, names, versions, tenantIds, severities, sortBy, sortOrder)
+> DevicesPage getDevicesPage(page, pageSize, deviceIds, serviceIds, types, serialKeys, serviceTypes, models, subtypes, names, versions, tenantIds, includeSubtenants, severities, complianceStates, vulnerabilityStates, sortBy, sortOrder)
 
 Returns a page of devices.
 
@@ -559,7 +561,7 @@ import com.cisco.msx.platform.client.DevicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     DevicesApi apiInstance = new DevicesApi(defaultClient);
     Integer page = 0; // Integer | 
@@ -574,11 +576,14 @@ public class Example {
     List<String> names = Arrays.asList(); // List<String> | 
     List<String> versions = Arrays.asList(); // List<String> | 
     List<UUID> tenantIds = Arrays.asList(); // List<UUID> | 
+    Boolean includeSubtenants = false; // Boolean | 
     List<String> severities = Arrays.asList(); // List<String> | 
+    List<DeviceComplianceState> complianceStates = Arrays.asList(); // List<DeviceComplianceState> | 
+    List<DeviceVulnerabilityState> vulnerabilityStates = Arrays.asList(); // List<DeviceVulnerabilityState> | 
     String sortBy = "name"; // String | 
     String sortOrder = "asc"; // String | 
     try {
-      DevicesPage result = apiInstance.getDevicesPage(page, pageSize, deviceIds, serviceIds, types, serialKeys, serviceTypes, models, subtypes, names, versions, tenantIds, severities, sortBy, sortOrder);
+      DevicesPage result = apiInstance.getDevicesPage(page, pageSize, deviceIds, serviceIds, types, serialKeys, serviceTypes, models, subtypes, names, versions, tenantIds, includeSubtenants, severities, complianceStates, vulnerabilityStates, sortBy, sortOrder);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DevicesApi#getDevicesPage");
@@ -607,7 +612,10 @@ Name | Type | Description  | Notes
  **names** | [**List&lt;String&gt;**](String.md)|  | [optional]
  **versions** | [**List&lt;String&gt;**](String.md)|  | [optional]
  **tenantIds** | [**List&lt;UUID&gt;**](UUID.md)|  | [optional]
+ **includeSubtenants** | **Boolean**|  | [optional] [default to false]
  **severities** | [**List&lt;String&gt;**](String.md)|  | [optional]
+ **complianceStates** | [**List&lt;DeviceComplianceState&gt;**](DeviceComplianceState.md)|  | [optional]
+ **vulnerabilityStates** | [**List&lt;DeviceVulnerabilityState&gt;**](DeviceVulnerabilityState.md)|  | [optional]
  **sortBy** | **String**|  | [optional]
  **sortOrder** | **String**|  | [optional] [default to asc] [enum: asc, desc]
 
@@ -633,6 +641,73 @@ No authorization required
 **403** | Unauthorized |  -  |
 **500** | Internal Server Error |  -  |
 
+<a name="patchDevice"></a>
+# **patchDevice**
+> Device patchDevice(id, devicePatch)
+
+Update a device.
+
+### Example
+```java
+// Import classes:
+import com.cisco.msx.platform.ApiClient;
+import com.cisco.msx.platform.ApiException;
+import com.cisco.msx.platform.Configuration;
+import com.cisco.msx.platform.models.*;
+import com.cisco.msx.platform.client.DevicesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    DevicesApi apiInstance = new DevicesApi(defaultClient);
+    String id = "id_example"; // String | 
+    DevicePatch devicePatch = new DevicePatch(); // DevicePatch | 
+    try {
+      Device result = apiInstance.patchDevice(id, devicePatch);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DevicesApi#patchDevice");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**|  |
+ **devicePatch** | [**DevicePatch**](DevicePatch.md)|  |
+
+### Return type
+
+[**Device**](Device.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthenticated |  -  |
+**403** | Unauthorized |  -  |
+**404** | Not Found |  -  |
+**500** | Internal Server Error |  -  |
+
 <a name="redeployDevice"></a>
 # **redeployDevice**
 > redeployDevice(id)
@@ -651,7 +726,7 @@ import com.cisco.msx.platform.client.DevicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     DevicesApi apiInstance = new DevicesApi(defaultClient);
     String id = "id_example"; // String | 
@@ -697,6 +772,73 @@ No authorization required
 **409** | Conflict |  -  |
 **500** | Internal Server Error |  -  |
 
+<a name="updateDevice"></a>
+# **updateDevice**
+> Device updateDevice(id, deviceUpdate)
+
+Update a device.
+
+### Example
+```java
+// Import classes:
+import com.cisco.msx.platform.ApiClient;
+import com.cisco.msx.platform.ApiException;
+import com.cisco.msx.platform.Configuration;
+import com.cisco.msx.platform.models.*;
+import com.cisco.msx.platform.client.DevicesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    DevicesApi apiInstance = new DevicesApi(defaultClient);
+    String id = "id_example"; // String | 
+    DeviceUpdate deviceUpdate = new DeviceUpdate(); // DeviceUpdate | 
+    try {
+      Device result = apiInstance.updateDevice(id, deviceUpdate);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DevicesApi#updateDevice");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**|  |
+ **deviceUpdate** | [**DeviceUpdate**](DeviceUpdate.md)|  |
+
+### Return type
+
+[**Device**](Device.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthenticated |  -  |
+**403** | Unauthorized |  -  |
+**404** | Not Found |  -  |
+**500** | Internal Server Error |  -  |
+
 <a name="updateDeviceTemplates"></a>
 # **updateDeviceTemplates**
 > List&lt;DeviceTemplateHistory&gt; updateDeviceTemplates(id, deviceTemplateUpdateRequest)
@@ -715,7 +857,7 @@ import com.cisco.msx.platform.client.DevicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8765");
+    defaultClient.setBasePath("http://localhost");
 
     DevicesApi apiInstance = new DevicesApi(defaultClient);
     String id = "id_example"; // String | 
