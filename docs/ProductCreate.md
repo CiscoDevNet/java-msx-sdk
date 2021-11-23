@@ -26,6 +26,8 @@ Name | Type | Description | Notes
 **serviceExtensions** | [**List&lt;NSOConfigDataXPath&gt;**](NSOConfigDataXPath.md) |  |  [optional]
 **serviceConfigQueryRootXPaths** | **List&lt;String&gt;** |  |  [optional]
 **uiConfig** | [**ServiceUIConfig**](ServiceUIConfig.md) |  |  [optional]
+**slmUiConfig** | [**ServiceSLMUIConfig**](ServiceSLMUIConfig.md) |  |  [optional]
+**externalId** | **UUID** |  |  [optional]
 **tags** | **List&lt;String&gt;** |  |  [optional]
 
 

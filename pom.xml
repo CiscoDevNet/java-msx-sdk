@@ -5,7 +5,7 @@
     <artifactId>java-msx-sdk</artifactId>
     <packaging>jar</packaging>
     <name>java-msx-sdk</name>
-    <version>1.0.5</version>
+    <version>1.0.8</version>
     <url>https://github.com/openapitools/openapi-generator</url>
     <description>OpenAPI Java</description>
     <scm>
@@ -17,7 +17,7 @@
     <licenses>
         <license>
             <name>Unlicense</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
+            <url>http://unlicense.org</url>
             <distribution>repo</distribution>
         </license>
     </licenses>

@@ -14,11 +14,11 @@ Name | Type | Description | Notes
 **productId** | **UUID** |  | 
 **version** | **Integer** |  | 
 **displayOrder** | **Integer** |  | 
-**image** | **String** |  | 
+**image** | **String** |  |  [optional]
 **price** | **String** |  |  [optional]
 **type** | **String** |  |  [optional]
-**supportedProperties** | **List&lt;String&gt;** |  | 
-**supportedOptions** | [**List&lt;NameValue&gt;**](NameValue.md) |  | 
+**supportedProperties** | **List&lt;String&gt;** |  |  [optional]
+**supportedOptions** | [**List&lt;NameValue&gt;**](NameValue.md) |  |  [optional]
 **approvals** | **Map&lt;String, Object&gt;** |  |  [optional]
 
 
