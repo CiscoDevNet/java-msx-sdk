@@ -5,6 +5,7 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**attachDeviceTemplates**](DevicesApi.md#attachDeviceTemplates) | **POST** /manage/api/v8/devices/{id}/templates | Attaches one or more device templates to a device instance.
+[**batchAttachDeviceTemplates**](DevicesApi.md#batchAttachDeviceTemplates) | **POST** /manage/api/v8/devices/templates/attach | Attaches one or more device templates to a batch of device instances.
 [**createDevice**](DevicesApi.md#createDevice) | **POST** /manage/api/v8/devices | Creates a device.
 [**deleteDevice**](DevicesApi.md#deleteDevice) | **DELETE** /manage/api/v8/devices/{id} | Deletes a device.
 [**detachDeviceTemplate**](DevicesApi.md#detachDeviceTemplate) | **DELETE** /manage/api/v8/devices/{id}/templates/{templateId} | Detaches a template from a device.
@@ -79,6 +80,73 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | OK |  -  |
+**202** | Pending Approval |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthenticated |  -  |
+**403** | Unauthorized |  -  |
+**404** | Not Found |  -  |
+**500** | Internal Server Error |  -  |
+
+<a name="batchAttachDeviceTemplates"></a>
+# **batchAttachDeviceTemplates**
+> List&lt;List&lt;DeviceTemplateHistorySummary&gt;&gt; batchAttachDeviceTemplates(deviceTemplateBatchAttachRequest)
+
+Attaches one or more device templates to a batch of device instances.
+
+### Example
+```java
+// Import classes:
+import com.cisco.msx.platform.ApiClient;
+import com.cisco.msx.platform.ApiException;
+import com.cisco.msx.platform.Configuration;
+import com.cisco.msx.platform.models.*;
+import com.cisco.msx.platform.client.DevicesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    DevicesApi apiInstance = new DevicesApi(defaultClient);
+    DeviceTemplateBatchAttachRequest deviceTemplateBatchAttachRequest = new DeviceTemplateBatchAttachRequest(); // DeviceTemplateBatchAttachRequest | 
+    try {
+      List<List<DeviceTemplateHistorySummary>> result = apiInstance.batchAttachDeviceTemplates(deviceTemplateBatchAttachRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DevicesApi#batchAttachDeviceTemplates");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **deviceTemplateBatchAttachRequest** | [**DeviceTemplateBatchAttachRequest**](DeviceTemplateBatchAttachRequest.md)|  |
+
+### Return type
+
+[**List&lt;List&lt;DeviceTemplateHistorySummary&gt;&gt;**](List.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**202** | Pending Approval |  -  |
 **200** | OK |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthenticated |  -  |
@@ -340,6 +408,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
+**202** | Accepted |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthenticated |  -  |
 **403** | Unauthorized |  -  |
@@ -464,7 +533,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: text/plain, application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -900,6 +969,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
+**202** | Accepted |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthenticated |  -  |
 **403** | Unauthorized |  -  |

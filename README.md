@@ -1,8 +1,8 @@
 # java-msx-sdk
 
 MSX SDK
-- API version: 1.0.5
-  - Build date: 2021-09-10T10:48:16.525056800-04:00[America/Toronto]
+- API version: 1.0.8
+  - Build date: 2021-11-21T19:51:07.781399800-05:00[America/Toronto]
 
 MSX SDK client.
 
@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.cisco.msx.platform</groupId>
   <artifactId>java-msx-sdk</artifactId>
-  <version>1.0.5</version>
+  <version>1.0.8</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -50,7 +50,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.cisco.msx.platform:java-msx-sdk:1.0.5"
+compile "com.cisco.msx.platform:java-msx-sdk:1.0.8"
 ```
 
 ### Others
@@ -63,7 +63,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/java-msx-sdk-1.0.5.jar`
+* `target/java-msx-sdk-1.0.8.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -108,6 +108,20 @@ All URIs are relative to *http://localhost*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AuditingGenericEventsApi* | [**createGenericEvent**](docs/AuditingGenericEventsApi.md#createGenericEvent) | **POST** /auditing/api/v8/genericevents | Create Generic Event
+*BillingCyclesApi* | [**addBillingCycle**](docs/BillingCyclesApi.md#addBillingCycle) | **POST** /billing/api/v8/cycles | Add a billing cycle.
+*BillingCyclesApi* | [**deleteBillingCycle**](docs/BillingCyclesApi.md#deleteBillingCycle) | **DELETE** /billing/api/v8/cycles/{id} | Delete a billing cycle.
+*BillingCyclesApi* | [**getBillingCycle**](docs/BillingCyclesApi.md#getBillingCycle) | **GET** /billing/api/v8/cycles/{id} | Get a billing cycle.
+*BillingCyclesApi* | [**getBillingCyclesPage**](docs/BillingCyclesApi.md#getBillingCyclesPage) | **GET** /billing/api/v8/cycles | Retrieve a page of billing cycles.
+*BillingCyclesApi* | [**processBillingCycle**](docs/BillingCyclesApi.md#processBillingCycle) | **POST** /billing/api/v8/cycles/process | Process a billing cycle.
+*BillingCyclesApi* | [**updateBillingCycle**](docs/BillingCyclesApi.md#updateBillingCycle) | **PUT** /billing/api/v8/cycles/{id} | Update billing cycle for an event type and tenant.
+*BillingEventsApi* | [**getCostSummary**](docs/BillingEventsApi.md#getCostSummary) | **GET** /billing/api/v8/events/costs | Retrieve a summary for tenant cost.
+*BillingEventsApi* | [**getEvent**](docs/BillingEventsApi.md#getEvent) | **GET** /billing/api/v8/events/{id} | Get an Event.
+*BillingEventsApi* | [**getEventsPage**](docs/BillingEventsApi.md#getEventsPage) | **GET** /billing/api/v8/events | Retrieve a page of events for tenant.
+*BillingPricesApi* | [**addPrice**](docs/BillingPricesApi.md#addPrice) | **POST** /billing/api/v8/prices | Add price for tenant and event type.
+*BillingPricesApi* | [**deletePrice**](docs/BillingPricesApi.md#deletePrice) | **DELETE** /billing/api/v8/prices/{id} | Delete a price.
+*BillingPricesApi* | [**getPrice**](docs/BillingPricesApi.md#getPrice) | **GET** /billing/api/v8/prices/{id} | Get a price.
+*BillingPricesApi* | [**getPricesPage**](docs/BillingPricesApi.md#getPricesPage) | **GET** /billing/api/v8/prices | Retrieve a page of prices.
+*BillingPricesApi* | [**updatePrice**](docs/BillingPricesApi.md#updatePrice) | **PUT** /billing/api/v8/prices/{id} | Update price for an event type and tenant.
 *DeviceTemplatesApi* | [**createDeviceTemplate**](docs/DeviceTemplatesApi.md#createDeviceTemplate) | **POST** /manage/api/v8/devicetemplates | Creates a device template.
 *DeviceTemplatesApi* | [**createDeviceTemplateVersion**](docs/DeviceTemplatesApi.md#createDeviceTemplateVersion) | **POST** /manage/api/v8/devicetemplates/versions | Creates a new version of an existing device template.
 *DeviceTemplatesApi* | [**deleteDeviceTemplate**](docs/DeviceTemplatesApi.md#deleteDeviceTemplate) | **DELETE** /manage/api/v8/devicetemplates/{id} | Deletes a device template.
@@ -116,6 +130,7 @@ Class | Method | HTTP request | Description
 *DeviceTemplatesApi* | [**scanDeviceTemplateParameters**](docs/DeviceTemplatesApi.md#scanDeviceTemplateParameters) | **POST** /manage/api/v8/devicetemplates/parameters/scan | API to scan parameters from the device template XML.
 *DeviceTemplatesApi* | [**updateDeviceTemplateAccess**](docs/DeviceTemplatesApi.md#updateDeviceTemplateAccess) | **PUT** /manage/api/v8/devicetemplates/{id}/access | Updates device template access.
 *DevicesApi* | [**attachDeviceTemplates**](docs/DevicesApi.md#attachDeviceTemplates) | **POST** /manage/api/v8/devices/{id}/templates | Attaches one or more device templates to a device instance.
+*DevicesApi* | [**batchAttachDeviceTemplates**](docs/DevicesApi.md#batchAttachDeviceTemplates) | **POST** /manage/api/v8/devices/templates/attach | Attaches one or more device templates to a batch of device instances.
 *DevicesApi* | [**createDevice**](docs/DevicesApi.md#createDevice) | **POST** /manage/api/v8/devices | Creates a device.
 *DevicesApi* | [**deleteDevice**](docs/DevicesApi.md#deleteDevice) | **DELETE** /manage/api/v8/devices/{id} | Deletes a device.
 *DevicesApi* | [**detachDeviceTemplate**](docs/DevicesApi.md#detachDeviceTemplate) | **DELETE** /manage/api/v8/devices/{id}/templates/{templateId} | Detaches a template from a device.
@@ -130,6 +145,29 @@ Class | Method | HTTP request | Description
 *DevicesApi* | [**updateDeviceTemplates**](docs/DevicesApi.md#updateDeviceTemplates) | **PUT** /manage/api/v8/devices/{id}/templates | Update device templates that are already attached to a device.
 *HealthApi* | [**getDevicesHealthList**](docs/HealthApi.md#getDevicesHealthList) | **GET** /monitor/api/v8/health/devices/list | 
 *HealthApi* | [**getServicesHealthList**](docs/HealthApi.md#getServicesHealthList) | **GET** /monitor/api/v8/health/services/list | 
+*IncidentChangeRequestsApi* | [**createChangeRequest**](docs/IncidentChangeRequestsApi.md#createChangeRequest) | **POST** /incident/api/v8/changerequests | Create a change request.
+*IncidentChangeRequestsApi* | [**deleteChangeRequest**](docs/IncidentChangeRequestsApi.md#deleteChangeRequest) | **DELETE** /incident/api/v8/changerequests/{id} | Deletes a change request.
+*IncidentChangeRequestsApi* | [**getChangeRequest**](docs/IncidentChangeRequestsApi.md#getChangeRequest) | **GET** /incident/api/v8/changerequests/{id} | Returns a change request.
+*IncidentChangeRequestsApi* | [**getChangeRequestsPage**](docs/IncidentChangeRequestsApi.md#getChangeRequestsPage) | **GET** /incident/api/v8/changerequests | Returns a filtered list of change requests.
+*IncidentChangeRequestsApi* | [**updateChangeRequest**](docs/IncidentChangeRequestsApi.md#updateChangeRequest) | **PUT** /incident/api/v8/changerequests/{id} | Updates a change request.
+*IncidentConfigurationsApi* | [**createServiceNowConfiguration**](docs/IncidentConfigurationsApi.md#createServiceNowConfiguration) | **POST** /incident/api/v8/configurations | Creates a ServiceNow configuration.
+*IncidentConfigurationsApi* | [**deleteServiceNowConfiguration**](docs/IncidentConfigurationsApi.md#deleteServiceNowConfiguration) | **DELETE** /incident/api/v8/configurations/{id} | Deletes a ServiceNow configuration.
+*IncidentConfigurationsApi* | [**getConfiguration**](docs/IncidentConfigurationsApi.md#getConfiguration) | **GET** /incident/api/v1/config | API to get configuration of encloud service.
+*IncidentConfigurationsApi* | [**getServiceNowConfiguration**](docs/IncidentConfigurationsApi.md#getServiceNowConfiguration) | **GET** /incident/api/v8/configurations/{id} | Returns a ServiceNow configuration.
+*IncidentConfigurationsApi* | [**getServiceNowConfigurationsPage**](docs/IncidentConfigurationsApi.md#getServiceNowConfigurationsPage) | **GET** /incident/api/v8/configurations | Returns a ServiceNow configurations.
+*IncidentConfigurationsApi* | [**patchConfiguration**](docs/IncidentConfigurationsApi.md#patchConfiguration) | **PATCH** /incident/api/v1/config | API to patch configure encloud service
+*IncidentConfigurationsApi* | [**updateConfiguration**](docs/IncidentConfigurationsApi.md#updateConfiguration) | **PUT** /incident/api/v1/config | API to configure encloud service.
+*IncidentsApi* | [**cancelIncident**](docs/IncidentsApi.md#cancelIncident) | **PATCH** /incident/api/v1/incidents/{id}/cancel | Cancels an incident.
+*IncidentsApi* | [**createIncident**](docs/IncidentsApi.md#createIncident) | **POST** /incident/api/v1/incidents | Create a new Incident.
+*IncidentsApi* | [**deleteIncident**](docs/IncidentsApi.md#deleteIncident) | **DELETE** /incident/api/v1/incidents/{id} | Deletes an incident.
+*IncidentsApi* | [**getIncident**](docs/IncidentsApi.md#getIncident) | **GET** /incident/api/v1/incidents/{id} | Get incident details.
+*IncidentsApi* | [**getIncidents**](docs/IncidentsApi.md#getIncidents) | **GET** /incident/api/v1/incidents | Get Incidents by filter.
+*IncidentsApi* | [**updateIncident**](docs/IncidentsApi.md#updateIncident) | **PUT** /incident/api/v1/incidents/{id} | Updates an incident.
+*LicensingAccountsApi* | [**getUserAccountsList**](docs/LicensingAccountsApi.md#getUserAccountsList) | **GET** /licensing/api/v8/accounts/smart/list | Returns a filtered page of smart accounts.
+*LicensingConfigurationsApi* | [**createSmartAccountConfiguration**](docs/LicensingConfigurationsApi.md#createSmartAccountConfiguration) | **POST** /licensing/api/v8/configuration | Creates a smart account configuration.
+*LicensingConfigurationsApi* | [**getSmartAccountConfiguration**](docs/LicensingConfigurationsApi.md#getSmartAccountConfiguration) | **GET** /licensing/api/v8/configuration | Returns a smart account configuration.
+*LicensingConfigurationsApi* | [**updateSmartAccountConfiguration**](docs/LicensingConfigurationsApi.md#updateSmartAccountConfiguration) | **PUT** /licensing/api/v8/configuration | Updates a smart account configuration.
+*LicensingLicensesApi* | [**getLicensesList**](docs/LicensingLicensesApi.md#getLicensesList) | **GET** /licensing/api/v8/licensing/api/v8/licenses/list | Returns a filtered list of licenses.
 *OffersApi* | [**createOffer**](docs/OffersApi.md#createOffer) | **POST** /consume/api/v8/offers | Creates a product offer.
 *OffersApi* | [**deleteOffer**](docs/OffersApi.md#deleteOffer) | **DELETE** /consume/api/v8/offers/{id} | Deletes a product offer
 *OffersApi* | [**getOffer**](docs/OffersApi.md#getOffer) | **GET** /consume/api/v8/offers/{id} | Returns a product offer.
@@ -146,6 +184,9 @@ Class | Method | HTTP request | Description
 *ProductsApi* | [**getProductsPage**](docs/ProductsApi.md#getProductsPage) | **GET** /consume/api/v8/products | Returns a page of products.
 *ProductsApi* | [**updateProduct**](docs/ProductsApi.md#updateProduct) | **PUT** /consume/api/v8/products/{id} | Updates a product.
 *ProductsApi* | [**updateProductAssignments**](docs/ProductsApi.md#updateProductAssignments) | **PUT** /consume/api/v8/products/{id}/assignments | Updates the tenant assignments for a product.
+*RegistrationApi* | [**deleteRegisteredProductVersion**](docs/RegistrationApi.md#deleteRegisteredProductVersion) | **DELETE** /vulnerability/api/v8/vulnerabilities/registrations/{id} | Delete a registration.
+*RegistrationApi* | [**getRegisteredProductVersionPage**](docs/RegistrationApi.md#getRegisteredProductVersionPage) | **GET** /vulnerability/api/v8/vulnerabilities/registrations | Returns a filtered page of registered products / versions.
+*RegistrationApi* | [**registerProductVersion**](docs/RegistrationApi.md#registerProductVersion) | **POST** /vulnerability/api/v8/vulnerabilities/registrations | Register a product / verison combination for vulnerability inspection.
 *RolesApi* | [**getRoleByName**](docs/RolesApi.md#getRoleByName) | **GET** /idm/api/v8/roles/name/{name} | Returns a role by name.
 *RolesApi* | [**getRolesList**](docs/RolesApi.md#getRolesList) | **GET** /idm/api/v8/roles/list | Returns a list of roles.
 *SecurityApi* | [**getAccessToken**](docs/SecurityApi.md#getAccessToken) | **POST** /idm/v2/token | Returns an access token.
@@ -164,6 +205,24 @@ Class | Method | HTTP request | Description
 *SitesApi* | [**removeDevicesFromSite**](docs/SitesApi.md#removeDevicesFromSite) | **POST** /manage/api/v8/sites/{id}/devices/remove | Removes devices from a site.
 *SitesApi* | [**removeServicesFromSite**](docs/SitesApi.md#removeServicesFromSite) | **POST** /manage/api/v8/sites/{id}/services/remove | Remove services from a site.
 *SitesApi* | [**updateSite**](docs/SitesApi.md#updateSite) | **PUT** /manage/api/v8/sites/{id} | Updates a site.
+*TemplateApplicationsApi* | [**applyTemplate**](docs/TemplateApplicationsApi.md#applyTemplate) | **POST** /template/api/v8/templates/{id}/applications | Applies a template to a target.
+*TemplateApplicationsApi* | [**deleteTemplateApplication**](docs/TemplateApplicationsApi.md#deleteTemplateApplication) | **DELETE** /template/api/v8/templates/applications/{id} | Deletes a template application.
+*TemplateApplicationsApi* | [**getTemplateApplication**](docs/TemplateApplicationsApi.md#getTemplateApplication) | **GET** /template/api/v8/templates/applications/{id} | Gets a template application.
+*TemplateApplicationsApi* | [**getTemplateApplicationHistory**](docs/TemplateApplicationsApi.md#getTemplateApplicationHistory) | **GET** /template/api/v8/templates/applications/{id}/history | Gets a template application history.
+*TemplateApplicationsApi* | [**getTemplateApplicationsPage**](docs/TemplateApplicationsApi.md#getTemplateApplicationsPage) | **GET** /template/api/v8/templates/applications | Get a page of template applications.
+*TemplateApplicationsApi* | [**updateApplicationStatus**](docs/TemplateApplicationsApi.md#updateApplicationStatus) | **PATCH** /template/api/v8/templates/applications/{id} | Updates an application status.
+*TemplateAssignmentsApi* | [**batchAssignTemplate**](docs/TemplateAssignmentsApi.md#batchAssignTemplate) | **POST** /template/api/v8/templates/{id}/assignments/add | Assigns a template to one or more tenants.
+*TemplateAssignmentsApi* | [**batchUnassignTemplate**](docs/TemplateAssignmentsApi.md#batchUnassignTemplate) | **POST** /template/api/v8/templates/{id}/assignments/remove | Unassigns a template from one or more tenants.
+*TemplateAssignmentsApi* | [**getAssignment**](docs/TemplateAssignmentsApi.md#getAssignment) | **GET** /template/api/v8/templates/assignments/{id} | Gets a template assignment.
+*TemplateAssignmentsApi* | [**getAssignmentHistory**](docs/TemplateAssignmentsApi.md#getAssignmentHistory) | **GET** /template/api/v8/templates/assignments/{id}/history | Gets a template assignment history.
+*TemplateAssignmentsApi* | [**getTemplateAssignmentsPage**](docs/TemplateAssignmentsApi.md#getTemplateAssignmentsPage) | **GET** /template/api/v8/templates/assignments | Returns a page of template assignments.
+*TemplateAssignmentsApi* | [**updateAssignmentStatus**](docs/TemplateAssignmentsApi.md#updateAssignmentStatus) | **PATCH** /template/api/v8/templates/assignments/{id} | Updates a template assignment status.
+*TemplatesApi* | [**deleteTemplate**](docs/TemplatesApi.md#deleteTemplate) | **DELETE** /template/api/v8/templates/{id} | Deletes a template.
+*TemplatesApi* | [**getTemplate**](docs/TemplatesApi.md#getTemplate) | **GET** /template/api/v8/templates/{id} | Returns a template by id.
+*TemplatesApi* | [**getTemplateHistory**](docs/TemplatesApi.md#getTemplateHistory) | **GET** /template/api/v8/templates/{id}/history | Returns a template history by id.
+*TemplatesApi* | [**getTemplatesPage**](docs/TemplatesApi.md#getTemplatesPage) | **GET** /template/api/v8/templates | Returns a page of templates.
+*TemplatesApi* | [**importTemplate**](docs/TemplatesApi.md#importTemplate) | **POST** /template/api/v8/templates | Imports a template.
+*TemplatesApi* | [**updateTemplateStatus**](docs/TemplatesApi.md#updateTemplateStatus) | **PATCH** /template/api/v8/templates/{id} | Updates a template status.
 *TenantsApi* | [**createTenant**](docs/TenantsApi.md#createTenant) | **POST** /idm/api/v8/tenants | Creates a new tenant.
 *TenantsApi* | [**deleteTenant**](docs/TenantsApi.md#deleteTenant) | **DELETE** /idm/api/v8/tenants/{id} | Deletes a tenant by id.
 *TenantsApi* | [**getTenant**](docs/TenantsApi.md#getTenant) | **GET** /idm/api/v8/tenants/{id} | Returns a tenant by id.
@@ -177,6 +236,11 @@ Class | Method | HTTP request | Description
 *UsersApi* | [**getUsersPage**](docs/UsersApi.md#getUsersPage) | **GET** /idm/api/v8/users | Returns a page of users.
 *UsersApi* | [**updateUser**](docs/UsersApi.md#updateUser) | **PUT** /idm/api/v8/users/{id} | Updates an existing user.
 *UsersApi* | [**updateUserPassword**](docs/UsersApi.md#updateUserPassword) | **PUT** /idm/api/v8/users/updatepassword | Update a user password.
+*ValidationApi* | [**getValidateProductVersionPage**](docs/ValidationApi.md#getValidateProductVersionPage) | **GET** /vulnerability/api/v8/vulnerabilities/validations | Returns a filtered page of validations.
+*ValidationApi* | [**validateProductVersion**](docs/ValidationApi.md#validateProductVersion) | **POST** /vulnerability/api/v8/vulnerabilities/validations | Validate registered product / verison combinations for vulnerabilities.
+*VulnerabilitiesApi* | [**getIngestVulnerabilitiesTasksPage**](docs/VulnerabilitiesApi.md#getIngestVulnerabilitiesTasksPage) | **GET** /vulnerability/api/v8/vulnerabilities/ingests | Returns a filtered page of ingest tasks.
+*VulnerabilitiesApi* | [**getVulnerabilitiesPage**](docs/VulnerabilitiesApi.md#getVulnerabilitiesPage) | **GET** /vulnerability/api/v8/vulnerabilities | Returns a filtered page of vulnerabilities.
+*VulnerabilitiesApi* | [**ingestVulnerabilities**](docs/VulnerabilitiesApi.md#ingestVulnerabilities) | **POST** /vulnerability/api/v8/vulnerabilities/ingests | Ingests a CVE JSON feed into the Vulnerability Service datastore.
 *WorkflowCategoriesApi* | [**createWorkflowCategory**](docs/WorkflowCategoriesApi.md#createWorkflowCategory) | **POST** /workflow/api/v8/categories | Creates a new workflow category.
 *WorkflowCategoriesApi* | [**deleteWorkflowCategory**](docs/WorkflowCategoriesApi.md#deleteWorkflowCategory) | **DELETE** /workflow/api/v8/categories/{id} | Deletes a workflow category.
 *WorkflowCategoriesApi* | [**getWorkflowCategoriesList**](docs/WorkflowCategoriesApi.md#getWorkflowCategoriesList) | **GET** /workflow/api/v8/categories/list | Returns a list of workflow categories.
@@ -213,7 +277,36 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [AccessToken](docs/AccessToken.md)
+ - [BillingCostsReport](docs/BillingCostsReport.md)
+ - [BillingCycle](docs/BillingCycle.md)
+ - [BillingCycleAllOf](docs/BillingCycleAllOf.md)
+ - [BillingCycleCreate](docs/BillingCycleCreate.md)
+ - [BillingCycleProcess](docs/BillingCycleProcess.md)
+ - [BillingCycleProcessAccepted](docs/BillingCycleProcessAccepted.md)
+ - [BillingCycleUpdate](docs/BillingCycleUpdate.md)
+ - [BillingCyclesPage](docs/BillingCyclesPage.md)
+ - [BillingCyclesPageAllOf](docs/BillingCyclesPageAllOf.md)
+ - [BillingEvent](docs/BillingEvent.md)
+ - [BillingEventAllOf](docs/BillingEventAllOf.md)
+ - [BillingEventCreate](docs/BillingEventCreate.md)
+ - [BillingEventUpdate](docs/BillingEventUpdate.md)
+ - [BillingEventsPage](docs/BillingEventsPage.md)
+ - [BillingEventsPageAllOf](docs/BillingEventsPageAllOf.md)
+ - [BillingPrice](docs/BillingPrice.md)
+ - [BillingPriceAllOf](docs/BillingPriceAllOf.md)
+ - [BillingPriceCreate](docs/BillingPriceCreate.md)
+ - [BillingPriceUpdate](docs/BillingPriceUpdate.md)
+ - [BillingPricesPage](docs/BillingPricesPage.md)
+ - [BillingPricesPageAllOf](docs/BillingPricesPageAllOf.md)
  - [CatalogAssignment](docs/CatalogAssignment.md)
+ - [ChangeRequest](docs/ChangeRequest.md)
+ - [ChangeRequestAllOf](docs/ChangeRequestAllOf.md)
+ - [ChangeRequestCreate](docs/ChangeRequestCreate.md)
+ - [ChangeRequestSummary](docs/ChangeRequestSummary.md)
+ - [ChangeRequestUpdate](docs/ChangeRequestUpdate.md)
+ - [ChangeRequestsPage](docs/ChangeRequestsPage.md)
+ - [ChangeRequestsPageAllOf](docs/ChangeRequestsPageAllOf.md)
+ - [CostSummary](docs/CostSummary.md)
  - [Device](docs/Device.md)
  - [DeviceAllOf](docs/DeviceAllOf.md)
  - [DeviceComplianceState](docs/DeviceComplianceState.md)
@@ -225,9 +318,11 @@ Class | Method | HTTP request | Description
  - [DeviceTemplateAccess](docs/DeviceTemplateAccess.md)
  - [DeviceTemplateAccessResponse](docs/DeviceTemplateAccessResponse.md)
  - [DeviceTemplateAttachRequest](docs/DeviceTemplateAttachRequest.md)
+ - [DeviceTemplateBatchAttachRequest](docs/DeviceTemplateBatchAttachRequest.md)
  - [DeviceTemplateCreate](docs/DeviceTemplateCreate.md)
  - [DeviceTemplateDetails](docs/DeviceTemplateDetails.md)
  - [DeviceTemplateHistory](docs/DeviceTemplateHistory.md)
+ - [DeviceTemplateHistorySummary](docs/DeviceTemplateHistorySummary.md)
  - [DeviceTemplateUpdateDetails](docs/DeviceTemplateUpdateDetails.md)
  - [DeviceTemplateUpdateRequest](docs/DeviceTemplateUpdateRequest.md)
  - [DeviceTemplateVersionCreate](docs/DeviceTemplateVersionCreate.md)
@@ -243,6 +338,16 @@ Class | Method | HTTP request | Description
  - [GenericEventSecurity](docs/GenericEventSecurity.md)
  - [GenericEventSeverity](docs/GenericEventSeverity.md)
  - [GenericEventTrace](docs/GenericEventTrace.md)
+ - [Incident](docs/Incident.md)
+ - [IncidentAllOf](docs/IncidentAllOf.md)
+ - [IncidentCancel](docs/IncidentCancel.md)
+ - [IncidentConfig](docs/IncidentConfig.md)
+ - [IncidentConfigPatch](docs/IncidentConfigPatch.md)
+ - [IncidentConfigUpdate](docs/IncidentConfigUpdate.md)
+ - [IncidentCreate](docs/IncidentCreate.md)
+ - [IncidentUpdate](docs/IncidentUpdate.md)
+ - [IncidentsPage](docs/IncidentsPage.md)
+ - [IncidentsPageAllOf](docs/IncidentsPageAllOf.md)
  - [LegacyAbsoluteConfig](docs/LegacyAbsoluteConfig.md)
  - [LegacyAddress](docs/LegacyAddress.md)
  - [LegacyNsoResponseTypes](docs/LegacyNsoResponseTypes.md)
@@ -255,6 +360,9 @@ Class | Method | HTTP request | Description
  - [LegacySiteDevice](docs/LegacySiteDevice.md)
  - [LegacySiteDeviceOnboard](docs/LegacySiteDeviceOnboard.md)
  - [LegacySubscriptionDetail](docs/LegacySubscriptionDetail.md)
+ - [LicenseDetails](docs/LicenseDetails.md)
+ - [LicenseSummary](docs/LicenseSummary.md)
+ - [ManageChangeRequestPending](docs/ManageChangeRequestPending.md)
  - [NSOConfigDataXPath](docs/NSOConfigDataXPath.md)
  - [NameValue](docs/NameValue.md)
  - [Offer](docs/Offer.md)
@@ -278,8 +386,15 @@ Class | Method | HTTP request | Description
  - [ServiceAllOf](docs/ServiceAllOf.md)
  - [ServiceElement](docs/ServiceElement.md)
  - [ServiceElementPrice](docs/ServiceElementPrice.md)
+ - [ServiceNowConfiguration](docs/ServiceNowConfiguration.md)
+ - [ServiceNowConfigurationCreate](docs/ServiceNowConfigurationCreate.md)
+ - [ServiceNowConfigurationRequest](docs/ServiceNowConfigurationRequest.md)
+ - [ServiceNowConfigurationsPage](docs/ServiceNowConfigurationsPage.md)
+ - [ServiceNowConfigurationsPageAllOf](docs/ServiceNowConfigurationsPageAllOf.md)
+ - [ServiceSLMUIConfig](docs/ServiceSLMUIConfig.md)
  - [ServiceUIConfig](docs/ServiceUIConfig.md)
  - [ServiceUILink](docs/ServiceUILink.md)
+ - [ServiceUIResource](docs/ServiceUIResource.md)
  - [ServiceUpdate](docs/ServiceUpdate.md)
  - [ServicesPage](docs/ServicesPage.md)
  - [ServicesPageAllOf](docs/ServicesPageAllOf.md)
@@ -293,8 +408,36 @@ Class | Method | HTTP request | Description
  - [SiteUpdate](docs/SiteUpdate.md)
  - [SitesPage](docs/SitesPage.md)
  - [SitesPageAllOf](docs/SitesPageAllOf.md)
+ - [SmartAccountConfiguration](docs/SmartAccountConfiguration.md)
+ - [SmartAccountConfigurationCreate](docs/SmartAccountConfigurationCreate.md)
+ - [SmartAccountConfigurationUpdate](docs/SmartAccountConfigurationUpdate.md)
+ - [SmartAccountType](docs/SmartAccountType.md)
+ - [SmartAccountUser](docs/SmartAccountUser.md)
+ - [SmartAccountUserRole](docs/SmartAccountUserRole.md)
+ - [SmartUserAccounts](docs/SmartUserAccounts.md)
+ - [SmartUserAccountsAllOf](docs/SmartUserAccountsAllOf.md)
  - [StartWorkflowResponse](docs/StartWorkflowResponse.md)
+ - [Template](docs/Template.md)
+ - [TemplateApplication](docs/TemplateApplication.md)
+ - [TemplateApplicationAllOf](docs/TemplateApplicationAllOf.md)
+ - [TemplateApplicationCreate](docs/TemplateApplicationCreate.md)
+ - [TemplateApplicationStatusPatch](docs/TemplateApplicationStatusPatch.md)
+ - [TemplateApplicationsPage](docs/TemplateApplicationsPage.md)
+ - [TemplateApplicationsPageAllOf](docs/TemplateApplicationsPageAllOf.md)
+ - [TemplateAssignment](docs/TemplateAssignment.md)
+ - [TemplateAssignmentAllOf](docs/TemplateAssignmentAllOf.md)
+ - [TemplateAssignmentResponse](docs/TemplateAssignmentResponse.md)
+ - [TemplateAssignmentResponseAllOf](docs/TemplateAssignmentResponseAllOf.md)
+ - [TemplateAssignmentStatusPatch](docs/TemplateAssignmentStatusPatch.md)
+ - [TemplateAssignmentsPage](docs/TemplateAssignmentsPage.md)
+ - [TemplateAssignmentsPageAllOf](docs/TemplateAssignmentsPageAllOf.md)
+ - [TemplateCreate](docs/TemplateCreate.md)
  - [TemplateParameterValidator](docs/TemplateParameterValidator.md)
+ - [TemplatePatch](docs/TemplatePatch.md)
+ - [TemplateStatus](docs/TemplateStatus.md)
+ - [TemplateStatusMeta](docs/TemplateStatusMeta.md)
+ - [TemplatesPage](docs/TemplatesPage.md)
+ - [TemplatesPageAllOf](docs/TemplatesPageAllOf.md)
  - [Tenant](docs/Tenant.md)
  - [TenantAllOf](docs/TenantAllOf.md)
  - [TenantCreate](docs/TenantCreate.md)
@@ -311,6 +454,22 @@ Class | Method | HTTP request | Description
  - [UsersPage](docs/UsersPage.md)
  - [UsersPageAllOf](docs/UsersPageAllOf.md)
  - [ValidateWorkflowResponse](docs/ValidateWorkflowResponse.md)
+ - [VulnerabilitiesPage](docs/VulnerabilitiesPage.md)
+ - [VulnerabilitiesPageAllOf](docs/VulnerabilitiesPageAllOf.md)
+ - [VulnerabilitiesRegistrationPage](docs/VulnerabilitiesRegistrationPage.md)
+ - [VulnerabilitiesRegistrationPageAllOf](docs/VulnerabilitiesRegistrationPageAllOf.md)
+ - [Vulnerability](docs/Vulnerability.md)
+ - [VulnerabilityFeed](docs/VulnerabilityFeed.md)
+ - [VulnerabilityIngestPage](docs/VulnerabilityIngestPage.md)
+ - [VulnerabilityIngestPageAllOf](docs/VulnerabilityIngestPageAllOf.md)
+ - [VulnerabilityIngestion](docs/VulnerabilityIngestion.md)
+ - [VulnerabilityRegistration](docs/VulnerabilityRegistration.md)
+ - [VulnerabilityRegistrationAllOf](docs/VulnerabilityRegistrationAllOf.md)
+ - [VulnerabilityRegistrationCreate](docs/VulnerabilityRegistrationCreate.md)
+ - [VulnerabilitySeverity](docs/VulnerabilitySeverity.md)
+ - [VulnerabilityValidation](docs/VulnerabilityValidation.md)
+ - [VulnerabilityValidationPage](docs/VulnerabilityValidationPage.md)
+ - [VulnerabilityValidationPageAllOf](docs/VulnerabilityValidationPageAllOf.md)
  - [Workflow](docs/Workflow.md)
  - [WorkflowAccessMeta](docs/WorkflowAccessMeta.md)
  - [WorkflowAccessMetaType](docs/WorkflowAccessMetaType.md)
