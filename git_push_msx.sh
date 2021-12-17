@@ -33,7 +33,7 @@ git_remote=`git remote`
 
 if [ "$git_remote" = "" ]; then # git remote not defined
     echo "[INFO] Git remote is not set. Calling git remote add origin $git_repo"
-    git remote add origin $git_repo # https://oauth2:$1@cto-github.cisco.com/mtsizis/$msx_sdk.git
+    git remote add origin $git_repo
 fi
 
 git pull origin main
