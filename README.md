@@ -1,8 +1,8 @@
 # java-msx-sdk
 
 MSX SDK
-- API version: 1.0.8
-  - Build date: 2021-11-21T19:51:07.781399800-05:00[America/Toronto]
+- API version: 1.0.9
+  - Build date: 2022-01-10T20:44:53.751167200-05:00[America/Toronto]
 
 MSX SDK client.
 
@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.cisco.msx.platform</groupId>
   <artifactId>java-msx-sdk</artifactId>
-  <version>1.0.8</version>
+  <version>1.0.9</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -50,7 +50,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.cisco.msx.platform:java-msx-sdk:1.0.8"
+compile "com.cisco.msx.platform:java-msx-sdk:1.0.9"
 ```
 
 ### Others
@@ -63,7 +63,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/java-msx-sdk-1.0.8.jar`
+* `target/java-msx-sdk-1.0.9.jar`
 * `target/lib/*.jar`
 
 ## Getting Started

@@ -18,6 +18,8 @@ Name | Type | Description | Notes
 **tenantId** | **UUID** |  |  [optional]
 **email** | **String** |  |  [optional]
 **username** | **String** |  |  [optional]
+**expiry** | **String** |  |  [optional]
+**iat** | **String** |  |  [optional]
 
 
 
