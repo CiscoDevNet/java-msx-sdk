@@ -19,3 +19,9 @@ hs_err_pid*
 target
 .gradle
 build
+
+# Open API artifacts
+.openapi-generator-ignore
+.travis.yml
+.openapi-generator/
+git_push_sdk.sh
