@@ -102,7 +102,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     BillingCyclesApi apiInstance = new BillingCyclesApi(defaultClient);
-    UUID id = new UUID(); // UUID | 
+    UUID id = UUID.randomUUID(); // UUID | 
     try {
       apiInstance.deleteBillingCycle(id);
     } catch (ApiException e) {
@@ -120,7 +120,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**UUID**](.md)|  |
+ **id** | **UUID**|  |
 
 ### Return type
 
@@ -167,7 +167,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     BillingCyclesApi apiInstance = new BillingCyclesApi(defaultClient);
-    UUID id = new UUID(); // UUID | 
+    UUID id = UUID.randomUUID(); // UUID | 
     try {
       BillingCycle result = apiInstance.getBillingCycle(id);
       System.out.println(result);
@@ -186,7 +186,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**UUID**](.md)|  |
+ **id** | **UUID**|  |
 
 ### Return type
 
@@ -234,10 +234,10 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     BillingCyclesApi apiInstance = new BillingCyclesApi(defaultClient);
-    UUID tenantId = new UUID(); // UUID | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     Integer page = 0; // Integer | 
     Integer pageSize = 10; // Integer | 
-    OffsetDateTime nextBilledOn = OffsetDateTime.now(); // OffsetDateTime | 
+    OffsetDateTime nextBilledOn = OffsetDateTime.parse("2020-09-18T18:37:33.810Z"); // OffsetDateTime | 
     try {
       BillingCyclesPage result = apiInstance.getBillingCyclesPage(tenantId, page, pageSize, nextBilledOn);
       System.out.println(result);
@@ -256,7 +256,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tenantId** | [**UUID**](.md)|  |
+ **tenantId** | **UUID**|  |
  **page** | **Integer**|  |
  **pageSize** | **Integer**|  |
  **nextBilledOn** | **OffsetDateTime**|  | [optional]
@@ -372,7 +372,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     BillingCyclesApi apiInstance = new BillingCyclesApi(defaultClient);
-    UUID id = new UUID(); // UUID | 
+    UUID id = UUID.randomUUID(); // UUID | 
     BillingCycleUpdate billingCycleUpdate = new BillingCycleUpdate(); // BillingCycleUpdate | 
     try {
       BillingCycle result = apiInstance.updateBillingCycle(id, billingCycleUpdate);
@@ -392,7 +392,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**UUID**](.md)|  |
+ **id** | **UUID**|  |
  **billingCycleUpdate** | [**BillingCycleUpdate**](BillingCycleUpdate.md)|  |
 
 ### Return type

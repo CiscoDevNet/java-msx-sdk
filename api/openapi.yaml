@@ -5,7 +5,7 @@ info:
     name: MIT
   termsOfService: https://www.cisco.com
   title: MSX SDK
-  version: 1.0.9
+  version: 1.0.10
 servers:
 - url: /
 paths:
@@ -121,22 +121,25 @@ paths:
             type: string
           type: array
         style: form
-      - explode: true
+      - description: 'Valid values: COMPLIANT, NOT_COMPLIANT, APPLICABLE, NOT_APPLICABLE,
+          UNKNOWN'
+        explode: true
         in: query
         name: complianceStates
         required: false
         schema:
           items:
-            $ref: '#/components/schemas/DeviceComplianceState'
+            type: string
           type: array
         style: form
-      - explode: true
+      - description: 'Valid values: VULNERABLE, NOT_VULNERABLE, NOT_APPLICABLE, UNKNOWN'
+        explode: true
         in: query
         name: vulnerabilityStates
         required: false
         schema:
           items:
-            $ref: '#/components/schemas/DeviceVulnerabilityState'
+            type: string
           type: array
         style: form
       - explode: true
@@ -716,6 +719,8 @@ paths:
       - Devices
       x-accepts: application/json
     patch:
+      description: When present, property values are replaced in their entirety (i.e.
+        object/map values are not merged)
       operationId: patchDevice
       parameters:
       - explode: false
@@ -1206,6 +1211,103 @@ paths:
       summary: Returns the running configuration for a device.
       tags:
       - Devices
+      x-accepts: application/json
+  /manage/api/v8/devices/{id}/config/update:
+    post:
+      operationId: updateDeviceConfig
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            example:
+              correlationId: e7e20070-9d67-40a8-a21d-f655606b7421
+              configContent: |
+                Building configuration...
+                !
+                ! Last configuration change at 20:36:57 UTC Tue Aug 4 2020
+                !
+                version 16.9
+                service timestamps debug datetime msec
+                service timestamps log datetime msec
+                service password-encryption
+                service call-home
+                platform qfp utilization monitor load 80
+                no platform punt-keepalive disable-kernel-core
+                platform console virtual
+                platform hardware throughput level MB 100
+                !
+                length 0
+                transport input ssh
+                line vty 5 15
+                exec-timeout 30 0
+                privilege level 15
+                authorization exec none
+                logging synchronous
+                transport input ssh
+                !
+                !
+                !
+                !
+                !
+                !
+                !
+                pnp profile msx-pnp
+                transport https ipv4 192.171.16.174 port 8443 source GigabitEthernet1
+                end
+              format: cli
+            schema:
+              $ref: '#/components/schemas/DeviceConfigUpdate'
+        required: true
+      responses:
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ManageChangeRequestPending'
+          description: Pending Approval
+        "204":
+          description: No Content
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthenticated
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal Server Error
+      summary: push device configuration to the actual device
+      tags:
+      - Devices
+      x-contentType: application/json
       x-accepts: application/json
   /manage/api/v8/devices/templates/attach:
     post:
@@ -2946,6 +3048,7 @@ paths:
                   address: null
                   contact: null
                   image: ""
+                  managingControlPlaneId: null
                   attributes: null
                   devices: []
                   location: null
@@ -2969,6 +3072,7 @@ paths:
                   address: null
                   contact: null
                   image: ""
+                  managingControlPlaneId: 124b22a2-00a8-4cea-b9ed-50e76b2b5949
                   attributes:
                     tenantName: d5c9dc30-0232-499b-a8f3-3962c3138159
                     contactEmail: ""
@@ -3053,6 +3157,7 @@ paths:
                 address: null
                 contact: null
                 image: null
+                managingControlPlaneId: null
                 attributes: {}
                 devices: []
                 location: null
@@ -3181,6 +3286,7 @@ paths:
                 address: null
                 contact: null
                 image: ""
+                managingControlPlaneId: 124b22a2-00a8-4cea-b9ed-50e76b2b5949
                 attributes:
                   tenantName: d5c9dc30-0232-499b-a8f3-3962c3138159
                   contactEmail: ""
@@ -3350,6 +3456,7 @@ paths:
                 address: null
                 contact: null
                 image: null
+                managingControlPlaneId: null
                 attributes: null
                 devices:
                 - deviceId: 8352c1f7-6683-4514-8ab3-1dfc8d74d800
@@ -3440,6 +3547,7 @@ paths:
                 address: null
                 contact: null
                 image: null
+                managingControlPlaneId: null
                 attributes: null
                 devices:
                 - deviceId: 8352c1f7-6683-4514-8ab3-1dfc8d74d800
@@ -3530,6 +3638,7 @@ paths:
                 address: null
                 contact: null
                 image: null
+                managingControlPlaneId: null
                 attributes: null
                 devices:
                 - deviceId: 8352c1f7-6683-4514-8ab3-1dfc8d74d800
@@ -3619,6 +3728,7 @@ paths:
                 address: null
                 contact: null
                 image: null
+                managingControlPlaneId: null
                 attributes: null
                 devices:
                 - deviceId: 8352c1f7-6683-4514-8ab3-1dfc8d74d800
@@ -4107,7 +4217,7 @@ paths:
           type: string
         style: simple
       responses:
-        "204":
+        "200":
           description: No Content
         "400":
           content:
@@ -6011,6 +6121,79 @@ paths:
       tags:
       - Tenants
       x-contentType: application/json
+      x-accepts: application/json
+  /idm/api/v8/tenants/externalId/{externalId}:
+    get:
+      operationId: getTenantByExternalId
+      parameters:
+      - explode: false
+        in: path
+        name: externalId
+        required: true
+        schema:
+          format: ^[a-zA-Z0-9-_=]{1,256}$
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: showImage
+        required: false
+        schema:
+          default: false
+          type: boolean
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                id: 4cc15964-5add-4446-ae3a-6bb4bf46c74d
+                createdOn: 2020-08-04T21:28:03.665Z
+                modifiedOn: 2020-08-04T21:28:03.665Z
+                suspended: false
+                name: Alta Motors
+                description: The future of fast.
+                url: https://cisco.com
+                image: null
+                parentId: null
+                numberOfChildren: 0
+                email: noreply@cisco.com
+              schema:
+                $ref: '#/components/schemas/Tenant'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthenticated
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal Server Error
+      summary: Returns a tenant by externalId.
+      tags:
+      - Tenants
       x-accepts: application/json
   /idm/api/v8/users:
     get:
@@ -12267,7 +12450,8 @@ paths:
               items:
                 format: uuid
                 type: string
-              minLength: 1
+              maxItems: 100
+              minItems: 1
               type: array
         required: true
       responses:
@@ -12333,7 +12517,7 @@ paths:
               items:
                 format: uuid
                 type: string
-              minLength: 1
+              minItems: 1
               type: array
         required: true
       responses:
@@ -13249,8 +13433,11 @@ components:
         name: name
         model: model
         subType: subType
+        onboardInformation:
+          key: ""
         serialKey: serialKey
         type: type
+        complianceState: complianceState
         version: version
       properties:
         name:
@@ -13278,22 +13465,15 @@ components:
           nullable: true
           type: string
         complianceState:
-          $ref: '#/components/schemas/DeviceComplianceState'
+          description: 'Valid values: COMPLIANT, NOT_COMPLIANT, APPLICABLE, NOT_APPLICABLE,
+            UNKNOWN'
+          maxLength: 16
+          type: string
+        onboardInformation:
+          additionalProperties: {}
+          nullable: true
+          type: object
       type: object
-    DeviceComplianceState:
-      enum:
-      - COMPLIANT
-      - NOT_COMPLIANT
-      - NOT_APPLICABLE
-      - UNKNOWN
-      type: string
-    DeviceVulnerabilityState:
-      enum:
-      - VULNERABLE
-      - NOT_VULNERABLE
-      - NOT_APPLICABLE
-      - UNKNOWN
-      type: string
     DevicesPage:
       allOf:
       - $ref: '#/components/schemas/PageHeader'
@@ -13458,6 +13638,9 @@ components:
           type: array
       type: object
     ManageChangeRequestPending:
+      example:
+        changeRequestId: changeRequestId
+        changeRequestUrl: http://example.com/aeiou
       properties:
         changeRequestId:
           type: string
@@ -14565,6 +14748,7 @@ components:
           phone: phone
           name: name
           email: email
+        managingControlPlaneId: managingControlPlaneId
         tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         name: name
         attributes:
@@ -14612,6 +14796,10 @@ components:
           $ref: '#/components/schemas/SiteContact'
         image:
           maxLength: 40000
+          nullable: true
+          type: string
+        managingControlPlaneId:
+          maxLength: 128
           nullable: true
           type: string
         attributes:
@@ -14723,6 +14911,7 @@ components:
           phone: phone
           name: name
           email: email
+        managingControlPlaneId: managingControlPlaneId
         name: name
         description: description
         location:
@@ -14756,6 +14945,10 @@ components:
           $ref: '#/components/schemas/SiteLocation'
         image:
           maxLength: 40000
+          type: string
+        managingControlPlaneId:
+          maxLength: 128
+          nullable: true
           type: string
         attributes:
           additionalProperties:
@@ -14845,6 +15038,30 @@ components:
       allOf:
       - $ref: '#/components/schemas/PageHeader'
       - $ref: '#/components/schemas/SitesPage_allOf'
+    DeviceConfigUpdate:
+      example:
+        configContent: configContent
+        format: format
+        correlationId: correlationId
+      properties:
+        correlationId:
+          maxLength: 36
+          nullable: false
+          type: string
+        configContent:
+          maxLength: 100000
+          minLength: 1
+          nullable: false
+          type: string
+        format:
+          maxLength: 3
+          nullable: false
+          type: string
+      required:
+      - configContents
+      - correlationId
+      - format
+      type: object
     ResourceType:
       enum:
       - service
@@ -15251,6 +15468,7 @@ components:
         options:
           items:
             $ref: '#/components/schemas/ServiceElement'
+          nullable: true
           type: array
         properties:
           items:
@@ -15260,10 +15478,13 @@ components:
         configuration:
           additionalProperties:
             type: string
+          nullable: true
           type: object
         isResource:
+          nullable: true
           type: boolean
         hasChildren:
+          nullable: true
           type: boolean
         parentId:
           format: UUID
@@ -15292,14 +15513,10 @@ components:
           nullable: true
           type: array
       required:
-      - configuration
       - description
-      - hasChildren
       - image
-      - isResource
       - label
       - name
-      - options
       - serviceId
       - version
       type: object
@@ -15576,6 +15793,7 @@ components:
         version:
           type: integer
         displayOrder:
+          nullable: true
           type: integer
         image:
           type: string
@@ -15597,7 +15815,6 @@ components:
           type: object
       required:
       - description
-      - displayOrder
       - label
       - name
       - productId
@@ -15809,7 +16026,6 @@ components:
       required:
       - email
       - lastName
-      - passwordPolicyName
       type: object
     UpdatePassword:
       example:
@@ -16742,12 +16958,12 @@ components:
           format: uuid
           type: string
         lastBilledOn:
-          example: 2020-09-18T18:37:33.810Z
-          pattern: \d{4}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[1-2]\d|3[0-1])T(?:[0-1]\d|2[0-3]):[0-5]\d:[0-5]\d(?:\.\d+|)(?:Z|(?:\+|\-)(?:\d{2}):?(?:\d{2}))
+          example: 2020-09-18T18:37:33.81Z
+          format: date-time
           type: string
         nextBilledOn:
-          example: 2020-09-18T18:37:33.810Z
-          pattern: \d{4}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[1-2]\d|3[0-1])T(?:[0-1]\d|2[0-3]):[0-5]\d:[0-5]\d(?:\.\d+|)(?:Z|(?:\+|\-)(?:\d{2}):?(?:\d{2}))
+          example: 2020-09-18T18:37:33.81Z
+          format: date-time
           type: string
         tenantId:
           format: uuid
@@ -16760,11 +16976,11 @@ components:
       type: object
     BillingCycleProcess:
       example:
-        nextBilledOn: 2020-09-18T18:37:33.810Z
+        nextBilledOn: 2020-09-18T18:37:33.81Z
       properties:
         nextBilledOn:
-          example: 2020-09-18T18:37:33.810Z
-          pattern: \d{4}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[1-2]\d|3[0-1])T(?:[0-1]\d|2[0-3]):[0-5]\d:[0-5]\d(?:\.\d+|)(?:Z|(?:\+|\-)(?:\d{2}):?(?:\d{2}))
+          example: 2020-09-18T18:37:33.81Z
+          format: date-time
           type: string
       required:
       - nextBilledOn
@@ -17393,7 +17609,10 @@ components:
           format: uuid
           type: string
         vulnerabilityState:
-          $ref: '#/components/schemas/DeviceVulnerabilityState'
+          description: 'Valid values: VULNERABLE, NOT_VULNERABLE, NOT_APPLICABLE,
+            UNKNOWN'
+          maxLength: 16
+          type: string
         createdOn:
           format: date-time
           type: string
@@ -17433,16 +17652,11 @@ components:
         onboardType:
           maxLength: 128
           type: string
-        onboardInformation:
-          additionalProperties: {}
-          nullable: true
-          type: object
         attributes:
           additionalProperties: {}
           nullable: true
           type: object
       required:
-      - managed
       - model
       - name
       - onboardType
@@ -17610,11 +17824,14 @@ components:
     UserCreate_allOf:
       properties:
         username:
+          pattern: ^[a-zA-Z0-9\_\-\.\@]{1,128}$
           type: string
         password:
           format: password
           nullable: true
           type: string
+      required:
+      - username
       type: object
     UsersPage_allOf:
       properties:
@@ -17994,12 +18211,12 @@ components:
           readOnly: true
           type: string
         lastBilledOn:
-          example: 2020-09-18T18:37:33.810Z
-          pattern: \d{4}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[1-2]\d|3[0-1])T(?:[0-1]\d|2[0-3]):[0-5]\d:[0-5]\d(?:\.\d+|)(?:Z|(?:\+|\-)(?:\d{2}):?(?:\d{2}))
+          example: 2020-09-18T18:37:33.81Z
+          format: date-time
           type: string
         nextBilledOn:
-          example: 2020-09-18T18:37:33.810Z
-          pattern: \d{4}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[1-2]\d|3[0-1])T(?:[0-1]\d|2[0-3]):[0-5]\d:[0-5]\d(?:\.\d+|)(?:Z|(?:\+|\-)(?:\d{2}):?(?:\d{2}))
+          example: 2020-09-18T18:37:33.81Z
+          format: date-time
           type: string
         tenantId:
           format: uuid

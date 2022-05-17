@@ -98,7 +98,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     UsersApi apiInstance = new UsersApi(defaultClient);
-    UUID id = new UUID(); // UUID | 
+    UUID id = UUID.randomUUID(); // UUID | 
     try {
       apiInstance.deleteUser(id);
     } catch (ApiException e) {
@@ -116,7 +116,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**UUID**](.md)|  |
+ **id** | **UUID**|  |
 
 ### Return type
 
@@ -221,7 +221,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     UsersApi apiInstance = new UsersApi(defaultClient);
-    UUID id = new UUID(); // UUID | 
+    UUID id = UUID.randomUUID(); // UUID | 
     try {
       User result = apiInstance.getUser(id);
       System.out.println(result);
@@ -240,7 +240,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**UUID**](.md)|  |
+ **id** | **UUID**|  |
 
 ### Return type
 
@@ -288,7 +288,7 @@ public class Example {
     UsersApi apiInstance = new UsersApi(defaultClient);
     Integer page = 0; // Integer | 
     Integer pageSize = 10; // Integer | 
-    UUID tenantId = new UUID(); // UUID | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     Boolean deleted = true; // Boolean | 
     try {
       UsersPage result = apiInstance.getUsersPage(page, pageSize, tenantId, deleted);
@@ -310,7 +310,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **Integer**|  |
  **pageSize** | **Integer**|  |
- **tenantId** | [**UUID**](.md)|  | [optional]
+ **tenantId** | **UUID**|  | [optional]
  **deleted** | **Boolean**|  | [optional]
 
 ### Return type
@@ -356,7 +356,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     UsersApi apiInstance = new UsersApi(defaultClient);
-    UUID id = new UUID(); // UUID | 
+    UUID id = UUID.randomUUID(); // UUID | 
     UserUpdate userUpdate = new UserUpdate(); // UserUpdate | 
     try {
       User result = apiInstance.updateUser(id, userUpdate);
@@ -376,7 +376,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**UUID**](.md)|  |
+ **id** | **UUID**|  |
  **userUpdate** | [**UserUpdate**](UserUpdate.md)|  |
 
 ### Return type

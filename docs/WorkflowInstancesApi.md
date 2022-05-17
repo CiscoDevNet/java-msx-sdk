@@ -297,8 +297,8 @@ public class Example {
     String id = "id_example"; // String | 
     Integer page = 0; // Integer | 
     Integer pageSize = 10; // Integer | 
-    LocalDate dateFrom = new LocalDate(); // LocalDate | 
-    LocalDate dateTo = new LocalDate(); // LocalDate | 
+    LocalDate dateFrom = LocalDate.now(); // LocalDate | 
+    LocalDate dateTo = LocalDate.now(); // LocalDate | 
     try {
       List<WorkflowInstance> result = apiInstance.getWorkflowInstancesList(id, page, pageSize, dateFrom, dateTo);
       System.out.println(result);

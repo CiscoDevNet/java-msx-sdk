@@ -30,7 +30,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     RegistrationApi apiInstance = new RegistrationApi(defaultClient);
-    UUID id = new UUID(); // UUID | 
+    UUID id = UUID.randomUUID(); // UUID | 
     try {
       apiInstance.deleteRegisteredProductVersion(id);
     } catch (ApiException e) {
@@ -48,7 +48,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**UUID**](.md)|  |
+ **id** | **UUID**|  |
 
 ### Return type
 

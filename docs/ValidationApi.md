@@ -31,8 +31,8 @@ public class Example {
     ValidationApi apiInstance = new ValidationApi(defaultClient);
     Integer page = 0; // Integer | 
     Integer pageSize = 10; // Integer | 
-    OffsetDateTime startDate = OffsetDateTime.now(); // OffsetDateTime | Start date for date range filter on validation execution date.
-    OffsetDateTime endDate = OffsetDateTime.now(); // OffsetDateTime | End date for date range filter on validation execution date.
+    OffsetDateTime startDate = OffsetDateTime.parse("2020-01-15T18:15Z"); // OffsetDateTime | Start date for date range filter on validation execution date.
+    OffsetDateTime endDate = OffsetDateTime.parse("2021-01-15T18:15Z"); // OffsetDateTime | End date for date range filter on validation execution date.
     try {
       VulnerabilityValidationPage result = apiInstance.getValidateProductVersionPage(page, pageSize, startDate, endDate);
       System.out.println(result);

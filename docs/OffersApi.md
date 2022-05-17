@@ -99,7 +99,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     OffersApi apiInstance = new OffersApi(defaultClient);
-    UUID id = new UUID(); // UUID | 
+    UUID id = UUID.randomUUID(); // UUID | 
     try {
       apiInstance.deleteOffer(id);
     } catch (ApiException e) {
@@ -117,7 +117,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**UUID**](.md)|  |
+ **id** | **UUID**|  |
 
 ### Return type
 
@@ -163,7 +163,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     OffersApi apiInstance = new OffersApi(defaultClient);
-    UUID id = new UUID(); // UUID | 
+    UUID id = UUID.randomUUID(); // UUID | 
     try {
       Offer result = apiInstance.getOffer(id);
       System.out.println(result);
@@ -182,7 +182,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**UUID**](.md)|  |
+ **id** | **UUID**|  |
 
 ### Return type
 
@@ -228,7 +228,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     OffersApi apiInstance = new OffersApi(defaultClient);
-    UUID id = new UUID(); // UUID | 
+    UUID id = UUID.randomUUID(); // UUID | 
     try {
       List<CatalogAssignment> result = apiInstance.getOfferAssignmentsList(id);
       System.out.println(result);
@@ -247,7 +247,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**UUID**](.md)|  |
+ **id** | **UUID**|  |
 
 ### Return type
 
@@ -293,8 +293,8 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     OffersApi apiInstance = new OffersApi(defaultClient);
-    UUID productId = new UUID(); // UUID | 
-    UUID tenantId = new UUID(); // UUID | 
+    UUID productId = UUID.randomUUID(); // UUID | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     try {
       Long result = apiInstance.getOffersCount(productId, tenantId);
       System.out.println(result);
@@ -313,8 +313,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **productId** | [**UUID**](.md)|  | [optional]
- **tenantId** | [**UUID**](.md)|  | [optional]
+ **productId** | **UUID**|  | [optional]
+ **tenantId** | **UUID**|  | [optional]
 
 ### Return type
 
@@ -361,7 +361,7 @@ public class Example {
     OffersApi apiInstance = new OffersApi(defaultClient);
     Integer page = 0; // Integer | 
     Integer pageSize = 10; // Integer | 
-    UUID productId = new UUID(); // UUID | 
+    UUID productId = UUID.randomUUID(); // UUID | 
     List<UUID> tenantIds = Arrays.asList(); // List<UUID> | 
     try {
       OffersPage result = apiInstance.getOffersPage(page, pageSize, productId, tenantIds);
@@ -383,7 +383,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **Integer**|  |
  **pageSize** | **Integer**|  |
- **productId** | [**UUID**](.md)|  | [optional]
+ **productId** | **UUID**|  | [optional]
  **tenantIds** | [**List&lt;UUID&gt;**](UUID.md)|  | [optional]
 
 ### Return type
@@ -429,7 +429,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     OffersApi apiInstance = new OffersApi(defaultClient);
-    UUID id = new UUID(); // UUID | 
+    UUID id = UUID.randomUUID(); // UUID | 
     OfferUpdate offerUpdate = new OfferUpdate(); // OfferUpdate | 
     try {
       Offer result = apiInstance.updateOffer(id, offerUpdate);
@@ -449,7 +449,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**UUID**](.md)|  |
+ **id** | **UUID**|  |
  **offerUpdate** | [**OfferUpdate**](OfferUpdate.md)|  |
 
 ### Return type
@@ -496,7 +496,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     OffersApi apiInstance = new OffersApi(defaultClient);
-    UUID id = new UUID(); // UUID | 
+    UUID id = UUID.randomUUID(); // UUID | 
     List<UUID> UUID = ["e8ff9360-c8f1-4f06-84d8-d8105bd29e1e","3c64b303-ec28-4fe2-99b5-13f521b92700","48feaddb-45d0-4126-a216-3e450bfdbba4"]; // List<UUID> | 
     try {
       List<CatalogAssignment> result = apiInstance.updateOfferAssignments(id, UUID);
@@ -516,7 +516,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**UUID**](.md)|  |
+ **id** | **UUID**|  |
  **UUID** | [**List&lt;UUID&gt;**](UUID.md)|  |
 
 ### Return type

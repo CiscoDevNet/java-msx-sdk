@@ -99,7 +99,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     ProductsApi apiInstance = new ProductsApi(defaultClient);
-    UUID id = new UUID(); // UUID | 
+    UUID id = UUID.randomUUID(); // UUID | 
     try {
       apiInstance.deleteProduct(id);
     } catch (ApiException e) {
@@ -117,7 +117,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**UUID**](.md)|  |
+ **id** | **UUID**|  |
 
 ### Return type
 
@@ -135,7 +135,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | No Content |  -  |
+**200** | No Content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthenticated |  -  |
 **403** | Unauthorized |  -  |
@@ -163,7 +163,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     ProductsApi apiInstance = new ProductsApi(defaultClient);
-    UUID id = new UUID(); // UUID | 
+    UUID id = UUID.randomUUID(); // UUID | 
     try {
       Product result = apiInstance.getProduct(id);
       System.out.println(result);
@@ -182,7 +182,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**UUID**](.md)|  |
+ **id** | **UUID**|  |
 
 ### Return type
 
@@ -228,7 +228,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     ProductsApi apiInstance = new ProductsApi(defaultClient);
-    UUID id = new UUID(); // UUID | 
+    UUID id = UUID.randomUUID(); // UUID | 
     try {
       List<CatalogAssignment> result = apiInstance.getProductAssignmentsList(id);
       System.out.println(result);
@@ -247,7 +247,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**UUID**](.md)|  |
+ **id** | **UUID**|  |
 
 ### Return type
 
@@ -293,7 +293,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     ProductsApi apiInstance = new ProductsApi(defaultClient);
-    UUID tenantId = new UUID(); // UUID | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     try {
       Long result = apiInstance.getProductsCount(tenantId);
       System.out.println(result);
@@ -312,7 +312,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tenantId** | [**UUID**](.md)|  | [optional]
+ **tenantId** | **UUID**|  | [optional]
 
 ### Return type
 
@@ -359,7 +359,7 @@ public class Example {
     ProductsApi apiInstance = new ProductsApi(defaultClient);
     Integer page = 0; // Integer | 
     Integer pageSize = 10; // Integer | 
-    UUID tenantId = new UUID(); // UUID | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     try {
       ProductsPage result = apiInstance.getProductsPage(page, pageSize, tenantId);
       System.out.println(result);
@@ -380,7 +380,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **Integer**|  |
  **pageSize** | **Integer**|  |
- **tenantId** | [**UUID**](.md)|  | [optional]
+ **tenantId** | **UUID**|  | [optional]
 
 ### Return type
 
@@ -425,7 +425,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     ProductsApi apiInstance = new ProductsApi(defaultClient);
-    UUID id = new UUID(); // UUID | 
+    UUID id = UUID.randomUUID(); // UUID | 
     ProductUpdate productUpdate = new ProductUpdate(); // ProductUpdate | 
     try {
       Product result = apiInstance.updateProduct(id, productUpdate);
@@ -445,7 +445,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**UUID**](.md)|  |
+ **id** | **UUID**|  |
  **productUpdate** | [**ProductUpdate**](ProductUpdate.md)|  |
 
 ### Return type
@@ -492,7 +492,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     ProductsApi apiInstance = new ProductsApi(defaultClient);
-    UUID id = new UUID(); // UUID | 
+    UUID id = UUID.randomUUID(); // UUID | 
     List<UUID> UUID = ["e8ff9360-c8f1-4f06-84d8-d8105bd29e1e","3c64b303-ec28-4fe2-99b5-13f521b92700","48feaddb-45d0-4126-a216-3e450bfdbba4"]; // List<UUID> | 
     try {
       List<CatalogAssignment> result = apiInstance.updateProductAssignments(id, UUID);
@@ -512,7 +512,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**UUID**](.md)|  |
+ **id** | **UUID**|  |
  **UUID** | [**List&lt;UUID&gt;**](UUID.md)|  |
 
 ### Return type

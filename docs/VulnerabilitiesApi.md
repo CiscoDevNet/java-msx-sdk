@@ -32,8 +32,8 @@ public class Example {
     VulnerabilitiesApi apiInstance = new VulnerabilitiesApi(defaultClient);
     Integer page = 0; // Integer | 
     Integer pageSize = 10; // Integer | 
-    OffsetDateTime startDate = OffsetDateTime.now(); // OffsetDateTime | Start date for date range filter on validation execution date.
-    OffsetDateTime endDate = OffsetDateTime.now(); // OffsetDateTime | End date for date range filter on validation execution date.
+    OffsetDateTime startDate = OffsetDateTime.parse("2020-01-15T18:15Z"); // OffsetDateTime | Start date for date range filter on validation execution date.
+    OffsetDateTime endDate = OffsetDateTime.parse("2021-01-15T18:15Z"); // OffsetDateTime | End date for date range filter on validation execution date.
     try {
       VulnerabilityIngestPage result = apiInstance.getIngestVulnerabilitiesTasksPage(page, pageSize, startDate, endDate);
       System.out.println(result);
@@ -107,8 +107,8 @@ public class Example {
     String product = "ios_xe"; // String | Product identifier (as defined in NIST's CPE dictionary) to filter by.
     String version = "12.3"; // String | Product version (as defined in NIST's CPE dictionary) filter to filter by.
     VulnerabilitySeverity severity = VulnerabilitySeverity.fromValue("NONE"); // VulnerabilitySeverity | A CVSS severity level (https://nvd.nist.gov/vuln-metrics/cvss) to filter by.
-    OffsetDateTime startDate = OffsetDateTime.now(); // OffsetDateTime | Start date for date range filter on CVE published date.
-    OffsetDateTime endDate = OffsetDateTime.now(); // OffsetDateTime | End date for date range filter on CVE published date.
+    OffsetDateTime startDate = OffsetDateTime.parse("2020-01-15T18:15Z"); // OffsetDateTime | Start date for date range filter on CVE published date.
+    OffsetDateTime endDate = OffsetDateTime.parse("2021-01-15T18:15Z"); // OffsetDateTime | End date for date range filter on CVE published date.
     Integer year = 2019; // Integer | Year CVE published filter.
     String sortBy = "publishedOn"; // String | 
     String sortOrder = "asc"; // String | 

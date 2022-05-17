@@ -229,8 +229,8 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     ServicesApi apiInstance = new ServicesApi(defaultClient);
-    UUID productId = new UUID(); // UUID | 
-    UUID offerId = new UUID(); // UUID | 
+    UUID productId = UUID.randomUUID(); // UUID | 
+    UUID offerId = UUID.randomUUID(); // UUID | 
     LegacyServiceOrder legacyServiceOrder = new LegacyServiceOrder(); // LegacyServiceOrder | 
     try {
       LegacyServiceOrderResponse result = apiInstance.submitOrder(productId, offerId, legacyServiceOrder);
@@ -250,8 +250,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **productId** | [**UUID**](.md)|  |
- **offerId** | [**UUID**](.md)|  |
+ **productId** | **UUID**|  |
+ **offerId** | **UUID**|  |
  **legacyServiceOrder** | [**LegacyServiceOrder**](LegacyServiceOrder.md)|  |
 
 ### Return type
@@ -297,8 +297,8 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     ServicesApi apiInstance = new ServicesApi(defaultClient);
-    UUID productId = new UUID(); // UUID | 
-    UUID offerId = new UUID(); // UUID | 
+    UUID productId = UUID.randomUUID(); // UUID | 
+    UUID offerId = UUID.randomUUID(); // UUID | 
     LegacyServiceOrder legacyServiceOrder = new LegacyServiceOrder(); // LegacyServiceOrder | 
     try {
       LegacyServiceOrderResponse result = apiInstance.updateOrder(productId, offerId, legacyServiceOrder);
@@ -318,8 +318,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **productId** | [**UUID**](.md)|  |
- **offerId** | [**UUID**](.md)|  |
+ **productId** | **UUID**|  |
+ **offerId** | **UUID**|  |
  **legacyServiceOrder** | [**LegacyServiceOrder**](LegacyServiceOrder.md)|  |
 
 ### Return type

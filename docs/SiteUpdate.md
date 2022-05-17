@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **contact** | [**SiteContact**](SiteContact.md) |  |  [optional]
 **location** | [**SiteLocation**](SiteLocation.md) |  |  [optional]
 **image** | **String** |  |  [optional]
+**managingControlPlaneId** | **String** |  |  [optional]
 **attributes** | **Map&lt;String, String&gt;** |  |  [optional]
 
 

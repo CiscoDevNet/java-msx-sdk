@@ -32,9 +32,9 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     BillingEventsApi apiInstance = new BillingEventsApi(defaultClient);
-    UUID tenantId = new UUID(); // UUID | 
-    OffsetDateTime fromDate = OffsetDateTime.now(); // OffsetDateTime | 
-    OffsetDateTime toDate = OffsetDateTime.now(); // OffsetDateTime | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    OffsetDateTime fromDate = OffsetDateTime.parse("2020-09-18T18:37:33.810Z"); // OffsetDateTime | 
+    OffsetDateTime toDate = OffsetDateTime.parse("2020-09-19T18:37:33.810Z"); // OffsetDateTime | 
     String groupBy = "type, subtype or service"; // String | 
     try {
       BillingCostsReport result = apiInstance.getCostSummary(tenantId, fromDate, toDate, groupBy);
@@ -54,7 +54,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tenantId** | [**UUID**](.md)|  |
+ **tenantId** | **UUID**|  |
  **fromDate** | **OffsetDateTime**|  | [optional]
  **toDate** | **OffsetDateTime**|  | [optional]
  **groupBy** | **String**|  | [optional]
@@ -104,7 +104,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     BillingEventsApi apiInstance = new BillingEventsApi(defaultClient);
-    UUID id = new UUID(); // UUID | 
+    UUID id = UUID.randomUUID(); // UUID | 
     try {
       BillingEvent result = apiInstance.getEvent(id);
       System.out.println(result);
@@ -123,7 +123,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**UUID**](.md)|  |
+ **id** | **UUID**|  |
 
 ### Return type
 
@@ -171,11 +171,11 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     BillingEventsApi apiInstance = new BillingEventsApi(defaultClient);
-    UUID tenantId = new UUID(); // UUID | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     Integer page = 0; // Integer | 
     Integer pageSize = 10; // Integer | 
-    OffsetDateTime fromDate = OffsetDateTime.now(); // OffsetDateTime | 
-    OffsetDateTime toDate = OffsetDateTime.now(); // OffsetDateTime | 
+    OffsetDateTime fromDate = OffsetDateTime.parse("2020-09-18T18:37:33.810Z"); // OffsetDateTime | 
+    OffsetDateTime toDate = OffsetDateTime.parse("2020-09-19T18:37:33.810Z"); // OffsetDateTime | 
     String type = "type_example"; // String | 
     String subtype = "subtype_example"; // String | 
     try {
@@ -196,7 +196,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tenantId** | [**UUID**](.md)|  |
+ **tenantId** | **UUID**|  |
  **page** | **Integer**|  |
  **pageSize** | **Integer**|  |
  **fromDate** | **OffsetDateTime**|  | [optional]

@@ -42,7 +42,7 @@ docs/ChangeRequestsPageAllOf.md
 docs/CostSummary.md
 docs/Device.md
 docs/DeviceAllOf.md
-docs/DeviceComplianceState.md
+docs/DeviceConfigUpdate.md
 docs/DeviceCreate.md
 docs/DeviceCreateAllOf.md
 docs/DevicePatch.md
@@ -62,7 +62,6 @@ docs/DeviceTemplateVersionCreate.md
 docs/DeviceTemplatesApi.md
 docs/DeviceUpdate.md
 docs/DeviceUpdateAllOf.md
-docs/DeviceVulnerabilityState.md
 docs/DevicesApi.md
 docs/DevicesPage.md
 docs/DevicesPageAllOf.md
@@ -356,7 +355,7 @@ src/main/java/com/cisco/msx/platform/model/ChangeRequestsPageAllOf.java
 src/main/java/com/cisco/msx/platform/model/CostSummary.java
 src/main/java/com/cisco/msx/platform/model/Device.java
 src/main/java/com/cisco/msx/platform/model/DeviceAllOf.java
-src/main/java/com/cisco/msx/platform/model/DeviceComplianceState.java
+src/main/java/com/cisco/msx/platform/model/DeviceConfigUpdate.java
 src/main/java/com/cisco/msx/platform/model/DeviceCreate.java
 src/main/java/com/cisco/msx/platform/model/DeviceCreateAllOf.java
 src/main/java/com/cisco/msx/platform/model/DevicePatch.java
@@ -375,7 +374,6 @@ src/main/java/com/cisco/msx/platform/model/DeviceTemplateUpdateRequest.java
 src/main/java/com/cisco/msx/platform/model/DeviceTemplateVersionCreate.java
 src/main/java/com/cisco/msx/platform/model/DeviceUpdate.java
 src/main/java/com/cisco/msx/platform/model/DeviceUpdateAllOf.java
-src/main/java/com/cisco/msx/platform/model/DeviceVulnerabilityState.java
 src/main/java/com/cisco/msx/platform/model/DevicesPage.java
 src/main/java/com/cisco/msx/platform/model/DevicesPageAllOf.java
 src/main/java/com/cisco/msx/platform/model/Error.java
@@ -614,7 +612,7 @@ src/test/java/com/cisco/msx/platform/model/ChangeRequestsPageAllOfTest.java
 src/test/java/com/cisco/msx/platform/model/ChangeRequestsPageTest.java
 src/test/java/com/cisco/msx/platform/model/CostSummaryTest.java
 src/test/java/com/cisco/msx/platform/model/DeviceAllOfTest.java
-src/test/java/com/cisco/msx/platform/model/DeviceComplianceStateTest.java
+src/test/java/com/cisco/msx/platform/model/DeviceConfigUpdateTest.java
 src/test/java/com/cisco/msx/platform/model/DeviceCreateAllOfTest.java
 src/test/java/com/cisco/msx/platform/model/DeviceCreateTest.java
 src/test/java/com/cisco/msx/platform/model/DevicePatchTest.java
@@ -634,7 +632,6 @@ src/test/java/com/cisco/msx/platform/model/DeviceTemplateVersionCreateTest.java
 src/test/java/com/cisco/msx/platform/model/DeviceTest.java
 src/test/java/com/cisco/msx/platform/model/DeviceUpdateAllOfTest.java
 src/test/java/com/cisco/msx/platform/model/DeviceUpdateTest.java
-src/test/java/com/cisco/msx/platform/model/DeviceVulnerabilityStateTest.java
 src/test/java/com/cisco/msx/platform/model/DevicesPageAllOfTest.java
 src/test/java/com/cisco/msx/platform/model/DevicesPageTest.java
 src/test/java/com/cisco/msx/platform/model/ErrorTest.java

@@ -13,7 +13,8 @@ Name | Type | Description | Notes
 **subType** | **String** |  |  [optional]
 **serialKey** | **String** |  |  [optional]
 **version** | **String** |  |  [optional]
-**complianceState** | **DeviceComplianceState** |  |  [optional]
+**complianceState** | **String** | Valid values: COMPLIANT, NOT_COMPLIANT, APPLICABLE, NOT_APPLICABLE, UNKNOWN |  [optional]
+**onboardInformation** | **Map&lt;String, Object&gt;** |  |  [optional]
 
 
 

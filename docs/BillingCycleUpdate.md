@@ -8,8 +8,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **eventId** | **UUID** |  | 
-**lastBilledOn** | **String** |  | 
-**nextBilledOn** | **String** |  | 
+**lastBilledOn** | **OffsetDateTime** |  | 
+**nextBilledOn** | **OffsetDateTime** |  | 
 **tenantId** | **UUID** |  | 
 
 

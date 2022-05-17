@@ -32,7 +32,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     WorkflowCategoriesApi apiInstance = new WorkflowCategoriesApi(defaultClient);
-    UUID tenantId = new UUID(); // UUID | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     WorkflowCategoryCreate workflowCategoryCreate = new WorkflowCategoryCreate(); // WorkflowCategoryCreate | 
     try {
       WorkflowCategory result = apiInstance.createWorkflowCategory(tenantId, workflowCategoryCreate);
@@ -52,7 +52,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tenantId** | [**UUID**](.md)|  |
+ **tenantId** | **UUID**|  |
  **workflowCategoryCreate** | [**WorkflowCategoryCreate**](WorkflowCategoryCreate.md)|  |
 
 ### Return type
@@ -162,7 +162,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     WorkflowCategoriesApi apiInstance = new WorkflowCategoriesApi(defaultClient);
-    UUID tenantId = new UUID(); // UUID | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     try {
       List<WorkflowCategory> result = apiInstance.getWorkflowCategoriesList(tenantId);
       System.out.println(result);
@@ -181,7 +181,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tenantId** | [**UUID**](.md)|  | [optional]
+ **tenantId** | **UUID**|  | [optional]
 
 ### Return type
 

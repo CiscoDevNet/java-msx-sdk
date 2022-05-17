@@ -101,7 +101,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     IncidentConfigurationsApi apiInstance = new IncidentConfigurationsApi(defaultClient);
-    UUID id = new UUID(); // UUID | 
+    UUID id = UUID.randomUUID(); // UUID | 
     try {
       apiInstance.deleteServiceNowConfiguration(id);
     } catch (ApiException e) {
@@ -119,7 +119,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**UUID**](.md)|  |
+ **id** | **UUID**|  |
 
 ### Return type
 
@@ -225,7 +225,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     IncidentConfigurationsApi apiInstance = new IncidentConfigurationsApi(defaultClient);
-    UUID id = new UUID(); // UUID | 
+    UUID id = UUID.randomUUID(); // UUID | 
     try {
       ServiceNowConfiguration result = apiInstance.getServiceNowConfiguration(id);
       System.out.println(result);
@@ -244,7 +244,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**UUID**](.md)|  |
+ **id** | **UUID**|  |
 
 ### Return type
 
@@ -292,7 +292,7 @@ public class Example {
     IncidentConfigurationsApi apiInstance = new IncidentConfigurationsApi(defaultClient);
     Integer page = 0; // Integer | 
     Integer pageSize = 10; // Integer | 
-    UUID tenantId = new UUID(); // UUID | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     String domain = "domain_example"; // String | 
     try {
       ServiceNowConfigurationsPage result = apiInstance.getServiceNowConfigurationsPage(page, pageSize, tenantId, domain);
@@ -314,7 +314,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **Integer**|  |
  **pageSize** | **Integer**|  |
- **tenantId** | [**UUID**](.md)|  | [optional]
+ **tenantId** | **UUID**|  | [optional]
  **domain** | **String**|  | [optional]
 
 ### Return type

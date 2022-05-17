@@ -98,7 +98,7 @@ public class Example {
 
     IncidentChangeRequestsApi apiInstance = new IncidentChangeRequestsApi(defaultClient);
     String id = "id_example"; // String | 
-    UUID tenantId = new UUID(); // UUID | Required for bi-directional scenario
+    UUID tenantId = UUID.randomUUID(); // UUID | Required for bi-directional scenario
     try {
       apiInstance.deleteChangeRequest(id, tenantId);
     } catch (ApiException e) {
@@ -117,7 +117,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**|  |
- **tenantId** | [**UUID**](.md)| Required for bi-directional scenario | [optional]
+ **tenantId** | **UUID**| Required for bi-directional scenario | [optional]
 
 ### Return type
 
@@ -164,7 +164,7 @@ public class Example {
 
     IncidentChangeRequestsApi apiInstance = new IncidentChangeRequestsApi(defaultClient);
     String id = "id_example"; // String | Change Request Number  CHG0030022
-    UUID tenantId = new UUID(); // UUID | Required for bi-directional scenario
+    UUID tenantId = UUID.randomUUID(); // UUID | Required for bi-directional scenario
     try {
       ChangeRequest result = apiInstance.getChangeRequest(id, tenantId);
       System.out.println(result);
@@ -184,7 +184,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| Change Request Number  CHG0030022 |
- **tenantId** | [**UUID**](.md)| Required for bi-directional scenario | [optional]
+ **tenantId** | **UUID**| Required for bi-directional scenario | [optional]
 
 ### Return type
 
@@ -232,7 +232,7 @@ public class Example {
     IncidentChangeRequestsApi apiInstance = new IncidentChangeRequestsApi(defaultClient);
     Integer page = 0; // Integer | 
     Integer pageSize = 10; // Integer | 
-    UUID tenantId = new UUID(); // UUID | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     try {
       ChangeRequestsPage result = apiInstance.getChangeRequestsPage(page, pageSize, tenantId);
       System.out.println(result);
@@ -253,7 +253,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **Integer**|  |
  **pageSize** | **Integer**|  |
- **tenantId** | [**UUID**](.md)|  | [optional]
+ **tenantId** | **UUID**|  | [optional]
 
 ### Return type
 

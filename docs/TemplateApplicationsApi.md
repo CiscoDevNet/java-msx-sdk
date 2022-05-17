@@ -33,7 +33,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     TemplateApplicationsApi apiInstance = new TemplateApplicationsApi(defaultClient);
-    UUID id = new UUID(); // UUID | 
+    UUID id = UUID.randomUUID(); // UUID | 
     TemplateApplicationCreate templateApplicationCreate = new TemplateApplicationCreate(); // TemplateApplicationCreate | 
     try {
       TemplateApplication result = apiInstance.applyTemplate(id, templateApplicationCreate);
@@ -53,7 +53,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**UUID**](.md)|  |
+ **id** | **UUID**|  |
  **templateApplicationCreate** | [**TemplateApplicationCreate**](TemplateApplicationCreate.md)|  |
 
 ### Return type
@@ -100,7 +100,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     TemplateApplicationsApi apiInstance = new TemplateApplicationsApi(defaultClient);
-    UUID id = new UUID(); // UUID | 
+    UUID id = UUID.randomUUID(); // UUID | 
     try {
       apiInstance.deleteTemplateApplication(id);
     } catch (ApiException e) {
@@ -118,7 +118,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**UUID**](.md)|  |
+ **id** | **UUID**|  |
 
 ### Return type
 
@@ -164,7 +164,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     TemplateApplicationsApi apiInstance = new TemplateApplicationsApi(defaultClient);
-    UUID id = new UUID(); // UUID | 
+    UUID id = UUID.randomUUID(); // UUID | 
     try {
       TemplateApplication result = apiInstance.getTemplateApplication(id);
       System.out.println(result);
@@ -183,7 +183,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**UUID**](.md)|  |
+ **id** | **UUID**|  |
 
 ### Return type
 
@@ -229,7 +229,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     TemplateApplicationsApi apiInstance = new TemplateApplicationsApi(defaultClient);
-    UUID id = new UUID(); // UUID | 
+    UUID id = UUID.randomUUID(); // UUID | 
     try {
       List<TemplateApplication> result = apiInstance.getTemplateApplicationHistory(id);
       System.out.println(result);
@@ -248,7 +248,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**UUID**](.md)|  |
+ **id** | **UUID**|  |
 
 ### Return type
 
@@ -294,14 +294,14 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     TemplateApplicationsApi apiInstance = new TemplateApplicationsApi(defaultClient);
-    UUID tenantId = new UUID(); // UUID | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     Integer page = 0; // Integer | 
     Integer pageSize = 10; // Integer | 
-    UUID templateId = new UUID(); // UUID | 
+    UUID templateId = UUID.randomUUID(); // UUID | 
     String targetId = "targetId_example"; // String | 
     String targetType = "targetType_example"; // String | 
     Boolean calculateTotalItems = true; // Boolean | 
-    String sortBy = "createdOn"; // String | 
+    String sortBy = "applicationId"; // String | 
     String sortOrder = "asc"; // String | 
     try {
       TemplateApplicationsPage result = apiInstance.getTemplateApplicationsPage(tenantId, page, pageSize, templateId, targetId, targetType, calculateTotalItems, sortBy, sortOrder);
@@ -321,10 +321,10 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tenantId** | [**UUID**](.md)|  |
+ **tenantId** | **UUID**|  |
  **page** | **Integer**|  |
  **pageSize** | **Integer**|  |
- **templateId** | [**UUID**](.md)|  | [optional]
+ **templateId** | **UUID**|  | [optional]
  **targetId** | **String**|  | [optional]
  **targetType** | **String**|  | [optional]
  **calculateTotalItems** | **Boolean**|  | [optional]
@@ -374,7 +374,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     TemplateApplicationsApi apiInstance = new TemplateApplicationsApi(defaultClient);
-    UUID id = new UUID(); // UUID | 
+    UUID id = UUID.randomUUID(); // UUID | 
     TemplateApplicationStatusPatch templateApplicationStatusPatch = new TemplateApplicationStatusPatch(); // TemplateApplicationStatusPatch | 
     try {
       TemplateApplication result = apiInstance.updateApplicationStatus(id, templateApplicationStatusPatch);
@@ -394,7 +394,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**UUID**](.md)|  |
+ **id** | **UUID**|  |
  **templateApplicationStatusPatch** | [**TemplateApplicationStatusPatch**](TemplateApplicationStatusPatch.md)|  |
 
 ### Return type

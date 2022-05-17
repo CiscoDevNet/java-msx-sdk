@@ -33,7 +33,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     TemplateAssignmentsApi apiInstance = new TemplateAssignmentsApi(defaultClient);
-    UUID id = new UUID(); // UUID | 
+    UUID id = UUID.randomUUID(); // UUID | 
     List<UUID> UUID = Arrays.asList(); // List<UUID> | 
     Boolean inheritable = true; // Boolean | 
     try {
@@ -54,7 +54,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**UUID**](.md)|  |
+ **id** | **UUID**|  |
  **UUID** | [**List&lt;UUID&gt;**](UUID.md)|  |
  **inheritable** | **Boolean**|  | [optional]
 
@@ -102,7 +102,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     TemplateAssignmentsApi apiInstance = new TemplateAssignmentsApi(defaultClient);
-    UUID id = new UUID(); // UUID | 
+    UUID id = UUID.randomUUID(); // UUID | 
     List<UUID> UUID = Arrays.asList(); // List<UUID> | 
     try {
       List<TemplateAssignmentResponse> result = apiInstance.batchUnassignTemplate(id, UUID);
@@ -122,7 +122,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**UUID**](.md)|  |
+ **id** | **UUID**|  |
  **UUID** | [**List&lt;UUID&gt;**](UUID.md)|  |
 
 ### Return type
@@ -169,7 +169,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     TemplateAssignmentsApi apiInstance = new TemplateAssignmentsApi(defaultClient);
-    UUID id = new UUID(); // UUID | ID of template assignment record.
+    UUID id = UUID.randomUUID(); // UUID | ID of template assignment record.
     try {
       TemplateAssignment result = apiInstance.getAssignment(id);
       System.out.println(result);
@@ -188,7 +188,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**UUID**](.md)| ID of template assignment record. |
+ **id** | **UUID**| ID of template assignment record. |
 
 ### Return type
 
@@ -234,7 +234,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     TemplateAssignmentsApi apiInstance = new TemplateAssignmentsApi(defaultClient);
-    UUID id = new UUID(); // UUID | 
+    UUID id = UUID.randomUUID(); // UUID | 
     try {
       List<TemplateAssignment> result = apiInstance.getAssignmentHistory(id);
       System.out.println(result);
@@ -253,7 +253,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**UUID**](.md)|  |
+ **id** | **UUID**|  |
 
 ### Return type
 
@@ -301,8 +301,8 @@ public class Example {
     TemplateAssignmentsApi apiInstance = new TemplateAssignmentsApi(defaultClient);
     Integer page = 0; // Integer | 
     Integer pageSize = 10; // Integer | 
-    UUID templateId = new UUID(); // UUID | 
-    UUID tenantId = new UUID(); // UUID | 
+    UUID templateId = UUID.randomUUID(); // UUID | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     Boolean calculateTotalItems = true; // Boolean | 
     try {
       TemplateAssignmentsPage result = apiInstance.getTemplateAssignmentsPage(page, pageSize, templateId, tenantId, calculateTotalItems);
@@ -324,8 +324,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **Integer**|  |
  **pageSize** | **Integer**|  |
- **templateId** | [**UUID**](.md)|  | [optional]
- **tenantId** | [**UUID**](.md)|  | [optional]
+ **templateId** | **UUID**|  | [optional]
+ **tenantId** | **UUID**|  | [optional]
  **calculateTotalItems** | **Boolean**|  | [optional]
 
 ### Return type
@@ -372,7 +372,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     TemplateAssignmentsApi apiInstance = new TemplateAssignmentsApi(defaultClient);
-    UUID id = new UUID(); // UUID | ID of template assignment record.
+    UUID id = UUID.randomUUID(); // UUID | ID of template assignment record.
     TemplateAssignmentStatusPatch templateAssignmentStatusPatch = new TemplateAssignmentStatusPatch(); // TemplateAssignmentStatusPatch | 
     try {
       TemplateAssignment result = apiInstance.updateAssignmentStatus(id, templateAssignmentStatusPatch);
@@ -392,7 +392,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**UUID**](.md)| ID of template assignment record. |
+ **id** | **UUID**| ID of template assignment record. |
  **templateAssignmentStatusPatch** | [**TemplateAssignmentStatusPatch**](TemplateAssignmentStatusPatch.md)|  |
 
 ### Return type

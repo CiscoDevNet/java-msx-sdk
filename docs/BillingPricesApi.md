@@ -100,7 +100,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     BillingPricesApi apiInstance = new BillingPricesApi(defaultClient);
-    UUID id = new UUID(); // UUID | 
+    UUID id = UUID.randomUUID(); // UUID | 
     try {
       apiInstance.deletePrice(id);
     } catch (ApiException e) {
@@ -118,7 +118,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**UUID**](.md)|  |
+ **id** | **UUID**|  |
 
 ### Return type
 
@@ -165,7 +165,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     BillingPricesApi apiInstance = new BillingPricesApi(defaultClient);
-    UUID id = new UUID(); // UUID | 
+    UUID id = UUID.randomUUID(); // UUID | 
     try {
       BillingPrice result = apiInstance.getPrice(id);
       System.out.println(result);
@@ -184,7 +184,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**UUID**](.md)|  |
+ **id** | **UUID**|  |
 
 ### Return type
 
@@ -232,7 +232,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     BillingPricesApi apiInstance = new BillingPricesApi(defaultClient);
-    UUID tenantId = new UUID(); // UUID | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     Integer page = 0; // Integer | 
     Integer pageSize = 10; // Integer | 
     String type = "type_example"; // String | 
@@ -255,7 +255,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tenantId** | [**UUID**](.md)|  |
+ **tenantId** | **UUID**|  |
  **page** | **Integer**|  |
  **pageSize** | **Integer**|  |
  **type** | **String**|  | [optional]
@@ -306,7 +306,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     BillingPricesApi apiInstance = new BillingPricesApi(defaultClient);
-    UUID id = new UUID(); // UUID | 
+    UUID id = UUID.randomUUID(); // UUID | 
     BillingPriceUpdate billingPriceUpdate = new BillingPriceUpdate(); // BillingPriceUpdate | 
     try {
       BillingPrice result = apiInstance.updatePrice(id, billingPriceUpdate);
@@ -326,7 +326,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**UUID**](.md)|  |
+ **id** | **UUID**|  |
  **billingPriceUpdate** | [**BillingPriceUpdate**](BillingPriceUpdate.md)|  |
 
 ### Return type

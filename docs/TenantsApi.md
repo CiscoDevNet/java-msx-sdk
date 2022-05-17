@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**createTenant**](TenantsApi.md#createTenant) | **POST** /idm/api/v8/tenants | Creates a new tenant.
 [**deleteTenant**](TenantsApi.md#deleteTenant) | **DELETE** /idm/api/v8/tenants/{id} | Deletes a tenant by id.
 [**getTenant**](TenantsApi.md#getTenant) | **GET** /idm/api/v8/tenants/{id} | Returns a tenant by id.
+[**getTenantByExternalId**](TenantsApi.md#getTenantByExternalId) | **GET** /idm/api/v8/tenants/externalId/{externalId} | Returns a tenant by externalId.
 [**getTenantsList**](TenantsApi.md#getTenantsList) | **GET** /idm/api/v8/tenants/list | Returns a list of tenants.
 [**getTenantsPage**](TenantsApi.md#getTenantsPage) | **GET** /idm/api/v8/tenants | Returns a page of tenants.
 [**updateTenant**](TenantsApi.md#updateTenant) | **PUT** /idm/api/v8/tenants/{id} | Updates a tenant by id.
@@ -97,7 +98,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     TenantsApi apiInstance = new TenantsApi(defaultClient);
-    UUID id = new UUID(); // UUID | 
+    UUID id = UUID.randomUUID(); // UUID | 
     try {
       apiInstance.deleteTenant(id);
     } catch (ApiException e) {
@@ -115,7 +116,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**UUID**](.md)|  |
+ **id** | **UUID**|  |
 
 ### Return type
 
@@ -162,7 +163,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     TenantsApi apiInstance = new TenantsApi(defaultClient);
-    UUID id = new UUID(); // UUID | 
+    UUID id = UUID.randomUUID(); // UUID | 
     try {
       Tenant result = apiInstance.getTenant(id);
       System.out.println(result);
@@ -181,7 +182,74 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**UUID**](.md)|  |
+ **id** | **UUID**|  |
+
+### Return type
+
+[**Tenant**](Tenant.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthenticated |  -  |
+**403** | Unauthorized |  -  |
+**404** | Not Found |  -  |
+**500** | Internal Server Error |  -  |
+
+<a name="getTenantByExternalId"></a>
+# **getTenantByExternalId**
+> Tenant getTenantByExternalId(externalId, showImage)
+
+Returns a tenant by externalId.
+
+### Example
+```java
+// Import classes:
+import com.cisco.msx.platform.ApiClient;
+import com.cisco.msx.platform.ApiException;
+import com.cisco.msx.platform.Configuration;
+import com.cisco.msx.platform.models.*;
+import com.cisco.msx.platform.client.TenantsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    TenantsApi apiInstance = new TenantsApi(defaultClient);
+    String externalId = "externalId_example"; // String | 
+    Boolean showImage = false; // Boolean | 
+    try {
+      Tenant result = apiInstance.getTenantByExternalId(externalId, showImage);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TenantsApi#getTenantByExternalId");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **externalId** | **String**|  |
+ **showImage** | **Boolean**|  | [optional] [default to false]
 
 ### Return type
 
@@ -295,7 +363,7 @@ public class Example {
     TenantsApi apiInstance = new TenantsApi(defaultClient);
     Integer page = 0; // Integer | 
     Integer pageSize = 10; // Integer | 
-    UUID parentId = new UUID(); // UUID | 
+    UUID parentId = UUID.randomUUID(); // UUID | 
     Boolean showImage = false; // Boolean | 
     String sortBy = "name"; // String | 
     String sortOrder = "asc"; // String | 
@@ -319,7 +387,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **Integer**|  |
  **pageSize** | **Integer**|  |
- **parentId** | [**UUID**](.md)|  | [optional]
+ **parentId** | **UUID**|  | [optional]
  **showImage** | **Boolean**|  | [optional] [default to false]
  **sortBy** | **String**|  | [optional]
  **sortOrder** | **String**|  | [optional] [default to asc] [enum: asc, desc]
@@ -367,7 +435,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     TenantsApi apiInstance = new TenantsApi(defaultClient);
-    UUID id = new UUID(); // UUID | 
+    UUID id = UUID.randomUUID(); // UUID | 
     TenantUpdate tenantUpdate = new TenantUpdate(); // TenantUpdate | 
     try {
       Tenant result = apiInstance.updateTenant(id, tenantUpdate);
@@ -387,7 +455,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**UUID**](.md)|  |
+ **id** | **UUID**|  |
  **tenantUpdate** | [**TenantUpdate**](TenantUpdate.md)|  |
 
 ### Return type

@@ -1,8 +1,8 @@
 # java-msx-sdk
 
 MSX SDK
-- API version: 1.0.9
-  - Build date: 2022-01-10T20:44:53.751167200-05:00[America/Toronto]
+- API version: 1.0.10
+  - Build date: 2022-05-17T18:31:30.346538700-04:00[America/Toronto]
 
 MSX SDK client.
 
@@ -14,7 +14,7 @@ MSX SDK client.
 
 Building the API client library requires:
 1. Java 1.8+
-2. Maven/Gradle
+2. Maven (3.8.3+)/Gradle (7.2+)
 
 ## Installation
 
@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.cisco.msx.platform</groupId>
   <artifactId>java-msx-sdk</artifactId>
-  <version>1.0.9</version>
+  <version>1.0.10</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -50,7 +50,14 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.cisco.msx.platform:java-msx-sdk:1.0.9"
+  repositories {
+    mavenCentral()     // Needed if the 'java-msx-sdk' jar has been published to maven central.
+    mavenLocal()       // Needed if the 'java-msx-sdk' jar has been published to the local maven repo.
+  }
+
+  dependencies {
+     implementation "com.cisco.msx.platform:java-msx-sdk:1.0.10"
+  }
 ```
 
 ### Others
@@ -63,7 +70,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/java-msx-sdk-1.0.9.jar`
+* `target/java-msx-sdk-1.0.10.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -142,6 +149,7 @@ Class | Method | HTTP request | Description
 *DevicesApi* | [**patchDevice**](docs/DevicesApi.md#patchDevice) | **PATCH** /manage/api/v8/devices/{id} | Update a device.
 *DevicesApi* | [**redeployDevice**](docs/DevicesApi.md#redeployDevice) | **POST** /manage/api/v8/devices/{id}/redeploy | Dedeploys a device.
 *DevicesApi* | [**updateDevice**](docs/DevicesApi.md#updateDevice) | **PUT** /manage/api/v8/devices/{id} | Update a device.
+*DevicesApi* | [**updateDeviceConfig**](docs/DevicesApi.md#updateDeviceConfig) | **POST** /manage/api/v8/devices/{id}/config/update | push device configuration to the actual device
 *DevicesApi* | [**updateDeviceTemplates**](docs/DevicesApi.md#updateDeviceTemplates) | **PUT** /manage/api/v8/devices/{id}/templates | Update device templates that are already attached to a device.
 *HealthApi* | [**getDevicesHealthList**](docs/HealthApi.md#getDevicesHealthList) | **GET** /monitor/api/v8/health/devices/list | 
 *HealthApi* | [**getServicesHealthList**](docs/HealthApi.md#getServicesHealthList) | **GET** /monitor/api/v8/health/services/list | 
@@ -226,6 +234,7 @@ Class | Method | HTTP request | Description
 *TenantsApi* | [**createTenant**](docs/TenantsApi.md#createTenant) | **POST** /idm/api/v8/tenants | Creates a new tenant.
 *TenantsApi* | [**deleteTenant**](docs/TenantsApi.md#deleteTenant) | **DELETE** /idm/api/v8/tenants/{id} | Deletes a tenant by id.
 *TenantsApi* | [**getTenant**](docs/TenantsApi.md#getTenant) | **GET** /idm/api/v8/tenants/{id} | Returns a tenant by id.
+*TenantsApi* | [**getTenantByExternalId**](docs/TenantsApi.md#getTenantByExternalId) | **GET** /idm/api/v8/tenants/externalId/{externalId} | Returns a tenant by externalId.
 *TenantsApi* | [**getTenantsList**](docs/TenantsApi.md#getTenantsList) | **GET** /idm/api/v8/tenants/list | Returns a list of tenants.
 *TenantsApi* | [**getTenantsPage**](docs/TenantsApi.md#getTenantsPage) | **GET** /idm/api/v8/tenants | Returns a page of tenants.
 *TenantsApi* | [**updateTenant**](docs/TenantsApi.md#updateTenant) | **PUT** /idm/api/v8/tenants/{id} | Updates a tenant by id.
@@ -309,7 +318,7 @@ Class | Method | HTTP request | Description
  - [CostSummary](docs/CostSummary.md)
  - [Device](docs/Device.md)
  - [DeviceAllOf](docs/DeviceAllOf.md)
- - [DeviceComplianceState](docs/DeviceComplianceState.md)
+ - [DeviceConfigUpdate](docs/DeviceConfigUpdate.md)
  - [DeviceCreate](docs/DeviceCreate.md)
  - [DeviceCreateAllOf](docs/DeviceCreateAllOf.md)
  - [DevicePatch](docs/DevicePatch.md)
@@ -328,7 +337,6 @@ Class | Method | HTTP request | Description
  - [DeviceTemplateVersionCreate](docs/DeviceTemplateVersionCreate.md)
  - [DeviceUpdate](docs/DeviceUpdate.md)
  - [DeviceUpdateAllOf](docs/DeviceUpdateAllOf.md)
- - [DeviceVulnerabilityState](docs/DeviceVulnerabilityState.md)
  - [DevicesPage](docs/DevicesPage.md)
  - [DevicesPageAllOf](docs/DevicesPageAllOf.md)
  - [Error](docs/Error.md)

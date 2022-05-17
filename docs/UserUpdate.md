@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **email** | **String** |  | 
 **roleIds** | **List&lt;UUID&gt;** |  |  [optional]
 **tenantIds** | **List&lt;UUID&gt;** |  |  [optional]
-**passwordPolicyName** | **String** |  | 
+**passwordPolicyName** | **String** |  |  [optional]
 **locale** | **String** |  |  [optional]
 
 

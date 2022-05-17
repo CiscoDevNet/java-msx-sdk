@@ -34,7 +34,7 @@ public class Example {
     String password = "password_example"; // String | 
     String accessToken = "accessToken_example"; // String | 
     String switchUsername = "switchUsername_example"; // String | 
-    UUID tenantId = new UUID(); // UUID | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     String scope = "scope_example"; // String | 
     String nonce = "nonce_example"; // String | 
     String tenantName = "tenantName_example"; // String | 
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
  **password** | **String**|  | [optional]
  **accessToken** | **String**|  | [optional]
  **switchUsername** | **String**|  | [optional]
- **tenantId** | [**UUID**](UUID.md)|  | [optional]
+ **tenantId** | **UUID**|  | [optional]
  **scope** | **String**|  | [optional]
  **nonce** | **String**|  | [optional]
  **tenantName** | **String**|  | [optional]

@@ -295,7 +295,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     WorkflowsApi apiInstance = new WorkflowsApi(defaultClient);
-    UUID tenantId = new UUID(); // UUID | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     Boolean atomic = false; // Boolean | 
     try {
       List<Workflow> result = apiInstance.getWorkflowsList(tenantId, atomic);
@@ -315,7 +315,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tenantId** | [**UUID**](.md)|  | [optional]
+ **tenantId** | **UUID**|  | [optional]
  **atomic** | **Boolean**|  | [optional] [default to false]
 
 ### Return type

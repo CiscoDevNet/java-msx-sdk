@@ -33,7 +33,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     TemplatesApi apiInstance = new TemplatesApi(defaultClient);
-    UUID id = new UUID(); // UUID | 
+    UUID id = UUID.randomUUID(); // UUID | 
     try {
       apiInstance.deleteTemplate(id);
     } catch (ApiException e) {
@@ -51,7 +51,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**UUID**](.md)|  |
+ **id** | **UUID**|  |
 
 ### Return type
 
@@ -97,7 +97,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     TemplatesApi apiInstance = new TemplatesApi(defaultClient);
-    UUID id = new UUID(); // UUID | 
+    UUID id = UUID.randomUUID(); // UUID | 
     try {
       Template result = apiInstance.getTemplate(id);
       System.out.println(result);
@@ -116,7 +116,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**UUID**](.md)|  |
+ **id** | **UUID**|  |
 
 ### Return type
 
@@ -162,7 +162,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     TemplatesApi apiInstance = new TemplatesApi(defaultClient);
-    UUID id = new UUID(); // UUID | 
+    UUID id = UUID.randomUUID(); // UUID | 
     try {
       List<Template> result = apiInstance.getTemplateHistory(id);
       System.out.println(result);
@@ -181,7 +181,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**UUID**](.md)|  |
+ **id** | **UUID**|  |
 
 ### Return type
 
@@ -365,7 +365,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     TemplatesApi apiInstance = new TemplatesApi(defaultClient);
-    UUID id = new UUID(); // UUID | 
+    UUID id = UUID.randomUUID(); // UUID | 
     TemplatePatch templatePatch = new TemplatePatch(); // TemplatePatch | 
     try {
       Template result = apiInstance.updateTemplateStatus(id, templatePatch);
@@ -385,7 +385,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**UUID**](.md)|  |
+ **id** | **UUID**|  |
  **templatePatch** | [**TemplatePatch**](TemplatePatch.md)|  |
 
 ### Return type

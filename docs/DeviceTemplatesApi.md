@@ -162,7 +162,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     DeviceTemplatesApi apiInstance = new DeviceTemplatesApi(defaultClient);
-    UUID id = new UUID(); // UUID | 
+    UUID id = UUID.randomUUID(); // UUID | 
     try {
       apiInstance.deleteDeviceTemplate(id);
     } catch (ApiException e) {
@@ -180,7 +180,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**UUID**](.md)|  |
+ **id** | **UUID**|  |
 
 ### Return type
 
@@ -226,7 +226,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     DeviceTemplatesApi apiInstance = new DeviceTemplatesApi(defaultClient);
-    UUID id = new UUID(); // UUID | 
+    UUID id = UUID.randomUUID(); // UUID | 
     try {
       DeviceTemplate result = apiInstance.getDeviceTemplate(id);
       System.out.println(result);
@@ -245,7 +245,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**UUID**](.md)|  |
+ **id** | **UUID**|  |
 
 ### Return type
 
@@ -293,7 +293,7 @@ public class Example {
     DeviceTemplatesApi apiInstance = new DeviceTemplatesApi(defaultClient);
     Boolean allVersions = false; // Boolean | 
     String serviceType = "manageddevice"; // String | 
-    UUID tenantId = new UUID(); // UUID | 
+    UUID tenantId = UUID.fromString("2664f157-18d8-4ecd-8c78-66b7cb7e1e25"); // UUID | 
     try {
       List<DeviceTemplate> result = apiInstance.getDeviceTemplatesList(allVersions, serviceType, tenantId);
       System.out.println(result);
@@ -314,7 +314,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **allVersions** | **Boolean**|  | [optional] [default to false]
  **serviceType** | **String**|  | [optional]
- **tenantId** | [**UUID**](.md)|  | [optional]
+ **tenantId** | **UUID**|  | [optional]
 
 ### Return type
 
@@ -340,7 +340,7 @@ No authorization required
 
 <a name="scanDeviceTemplateParameters"></a>
 # **scanDeviceTemplateParameters**
-> List&lt;String&gt; scanDeviceTemplateParameters(file)
+> List&lt;String&gt; scanDeviceTemplateParameters(_file)
 
 API to scan parameters from the device template XML.
 
@@ -359,9 +359,9 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     DeviceTemplatesApi apiInstance = new DeviceTemplatesApi(defaultClient);
-    File file = new File("/path/to/file"); // File | The XML template file of a device template
+    File _file = new File("/path/to/file"); // File | The XML template file of a device template
     try {
-      List<String> result = apiInstance.scanDeviceTemplateParameters(file);
+      List<String> result = apiInstance.scanDeviceTemplateParameters(_file);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DeviceTemplatesApi#scanDeviceTemplateParameters");
@@ -378,7 +378,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **file** | **File**| The XML template file of a device template | [optional]
+ **_file** | **File**| The XML template file of a device template | [optional]
 
 ### Return type
 
@@ -423,7 +423,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     DeviceTemplatesApi apiInstance = new DeviceTemplatesApi(defaultClient);
-    UUID id = new UUID(); // UUID | 
+    UUID id = UUID.randomUUID(); // UUID | 
     DeviceTemplateAccess deviceTemplateAccess = new DeviceTemplateAccess(); // DeviceTemplateAccess | 
     try {
       DeviceTemplateAccessResponse result = apiInstance.updateDeviceTemplateAccess(id, deviceTemplateAccess);
@@ -443,7 +443,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**UUID**](.md)|  |
+ **id** | **UUID**|  |
  **deviceTemplateAccess** | [**DeviceTemplateAccess**](DeviceTemplateAccess.md)|  |
 
 ### Return type

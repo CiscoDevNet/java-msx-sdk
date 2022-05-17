@@ -36,7 +36,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     SitesApi apiInstance = new SitesApi(defaultClient);
-    UUID id = new UUID(); // UUID | 
+    UUID id = UUID.randomUUID(); // UUID | 
     List<String> requestBody = Arrays.asList(); // List<String> | 
     try {
       Site result = apiInstance.addDevicesToSite(id, requestBody);
@@ -56,7 +56,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**UUID**](.md)|  |
+ **id** | **UUID**|  |
  **requestBody** | [**List&lt;String&gt;**](String.md)|  |
 
 ### Return type
@@ -103,7 +103,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     SitesApi apiInstance = new SitesApi(defaultClient);
-    UUID id = new UUID(); // UUID | 
+    UUID id = UUID.randomUUID(); // UUID | 
     List<String> requestBody = Arrays.asList(); // List<String> | 
     try {
       Site result = apiInstance.addServicesToSite(id, requestBody);
@@ -123,7 +123,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**UUID**](.md)|  |
+ **id** | **UUID**|  |
  **requestBody** | [**List&lt;String&gt;**](String.md)|  |
 
 ### Return type
@@ -234,7 +234,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     SitesApi apiInstance = new SitesApi(defaultClient);
-    UUID id = new UUID(); // UUID | 
+    UUID id = UUID.randomUUID(); // UUID | 
     try {
       apiInstance.deleteSite(id);
     } catch (ApiException e) {
@@ -252,7 +252,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**UUID**](.md)|  |
+ **id** | **UUID**|  |
 
 ### Return type
 
@@ -298,7 +298,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     SitesApi apiInstance = new SitesApi(defaultClient);
-    UUID id = new UUID(); // UUID | 
+    UUID id = UUID.randomUUID(); // UUID | 
     Boolean showImage = false; // Boolean | 
     try {
       Site result = apiInstance.getSite(id, showImage);
@@ -318,7 +318,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**UUID**](.md)|  |
+ **id** | **UUID**|  |
  **showImage** | **Boolean**|  | [optional] [default to false]
 
 ### Return type
@@ -367,7 +367,7 @@ public class Example {
     SitesApi apiInstance = new SitesApi(defaultClient);
     Integer page = 0; // Integer | 
     Integer pageSize = 10; // Integer | 
-    UUID tenantId = new UUID(); // UUID | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     Boolean includeSubtenants = false; // Boolean | 
     String serviceId = "serviceId_example"; // String | 
     String serviceType = "serviceType_example"; // String | 
@@ -396,7 +396,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **Integer**|  |
  **pageSize** | **Integer**|  |
- **tenantId** | [**UUID**](.md)|  | [optional]
+ **tenantId** | **UUID**|  | [optional]
  **includeSubtenants** | **Boolean**|  | [optional] [default to false]
  **serviceId** | **String**|  | [optional]
  **serviceType** | **String**|  | [optional]
@@ -449,7 +449,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     SitesApi apiInstance = new SitesApi(defaultClient);
-    UUID id = new UUID(); // UUID | 
+    UUID id = UUID.randomUUID(); // UUID | 
     List<String> requestBody = Arrays.asList(); // List<String> | 
     try {
       Site result = apiInstance.removeDevicesFromSite(id, requestBody);
@@ -469,7 +469,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**UUID**](.md)|  |
+ **id** | **UUID**|  |
  **requestBody** | [**List&lt;String&gt;**](String.md)|  |
 
 ### Return type
@@ -583,7 +583,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     SitesApi apiInstance = new SitesApi(defaultClient);
-    UUID id = new UUID(); // UUID | 
+    UUID id = UUID.randomUUID(); // UUID | 
     SiteUpdate siteUpdate = new SiteUpdate(); // SiteUpdate | 
     Boolean sendNotification = false; // Boolean | 
     try {
@@ -604,7 +604,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**UUID**](.md)|  |
+ **id** | **UUID**|  |
  **siteUpdate** | [**SiteUpdate**](SiteUpdate.md)|  |
  **sendNotification** | **Boolean**|  | [optional] [default to false]
 

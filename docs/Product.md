@@ -18,11 +18,11 @@ Name | Type | Description | Notes
 **displayOrder** | **Integer** |  |  [optional]
 **active** | **Boolean** |  |  [optional]
 **orderLimit** | **Integer** |  |  [optional]
-**options** | [**List&lt;ServiceElement&gt;**](ServiceElement.md) |  | 
+**options** | [**List&lt;ServiceElement&gt;**](ServiceElement.md) |  |  [optional]
 **properties** | [**List&lt;ServiceElement&gt;**](ServiceElement.md) |  |  [optional]
-**_configuration** | **Map&lt;String, String&gt;** |  | 
-**isResource** | **Boolean** |  | 
-**hasChildren** | **Boolean** |  | 
+**_configuration** | **Map&lt;String, String&gt;** |  |  [optional]
+**isResource** | **Boolean** |  |  [optional]
+**hasChildren** | **Boolean** |  |  [optional]
 **parentId** | **UUID** |  |  [optional]
 **serviceExtensions** | [**List&lt;NSOConfigDataXPath&gt;**](NSOConfigDataXPath.md) |  |  [optional]
 **serviceConfigQueryRootXPaths** | **List&lt;String&gt;** |  |  [optional]

@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **description** | **String** |  | 
 **productId** | **UUID** |  | 
 **version** | **Integer** |  | 
-**displayOrder** | **Integer** |  | 
+**displayOrder** | **Integer** |  |  [optional]
 **image** | **String** |  |  [optional]
 **price** | **String** |  |  [optional]
 **type** | **String** |  |  [optional]

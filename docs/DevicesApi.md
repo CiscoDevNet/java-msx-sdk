@@ -17,6 +17,7 @@ Method | HTTP request | Description
 [**patchDevice**](DevicesApi.md#patchDevice) | **PATCH** /manage/api/v8/devices/{id} | Update a device.
 [**redeployDevice**](DevicesApi.md#redeployDevice) | **POST** /manage/api/v8/devices/{id}/redeploy | Dedeploys a device.
 [**updateDevice**](DevicesApi.md#updateDevice) | **PUT** /manage/api/v8/devices/{id} | Update a device.
+[**updateDeviceConfig**](DevicesApi.md#updateDeviceConfig) | **POST** /manage/api/v8/devices/{id}/config/update | push device configuration to the actual device
 [**updateDeviceTemplates**](DevicesApi.md#updateDeviceTemplates) | **PUT** /manage/api/v8/devices/{id}/templates | Update device templates that are already attached to a device.
 
 
@@ -304,7 +305,7 @@ public class Example {
 
     DevicesApi apiInstance = new DevicesApi(defaultClient);
     String id = "id_example"; // String | 
-    UUID templateId = new UUID(); // UUID | 
+    UUID templateId = UUID.randomUUID(); // UUID | 
     try {
       List<DeviceTemplateHistory> result = apiInstance.detachDeviceTemplate(id, templateId);
       System.out.println(result);
@@ -324,7 +325,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**|  |
- **templateId** | [**UUID**](.md)|  |
+ **templateId** | **UUID**|  |
 
 ### Return type
 
@@ -567,7 +568,7 @@ public class Example {
 
     DevicesApi apiInstance = new DevicesApi(defaultClient);
     String id = "id_example"; // String | 
-    UUID templateId = new UUID(); // UUID | 
+    UUID templateId = UUID.randomUUID(); // UUID | 
     try {
       List<DeviceTemplateHistory> result = apiInstance.getDeviceTemplateHistory(id, templateId);
       System.out.println(result);
@@ -587,7 +588,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**|  |
- **templateId** | [**UUID**](.md)|  | [optional]
+ **templateId** | **UUID**|  | [optional]
 
 ### Return type
 
@@ -647,8 +648,8 @@ public class Example {
     List<UUID> tenantIds = Arrays.asList(); // List<UUID> | 
     Boolean includeSubtenants = false; // Boolean | 
     List<String> severities = Arrays.asList(); // List<String> | 
-    List<DeviceComplianceState> complianceStates = Arrays.asList(); // List<DeviceComplianceState> | 
-    List<DeviceVulnerabilityState> vulnerabilityStates = Arrays.asList(); // List<DeviceVulnerabilityState> | 
+    List<String> complianceStates = Arrays.asList(); // List<String> | Valid values: COMPLIANT, NOT_COMPLIANT, APPLICABLE, NOT_APPLICABLE, UNKNOWN
+    List<String> vulnerabilityStates = Arrays.asList(); // List<String> | Valid values: VULNERABLE, NOT_VULNERABLE, NOT_APPLICABLE, UNKNOWN
     String sortBy = "name"; // String | 
     String sortOrder = "asc"; // String | 
     try {
@@ -683,8 +684,8 @@ Name | Type | Description  | Notes
  **tenantIds** | [**List&lt;UUID&gt;**](UUID.md)|  | [optional]
  **includeSubtenants** | **Boolean**|  | [optional] [default to false]
  **severities** | [**List&lt;String&gt;**](String.md)|  | [optional]
- **complianceStates** | [**List&lt;DeviceComplianceState&gt;**](DeviceComplianceState.md)|  | [optional]
- **vulnerabilityStates** | [**List&lt;DeviceVulnerabilityState&gt;**](DeviceVulnerabilityState.md)|  | [optional]
+ **complianceStates** | [**List&lt;String&gt;**](String.md)| Valid values: COMPLIANT, NOT_COMPLIANT, APPLICABLE, NOT_APPLICABLE, UNKNOWN | [optional]
+ **vulnerabilityStates** | [**List&lt;String&gt;**](String.md)| Valid values: VULNERABLE, NOT_VULNERABLE, NOT_APPLICABLE, UNKNOWN | [optional]
  **sortBy** | **String**|  | [optional]
  **sortOrder** | **String**|  | [optional] [default to asc] [enum: asc, desc]
 
@@ -715,6 +716,8 @@ No authorization required
 > Device patchDevice(id, devicePatch)
 
 Update a device.
+
+When present, property values are replaced in their entirety (i.e. object/map values are not merged)
 
 ### Example
 ```java
@@ -902,6 +905,74 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthenticated |  -  |
+**403** | Unauthorized |  -  |
+**404** | Not Found |  -  |
+**500** | Internal Server Error |  -  |
+
+<a name="updateDeviceConfig"></a>
+# **updateDeviceConfig**
+> ManageChangeRequestPending updateDeviceConfig(id, deviceConfigUpdate)
+
+push device configuration to the actual device
+
+### Example
+```java
+// Import classes:
+import com.cisco.msx.platform.ApiClient;
+import com.cisco.msx.platform.ApiException;
+import com.cisco.msx.platform.Configuration;
+import com.cisco.msx.platform.models.*;
+import com.cisco.msx.platform.client.DevicesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    DevicesApi apiInstance = new DevicesApi(defaultClient);
+    String id = "id_example"; // String | 
+    DeviceConfigUpdate deviceConfigUpdate = new DeviceConfigUpdate(); // DeviceConfigUpdate | 
+    try {
+      ManageChangeRequestPending result = apiInstance.updateDeviceConfig(id, deviceConfigUpdate);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DevicesApi#updateDeviceConfig");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**|  |
+ **deviceConfigUpdate** | [**DeviceConfigUpdate**](DeviceConfigUpdate.md)|  |
+
+### Return type
+
+[**ManageChangeRequestPending**](ManageChangeRequestPending.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**202** | Pending Approval |  -  |
+**204** | No Content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthenticated |  -  |
 **403** | Unauthorized |  -  |
